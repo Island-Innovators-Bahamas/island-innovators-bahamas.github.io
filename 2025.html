@@ -97,26 +97,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: .75rem;
-  padding: 1.25rem 1.5rem;
-  background: #ffffff;                /* explicit white — required for mix-blend-mode */
+  gap: .6rem;
+  padding: 1.5rem;
+  background: #ffffff;
   border: 1px solid rgba(13,27,42,.07);
   border-radius: 1rem;
   box-shadow: 0 1px 6px rgba(0,0,0,.04);
   transition: box-shadow .2s ease;
-  min-width: 150px;
-  flex: 1;
-  max-width: 210px;
+  /* Equal sizing: all cards same width range */
+  flex: 0 1 180px;
+  min-width: 140px;
+  max-width: 200px;
+  /* Force equal card height via fixed image container */
+  min-height: 140px;
 }
 .sponsor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.09); }
+/* Fixed-height image container so all logos occupy same vertical space */
+.sponsor-card .logo-box {
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .sponsor-card img {
   display: block;
-  height: 72px;
-  width: 100%;
-  max-width: 150px;
+  max-height: 72px;
+  max-width: 130px;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  object-position: center;
-  opacity: 1;
   mix-blend-mode: multiply;
   transition: transform .2s ease;
 }
@@ -131,13 +141,23 @@
   text-align: center;
   line-height: 1.4;
 }
-/* Bonner — secondary via dashed border */
+/* Secondary card — dashed border only, same sizing */
 .sponsor-card-secondary {
   border-style: dashed;
   background: #ffffff;
 }
-.sponsor-card-secondary img {
-  height: 84px;
+/* Mobile: stack into 2-column grid, prevent single orphan card */
+@media (max-width: 480px) {
+  .sponsor-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .75rem;
+  }
+  .sponsor-card {
+    flex: none;
+    max-width: 100%;
+    min-width: 0;
+  }
 }
 ```
 
@@ -214,9 +234,9 @@
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-heading font-bold text-2xl sm:text-3xl text-night mb-6">Program Overview</h2>
       <div class="text-night/70 leading-relaxed space-y-4">
-        <p>Island Innovators Bahamas ran its inaugural pilot program in the summer of 2025, delivered across two sessions over an 8-week period in Nassau, providing hands-on instruction in music, coding, and robotics in a professional, collaborative setting.</p>
+        <p>Island Innovators Bahamas ran its inaugural pilot program in the summer of 2025, delivered across two sessions over an 8-week period in Nassau, hosted at The Balmoral, providing hands-on instruction in music, coding, and robotics in a professional, collaborative setting.</p>
         <p>Fourteen students ages 9–17 participated, engaging in structured daily instruction across all three subject areas from 9:00 AM to 3:00 PM each day.</p>
-        <p>The program operated on a tiered access model, with need-based scholarships awarded to ensure students from a range of economic backgrounds could participate. Accessibility was central to the program's design from the start — not an afterthought — and it shaped the cohort in meaningful ways.</p>
+        <p>The program operated on a tiered access model, with need-based scholarships awarded to ensure students from a range of economic backgrounds could participate. Accessibility was central to the program's design from the start — not an afterthought — and it shaped the cohort in meaningful ways, including extending access to students from the Ranfurly Homes for Children.</p>
       </div>
     </div>
   </section>
@@ -375,20 +395,22 @@
   <div class="sponsor-row max-w-2xl mx-auto mb-4">
 
     <div class="sponsor-card">
-      <img src="island-game-logo.png" alt="Island Game">
+      <div class="logo-box"><img src="island-game-logo.png" alt="Island Game"></div>
       <span class="sponsor-label">Island Game</span>
     </div>
 
     <div class="sponsor-card">
-      <img src="government-logo.png" alt="Government of The Bahamas"
-        style="image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="sponsor-label" style="display:none;font-size:.85rem;font-weight:700;color:#1B5E7B;line-height:1.5;">🇧🇸<br>Government of<br>The Bahamas</span>
+      <div class="logo-box">
+        <img src="government-logo.png" alt="Government of The Bahamas"
+          style="image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="sponsor-label" style="display:none;font-size:.85rem;font-weight:700;color:#1B5E7B;line-height:1.5;align-items:center;justify-content:center;">🇧🇸<br>Government of<br>The Bahamas</span>
+      </div>
       <span class="sponsor-label">Government of<br>The Bahamas</span>
     </div>
 
     <div class="sponsor-card sponsor-card-secondary">
-      <img src="bonner-logo.jpg" alt="Oberlin Bonner Scholars Program">
+      <div class="logo-box"><img src="bonner-logo.jpg" alt="Oberlin Bonner Scholars Program"></div>
       <span class="sponsor-label">Additional<br>Program Support</span>
     </div>
 
