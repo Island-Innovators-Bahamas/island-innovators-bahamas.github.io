@@ -1070,6 +1070,12 @@
           headers: { Accept: "application/json" }
         });
 
+        const bodyText = await response.text();
+
+        console.log("Formspree status:", response.status);
+        console.log("Formspree ok:", response.ok);
+        console.log("Formspree response body:", bodyText);
+
         if (response.ok) {
           btn.textContent = "✓ Application Received — We'll be in touch!";
           btn.classList.remove("bg-orange", "hover:bg-coral");
@@ -1078,9 +1084,10 @@
         } else {
           btn.textContent = "Submit Application";
           btn.disabled = false;
-          alert("Something went wrong. Please try again or message us directly at (242) 471-3592.");
+          alert("Submission failed. Status: " + response.status + ". Check console for details.");
         }
       } catch (error) {
+        console.log("Formspree fetch error:", error);
         btn.textContent = "Submit Application";
         btn.disabled = false;
         alert("Network error. Please check your connection and try again.");
