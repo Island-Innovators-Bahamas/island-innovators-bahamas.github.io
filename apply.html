@@ -114,7 +114,7 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">Student Full Name <span class="text-coral">*</span></label>
-        <input type="text" name="student_name" required placeholder="First and last name"
+        <input type="text" name="student_full_name" required placeholder="First and last name"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
 
@@ -127,19 +127,19 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">Parent / Guardian Full Name <span class="text-coral">*</span></label>
-        <input type="text" name="parent_name" required placeholder="Parent or guardian name"
+        <input type="text" name="parent_guardian_full_name" required placeholder="Parent or guardian name"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">Parent / Guardian Email <span class="text-coral">*</span></label>
-        <input type="email" name="email" required placeholder="parent@email.com"
+        <input type="email" name="parent_guardian_email" required placeholder="parent@email.com"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">Parent / Guardian Phone <span class="text-coral">*</span></label>
-        <input type="tel" name="parent_phone" required placeholder="(242) ___-____"
+        <input type="tel" name="parent_guardian_phone" required placeholder="(242) ___-____"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
 
@@ -154,23 +154,23 @@
         </div>
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">Grade (Fall 2026) <span class="text-coral">*</span></label>
-          <select name="grade" required class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
+          <select name="grade_fall_2026" required class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
             <option value="">Select</option>
-            <option value="6">6th</option><option value="7">7th</option><option value="8">8th</option>
-            <option value="9">9th</option><option value="10">10th</option><option value="11">11th</option><option value="12">12th</option>
+            <option value="6th Grade">6th</option><option value="7th Grade">7th</option><option value="8th Grade">8th</option>
+            <option value="9th Grade">9th</option><option value="10th Grade">10th</option><option value="11th Grade">11th</option><option value="12th Grade">12th</option>
           </select>
         </div>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">Current School <span class="text-coral">*</span></label>
-        <input type="text" name="school" required placeholder="School name"
+        <input type="text" name="current_school" required placeholder="School name"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-night mb-1.5">Area of Residence <span class="text-coral">*</span> <span class="text-night/35 font-normal">(e.g. Nassau, Freeport, Abaco, etc.)</span></label>
-        <input type="text" name="residence" required placeholder="Island / area where your family lives"
+        <label class="block text-sm font-medium text-night mb-1.5">Where in Nassau will your child be commuting from? <span class="text-coral">*</span></label>
+        <input type="text" name="area_of_residence" required placeholder="e.g. Cable Beach, East Nassau, Carmichael Road, etc."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
     </div>
@@ -184,34 +184,34 @@
 
       <div class="space-y-3">
         <label class="flex items-start gap-3 cursor-pointer option-group">
-          <input type="checkbox" name="ack_selective" required class="mt-1 accent-orange shrink-0" />
+          <input type="checkbox" name="understands_selective_admissions" value="Yes" required class="mt-1 accent-orange shrink-0" />
           <span class="text-sm text-night/70 leading-relaxed">This is a <strong class="text-night">selective application</strong> — submitting does not guarantee admission</span>
         </label>
         <label class="flex items-start gap-3 cursor-pointer option-group">
-          <input type="checkbox" name="ack_multidisciplinary" required class="mt-1 accent-orange shrink-0" />
+          <input type="checkbox" name="understands_multidisciplinary_program" value="Yes" required class="mt-1 accent-orange shrink-0" />
           <span class="text-sm text-night/70 leading-relaxed">Island Innovators is a <strong class="text-night">multidisciplinary program</strong> — all students engage with coding, music, and robotics, regardless of their primary track</span>
         </label>
         <label class="flex items-start gap-3 cursor-pointer option-group">
-          <input type="checkbox" name="ack_dates" required class="mt-1 accent-orange shrink-0" />
+          <input type="checkbox" name="understands_program_dates_and_hours" value="Yes" required class="mt-1 accent-orange shrink-0" />
           <span class="text-sm text-night/70 leading-relaxed">The program runs <strong class="text-night">July 13–24, 2026</strong>, Monday–Friday, 9:00 AM–3:00 PM daily</span>
         </label>
         <label class="flex items-start gap-3 cursor-pointer option-group">
-          <input type="checkbox" name="ack_attendance" required class="mt-1 accent-orange shrink-0" />
+          <input type="checkbox" name="understands_attendance_expectations" value="Yes" required class="mt-1 accent-orange shrink-0" />
           <span class="text-sm text-night/70 leading-relaxed">Students are expected to <strong class="text-night">attend consistently and participate fully</strong> in all parts of the program</span>
         </label>
         <label class="flex items-start gap-3 cursor-pointer option-group">
-          <input type="checkbox" name="ack_tuition" required class="mt-1 accent-orange shrink-0" />
+          <input type="checkbox" name="understands_tuition_if_admitted" value="Yes" required class="mt-1 accent-orange shrink-0" />
           <span class="text-sm text-night/70 leading-relaxed">Tuition is <strong class="text-night">$500 if admitted</strong> — need-based financial assistance is available in limited cases and is not guaranteed</span>
         </label>
         <label class="flex items-start gap-3 cursor-pointer option-group">
-          <input type="checkbox" name="ack_showcase" required class="mt-1 accent-orange shrink-0" />
+          <input type="checkbox" name="understands_final_showcase" value="Yes" required class="mt-1 accent-orange shrink-0" />
           <span class="text-sm text-night/70 leading-relaxed">The program ends with a <strong class="text-night">final showcase on July 25</strong> at the New Providence Community Center</span>
         </label>
       </div>
 
       <!-- Financial assistance -->
       <div class="flex items-start gap-3 bg-gold/5 rounded-xl p-4 border border-gold/15 mt-2">
-        <input type="checkbox" id="scholarship" name="scholarship" class="mt-1 accent-orange shrink-0" />
+        <input type="checkbox" id="scholarship" name="requests_financial_assistance" value="Yes" class="mt-1 accent-orange shrink-0" />
         <label for="scholarship" class="text-sm text-night/70 leading-relaxed cursor-pointer">
           I would like to be considered for <strong class="text-night">need-based financial assistance</strong>
         </label>
@@ -225,37 +225,37 @@
 
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">Why is financial assistance being requested? <span class="text-night/40 font-normal">(Please describe your family's situation)</span></label>
-          <textarea name="scholarship_reason" rows="4"
+          <textarea name="financial_assistance_reason" rows="4"
             placeholder="Please describe your family's financial situation and why the full tuition would present a barrier to participation..."
             class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">What level of support would make participation possible?</label>
-          <select name="scholarship_level" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
+          <select name="financial_assistance_level_needed" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
             <option value="">Select</option>
-            <option value="small_reduction">A modest reduction in tuition would help</option>
-            <option value="partial_support">Partial support (roughly half) would be needed</option>
-            <option value="significant_support">Significant support would be needed to make this possible</option>
-            <option value="full_scholarship">Full scholarship consideration would be needed</option>
-            <option value="not_sure">Not yet sure — we'd like to discuss</option>
+            <option value="A modest reduction in tuition would help">A modest reduction in tuition would help</option>
+            <option value="Partial support (roughly half) would be needed">Partial support (roughly half) would be needed</option>
+            <option value="Significant support would be needed">Significant support would be needed to make this possible</option>
+            <option value="Full scholarship consideration would be needed">Full scholarship consideration would be needed</option>
+            <option value="Not yet sure — would like to discuss">Not yet sure — we'd like to discuss</option>
           </select>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">If full financial assistance is not available, would you still like your application reviewed for possible partial support?</label>
-          <select name="scholarship_partial_ok" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
+          <select name="would_consider_partial_support_if_full_not_available" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
             <option value="">Select</option>
-            <option value="yes_partial">Yes — partial support would still be meaningful</option>
-            <option value="yes_any">Yes — any level of support would help</option>
-            <option value="full_only">We would only be able to participate with full support</option>
-            <option value="not_sure">Not sure yet</option>
+            <option value="Yes — partial support would still be meaningful">Yes — partial support would still be meaningful</option>
+            <option value="Yes — any level of support would help">Yes — any level of support would help</option>
+            <option value="Only able to participate with full support">We would only be able to participate with full support</option>
+            <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">Is there anything else the admissions team should understand about your family's situation? <span class="text-night/40 font-normal">(Optional)</span></label>
-          <textarea name="scholarship_context" rows="3"
+          <textarea name="financial_assistance_additional_context" rows="3"
             placeholder="Any additional context that would help us make a fair and informed decision..."
             class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
         </div>
@@ -273,12 +273,12 @@
         <label class="block text-sm font-medium text-night mb-1.5">
           Which track would you like to go deepest in during Island Innovators? <span class="text-coral">*</span>
         </label>
-        <select name="track" id="track-select" required
+        <select name="primary_track" id="track-select" required
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
           <option value="">Select a primary track</option>
-          <option value="coding">Coding</option>
-          <option value="music">Music</option>
-          <option value="robotics">Robotics</option>
+          <option value="Coding">Coding</option>
+          <option value="Music">Music</option>
+          <option value="Robotics">Robotics</option>
         </select>
         <p class="info-note mt-2">Island Innovators is a multidisciplinary program. Each student selects one primary track to go deepest in — but all students engage with coding, music, and robotics during the program. Your primary track shapes your project focus, not your access to the full experience.</p>
       </div>
@@ -288,7 +288,7 @@
           Outside your primary track, what are you most interested in gaining from the other parts of the program? <span class="text-coral">*</span>
           <span class="text-night/40 font-normal block mt-0.5">This could be a skill, a challenge, a type of exposure, or something new you want to try. (2–4 sentences)</span>
         </label>
-        <textarea name="cross_track_interest" rows="4" required
+        <textarea name="interest_in_other_program_areas" rows="4" required
           placeholder="For example: I've never worked with electronics before but I'm curious how robotics works. I also want to try making a beat, even if music isn't my main focus..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -298,7 +298,7 @@
           Why do you want to be part of Island Innovators Bahamas? <span class="text-coral">*</span>
           <span class="text-night/40 font-normal">(3–5 sentences — be specific about what draws you here)</span>
         </label>
-        <textarea name="why" rows="5" required
+        <textarea name="why_this_program" rows="5" required
           placeholder="Tell us what draws you to this program and why it feels like a meaningful fit for where you are right now..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -308,7 +308,7 @@
           Tell us about something you've made, practiced, solved, or taught yourself. <span class="text-coral">*</span>
           <span class="text-night/40 font-normal">Could be a song, project, game, performance, design, or anything else — in or out of school.</span>
         </label>
-        <textarea name="something_made" rows="4" required
+        <textarea name="something_made_practiced_solved_or_self_taught" rows="4" required
           placeholder="What was it, how did you approach it, and what did it teach you?"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -318,7 +318,7 @@
           What would you be excited to build, create, or explore during this program? <span class="text-coral">*</span>
           <span class="text-night/40 font-normal block mt-0.5">Think forward — not what you've done before, but what you'd want to make, try, or figure out over these two weeks. Be specific.</span>
         </label>
-        <textarea name="excited_to_build" rows="4" required
+        <textarea name="what_i_want_to_build_create_or_explore" rows="4" required
           placeholder="E.g. I want to build a working game. Or produce a short beat I could actually share. Or program a robot to do something real — even if it's small..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -330,19 +330,19 @@
         </label>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-            <input type="radio" name="learning_style" value="experiment" required class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="learning_style" value="Experiment and figure things out as I go" required class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I like to experiment and figure things out as I go</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-            <input type="radio" name="learning_style" value="guided" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="learning_style" value="Examples and step-by-step guidance first" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I like examples and step-by-step guidance before I try things myself</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-            <input type="radio" name="learning_style" value="collaborative" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="learning_style" value="Work with others and talk ideas through" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I like to work with others and talk ideas through</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-            <input type="radio" name="learning_style" value="independent" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="learning_style" value="Quiet focus and independent work" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I like quiet focus and working through things independently</span>
           </label>
         </div>
@@ -360,15 +360,15 @@
         <label class="block text-sm font-medium text-night mb-3">Which statement best describes you right now? <span class="text-coral">*</span></label>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-            <input type="radio" name="self_description" value="already_building" required class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="self_description" value="Already actively building or practicing on my own" required class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I already spend dedicated time building, making, or figuring things out on my own — this is something I actively pursue</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-            <input type="radio" name="self_description" value="ready_to_work" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="self_description" value="Genuinely interested and ready to commit" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I'm genuinely interested and ready to put in real effort — I may be new to some of this, but I'm committed to seeing a project through</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-            <input type="radio" name="self_description" value="curious_exploring" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="self_description" value="Curious but still figuring out my commitment level" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I'm curious and interested, but I'm still figuring out how much I want to commit</span>
           </label>
         </div>
@@ -389,7 +389,7 @@
           What kind of environment helps you do your best work? <span class="text-coral">*</span>
           <span class="text-night/40 font-normal">(Be honest — this helps us understand what you need to thrive)</span>
         </label>
-        <textarea name="best_environment" rows="3" required
+        <textarea name="best_work_environment" rows="3" required
           placeholder="For example: clear structure, collaborative energy, quiet focus time, accountability, hands-on challenges..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -399,7 +399,7 @@
           Is there a skill, subject, or area you've always wanted to explore but haven't had access to? <span class="text-coral">*</span>
           <span class="text-night/40 font-normal">(2–3 sentences)</span>
         </label>
-        <textarea name="unexplored_interest" rows="3" required
+        <textarea name="unexplored_interest_or_lack_of_access" rows="3" required
           placeholder="What is it, and what's kept you from it so far?"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -418,15 +418,15 @@
         </label>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="attendance_confidence" value="fully_confident" required class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="attendance_confidence" value="Fully confident — no conflicts" required class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">Fully confident — I have no conflicts during those dates</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="attendance_confidence" value="mostly_confident" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="attendance_confidence" value="Mostly confident — one possible conflict to discuss" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">Mostly confident — I have one possible conflict I'd need to discuss</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="attendance_confidence" value="not_sure" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="attendance_confidence" value="Not sure — possible scheduling challenges" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">Not sure yet — there may be scheduling challenges</span>
           </label>
         </div>
@@ -439,18 +439,18 @@
         </label>
         <div class="space-y-2.5">
           <label class="flex items-center gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="has_conflicts" value="no" required class="accent-orange"
+            <input type="radio" name="known_schedule_conflicts" value="No known conflicts" required class="accent-orange"
               onchange="document.getElementById('conflict-detail').style.display='none'; document.getElementById('conflict-detail').querySelector('textarea').removeAttribute('required');" />
             <span class="text-sm text-night/70">No known conflicts</span>
           </label>
           <label class="flex items-center gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="has_conflicts" value="yes" class="accent-orange"
+            <input type="radio" name="known_schedule_conflicts" value="Yes — potential conflict" class="accent-orange"
               onchange="document.getElementById('conflict-detail').style.display='block'; document.getElementById('conflict-detail').querySelector('textarea').setAttribute('required','');" />
             <span class="text-sm text-night/70">Yes — there is a potential conflict</span>
           </label>
         </div>
         <div id="conflict-detail" style="display:none" class="mt-3">
-          <textarea name="conflicts" rows="2" placeholder="Please briefly describe the conflict or the dates involved..."
+          <textarea name="schedule_conflict_details" rows="2" placeholder="Please briefly describe the conflict or the dates involved..."
             class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
         </div>
       </div>
@@ -461,15 +461,15 @@
         </label>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="readiness" value="ready" required class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="readiness_for_structured_program" value="Ready — I understand what it asks of me" required class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I'm ready for that kind of environment and I understand what it asks of me</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="readiness" value="think_so" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="readiness_for_structured_program" value="I think so — may need support with consistency" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I believe I am, but I may need some support with consistency or focus</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="readiness" value="exploring" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="readiness_for_structured_program" value="Still exploring — not fully sure yet" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">I'm still exploring and not fully sure yet</span>
           </label>
         </div>
@@ -489,22 +489,22 @@
         <div>
           <label class="block text-sm font-medium text-night mb-3">Have you ever used any coding tools or languages? <span class="text-night/40 font-normal">(Select all that apply)</span></label>
           <div class="flex flex-wrap gap-2">
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools" value="scratch" class="accent-teal" disabled /> Scratch</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools" value="html_css" class="accent-teal" disabled /> HTML/CSS</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools" value="javascript" class="accent-teal" disabled /> JavaScript</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools" value="python" class="accent-teal" disabled /> Python</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools" value="other" class="accent-teal" disabled /> Other</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools" value="none" class="accent-teal" disabled /> None yet</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools_used" value="scratch" class="accent-teal" disabled /> Scratch</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools_used" value="html_css" class="accent-teal" disabled /> HTML/CSS</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools_used" value="javascript" class="accent-teal" disabled /> JavaScript</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools_used" value="python" class="accent-teal" disabled /> Python</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools_used" value="other" class="accent-teal" disabled /> Other</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="coding_tools_used" value="none" class="accent-teal" disabled /> None yet</label>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-night mb-3">How would you describe your coding level?</label>
           <div class="space-y-2">
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="complete_beginner" class="accent-teal" disabled /> New to coding entirely</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="some_exposure" class="accent-teal" disabled /> Some exposure, still early stage</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="can_build_simple" class="accent-teal" disabled /> Can build simple things independently</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="comfortable" class="accent-teal" disabled /> Comfortable building more complex projects</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="New to coding entirely" class="accent-teal" disabled /> New to coding entirely</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="Some exposure, still early stage" class="accent-teal" disabled /> Some exposure, still early stage</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="Can build simple things independently" class="accent-teal" disabled /> Can build simple things independently</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-teal/30 text-sm text-night/70"><input type="radio" name="coding_level" value="Comfortable with more complex projects" class="accent-teal" disabled /> Comfortable building more complex projects</label>
           </div>
         </div>
 
@@ -512,7 +512,7 @@
           <label class="block text-sm font-medium text-night mb-1.5">
             If you could build anything with code this summer, what would it be? <span class="text-night/40 font-normal">(1–3 sentences — a game, a website, a tool, anything)</span>
           </label>
-          <textarea name="coding_build_dream" rows="3" disabled
+          <textarea name="coding_project_goal" rows="3" disabled
             placeholder="E.g. I'd want to build a game based on Bahamian folklore. Or a website that connects students with tutors in Nassau..."
             class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
         </div>
@@ -525,23 +525,23 @@
           <label class="block text-sm font-medium text-night mb-3">Which best describes your primary interest in music? <span class="text-coral">*</span></label>
           <div class="space-y-2">
             <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
-              <input type="radio" name="music_focus" value="instrumental" class="accent-orange" required disabled />
+              <input type="radio" name="music_primary_interest" value="instrumental" class="accent-orange" required disabled />
               Instrumental performance — I play (or want to play) an instrument
             </label>
             <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
-              <input type="radio" name="music_focus" value="singing" class="accent-orange" disabled />
+              <input type="radio" name="music_primary_interest" value="singing" class="accent-orange" disabled />
               Singing / vocals — my voice is my instrument
             </label>
             <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
-              <input type="radio" name="music_focus" value="production" class="accent-orange" disabled />
+              <input type="radio" name="music_primary_interest" value="production" class="accent-orange" disabled />
               Music production / beat-making — I want to make music digitally
             </label>
             <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
-              <input type="radio" name="music_focus" value="songwriting" class="accent-orange" disabled />
+              <input type="radio" name="music_primary_interest" value="songwriting" class="accent-orange" disabled />
               Songwriting — I want to write and compose original music
             </label>
             <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
-              <input type="radio" name="music_focus" value="not_sure" class="accent-orange" disabled />
+              <input type="radio" name="music_primary_interest" value="not_sure" class="accent-orange" disabled />
               Not sure yet — I'm open to exploring everything
             </label>
           </div>
@@ -561,13 +561,13 @@
           <label class="block text-sm font-medium text-night mb-1.5">
             If you play an instrument or sing, which one(s)? <span class="text-night/40 font-normal">(Leave blank if not applicable)</span>
           </label>
-          <input type="text" name="instrument" disabled placeholder="e.g. Guitar, Piano, Vocals, Drums — or leave blank if you don't play yet"
+          <input type="text" name="instruments_or_voice" disabled placeholder="e.g. Guitar, Piano, Vocals, Drums — or leave blank if you don't play yet"
             class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
         </div>
 
         <div>
           <label class="block text-sm font-medium text-night mb-3">How long have you been involved with music in any form?</label>
-          <select name="music_duration" disabled class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
+          <select name="music_experience_duration" disabled class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
             <option value="">Select</option>
             <option>Less than 6 months</option>
             <option>6–12 months</option>
@@ -580,20 +580,20 @@
         <div>
           <label class="block text-sm font-medium text-night mb-3">How interested are you in music production and beat-making using software?</label>
           <div class="space-y-2">
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_production_interest" value="very_interested" class="accent-orange" disabled /> Very interested — this is part of why I chose this track</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_production_interest" value="curious" class="accent-orange" disabled /> Curious — I'd like to try it but have no experience yet</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_production_interest" value="some_experience" class="accent-orange" disabled /> I've experimented with it before (GarageBand, FL Studio, etc.)</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_production_interest" value="not_focus" class="accent-orange" disabled /> Not my main focus — I'm more interested in performance or theory</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Very interested — part of why I chose this track" class="accent-orange" disabled /> Very interested — this is part of why I chose this track</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Curious — want to try it, no experience yet" class="accent-orange" disabled /> Curious — I'd like to try it but have no experience yet</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Have experimented before (GarageBand, FL Studio, etc.)" class="accent-orange" disabled /> I've experimented with it before (GarageBand, FL Studio, etc.)</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Not my main focus — more interested in performance or theory" class="accent-orange" disabled /> Not my main focus — I'm more interested in performance or theory</label>
           </div>
         </div>
 
         <div>
           <label class="block text-sm font-medium text-night mb-3">Which best describes your overall music experience level?</label>
           <div class="space-y-2">
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_level" value="beginner" class="accent-orange" disabled /> Beginner — new to most areas of music</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_level" value="early_intermediate" class="accent-orange" disabled /> Early intermediate — some foundation, still developing</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_level" value="intermediate" class="accent-orange" disabled /> Intermediate — comfortable and can play or create independently</label>
-            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="music_level" value="advanced" class="accent-orange" disabled /> Advanced for my age — strong skills in at least one area</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Beginner — new to most areas of music" class="accent-orange" disabled /> Beginner — new to most areas of music</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Early intermediate — some foundation, still developing" class="accent-orange" disabled /> Early intermediate — some foundation, still developing</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Intermediate — comfortable, can play or create independently" class="accent-orange" disabled /> Intermediate — comfortable and can play or create independently</label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Advanced for my age — strong skills in at least one area" class="accent-orange" disabled /> Advanced for my age — strong skills in at least one area</label>
           </div>
         </div>
 
@@ -601,7 +601,7 @@
           <label class="block text-sm font-medium text-night mb-1.5">
             What do you hope to make, try, or perform by the end of the program? <span class="text-night/40 font-normal">(1–3 sentences)</span>
           </label>
-          <textarea name="music_build_dream" rows="3" disabled
+          <textarea name="music_goal_by_end_of_program" rows="3" disabled
             placeholder="E.g. I want to produce an original beat I could actually share. Or try writing and performing a short song at the showcase — even if it's my first time..."
             class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
         </div>
@@ -613,12 +613,12 @@
           <label class="block text-sm font-medium text-night mb-3">Have you worked with any robotics, electronics, or physical computing before?</label>
           <div class="space-y-2">
             <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-violet/30 text-sm text-night/70">
-              <input type="radio" name="robotics_prior" value="yes" class="accent-violet" disabled
+              <input type="radio" name="prior_robotics_or_electronics_experience" value="Yes" class="accent-violet" disabled
                 onchange="showRoboticsLevel(true)" />
               Yes — I have some prior experience
             </label>
             <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-violet/30 text-sm text-night/70">
-              <input type="radio" name="robotics_prior" value="no" class="accent-violet" disabled
+              <input type="radio" name="prior_robotics_or_electronics_experience" value="No" class="accent-violet" disabled
                 onchange="showRoboticsLevel(false)" />
               No — I'm starting from zero, and that's fine
             </label>
@@ -639,11 +639,11 @@
         <div>
           <label class="block text-sm font-medium text-night mb-3">What part of robotics interests you most? <span class="text-night/40 font-normal">(Select all that apply)</span></label>
           <div class="flex flex-wrap gap-2">
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interest" value="building" class="accent-violet" disabled /> Building &amp; assembly</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interest" value="electronics" class="accent-violet" disabled /> Wiring &amp; electronics</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interest" value="programming" class="accent-violet" disabled /> Programming &amp; logic</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interest" value="design" class="accent-violet" disabled /> Designing systems</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interest" value="not_sure" class="accent-violet" disabled /> Not sure yet — open to all of it</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interests" value="Building and assembly" class="accent-violet" disabled /> Building &amp; assembly</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interests" value="Wiring and electronics" class="accent-violet" disabled /> Wiring &amp; electronics</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interests" value="Programming and logic" class="accent-violet" disabled /> Programming &amp; logic</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interests" value="Designing systems" class="accent-violet" disabled /> Designing systems</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-violet/40 text-sm text-night/70"><input type="checkbox" name="robotics_interests" value="Not sure yet — open to all of it" class="accent-violet" disabled /> Not sure yet — open to all of it</label>
           </div>
         </div>
 
@@ -651,7 +651,7 @@
           <label class="block text-sm font-medium text-night mb-1.5">
             What do you hope to build or make by the end of the program? <span class="text-night/40 font-normal">(1–3 sentences)</span>
           </label>
-          <textarea name="robotics_build_dream" rows="3" disabled
+          <textarea name="robotics_goal_by_end_of_program" rows="3" disabled
             placeholder="E.g. I want to build something that moves and responds to its environment. Or program a Micro:bit to do something actually useful..."
             class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
         </div>
@@ -674,7 +674,7 @@
           Why do you believe Island Innovators would be a strong fit for your child at this point in their development? <span class="text-coral">*</span>
           <span class="text-night/40 font-normal block mt-0.5">(3–5 sentences — be specific about your child, not just the program)</span>
         </label>
-        <textarea name="parent_fit" rows="5" required
+        <textarea name="parent_why_program_is_a_fit" rows="5" required
           placeholder="What about your child — their interests, how they learn, what they're ready for — makes this feel like the right fit right now?"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -684,7 +684,7 @@
           Describe a challenge your child has taken on recently — something that required real effort, focus, or follow-through. <span class="text-coral">*</span>
           <span class="text-night/40 font-normal">(2–4 sentences)</span>
         </label>
-        <textarea name="parent_challenge_example" rows="4" required
+        <textarea name="parent_example_of_child_handling_challenge" rows="4" required
           placeholder="This could be academic, creative, athletic, or social — anything that shows how your child handles difficulty."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -695,15 +695,15 @@
         </label>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="child_readiness" value="strong" required class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="parent_view_of_child_readiness" value="Strong — self-directed and ready for a real challenge" required class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">Strong — my child is self-directed, handles structure well, and is ready for a real challenge</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="child_readiness" value="mostly_ready" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="parent_view_of_child_readiness" value="Mostly ready — would benefit and can rise to it with support" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">Mostly ready — this program would push them, and I believe they can rise to it with support</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="child_readiness" value="developing" class="mt-0.5 accent-orange shrink-0" />
+            <input type="radio" name="parent_view_of_child_readiness" value="Still developing — consistency is an active work in progress" class="mt-0.5 accent-orange shrink-0" />
             <span class="text-sm text-night/70">Still developing — consistency and follow-through are areas we're actively working on</span>
           </label>
         </div>
@@ -713,7 +713,7 @@
         <label class="block text-sm font-medium text-night mb-1.5">
           What concrete steps will your family take to support your child's attendance, punctuality, and engagement if they are admitted? <span class="text-coral">*</span>
         </label>
-        <textarea name="parent_support_plan" rows="4" required
+        <textarea name="parent_support_plan_for_attendance_and_punctuality" rows="4" required
           placeholder="Be specific: transportation arrangements, morning routines, how you'd handle a missed day, how you'll keep your child accountable and on track..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -724,15 +724,15 @@
         </label>
         <div class="space-y-2.5">
           <label class="flex items-center gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="parent_support" value="yes" required class="accent-orange" />
+            <input type="radio" name="parent_commitment_if_admitted" value="Yes — fully committed" required class="accent-orange" />
             <span class="text-sm text-night/70">Yes — we are fully committed</span>
           </label>
           <label class="flex items-center gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="parent_support" value="likely" class="accent-orange" />
+            <input type="radio" name="parent_commitment_if_admitted" value="Likely yes — minor logistics to confirm" class="accent-orange" />
             <span class="text-sm text-night/70">Likely yes — there are minor logistics I'd want to confirm first</span>
           </label>
           <label class="flex items-center gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="parent_support" value="unsure" class="accent-orange" />
+            <input type="radio" name="parent_commitment_if_admitted" value="Real scheduling concerns to discuss" class="accent-orange" />
             <span class="text-sm text-night/70">There are real scheduling concerns I'd need to discuss</span>
           </label>
         </div>
@@ -743,7 +743,7 @@
         <label class="block text-sm font-medium text-night mb-1.5">
           Are there any learning, attention, behavioral, or support needs we should be aware of to best support your child if admitted? <span class="text-night/40 font-normal">(Optional — handled with care and used only to support, not to screen)</span>
         </label>
-        <textarea name="parent_support_needs" rows="3"
+        <textarea name="parent_child_support_needs" rows="3"
           placeholder="Optional. For example: my child benefits from structured transitions, prefers written instructions, or has an IEP — anything helpful for our team to know..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
@@ -752,7 +752,7 @@
         <label class="block text-sm font-medium text-night mb-1.5">
           Is there anything else you'd like us to know that would help us understand your child or support them if admitted? <span class="text-night/40 font-normal">(Optional)</span>
         </label>
-        <textarea name="parent_notes" rows="3" placeholder="Optional..."
+        <textarea name="parent_additional_notes" rows="3" placeholder="Optional..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
     </div>
@@ -768,19 +768,19 @@
         <p class="text-sm font-semibold text-night mb-3">Student Acknowledgment</p>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="student_ack_honest" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="student_confirms_answers_are_honest" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">I completed the student portions of this application honestly and in my own words</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="student_ack_selective" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="student_understands_selective_admissions" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">I understand this is a selective program and that submitting an application does not guarantee admission</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="student_ack_multidisciplinary" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="student_understands_multidisciplinary_structure" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">I understand I will engage with all three disciplines — coding, music, and robotics — not just my primary track</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="student_ack_commit" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="student_commits_to_full_participation" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">If admitted, I commit to attending fully, participating seriously, and contributing respectfully to the cohort</span>
           </label>
         </div>
@@ -790,19 +790,19 @@
         <p class="text-sm font-semibold text-night mb-3">Parent / Guardian Acknowledgment</p>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="parent_ack_selective" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="parent_understands_selective_admissions" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">I understand this is a selective admissions process and submission does not guarantee admission</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="parent_ack_dates" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="parent_understands_dates_hours_and_tuition" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">I understand the dates (July 13–24), daily hours (9 AM–3 PM), and tuition ($500 if admitted)</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="parent_ack_support" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="parent_commits_to_support_attendance" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">If my child is admitted, I will provide the support needed for consistent attendance, punctuality, and full engagement</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer option-group">
-            <input type="checkbox" name="parent_ack_contact" required class="mt-1 accent-orange shrink-0" />
+            <input type="checkbox" name="parent_agrees_to_be_contacted_during_review" value="Yes" required class="mt-1 accent-orange shrink-0" />
             <span class="text-sm text-night/70 leading-relaxed">I understand that the admissions team may contact me by email or phone as part of the review process</span>
           </label>
         </div>
@@ -810,7 +810,7 @@
 
       <div class="pt-4 border-t border-night/5">
         <label class="block text-sm font-medium text-night mb-1.5">How did you hear about Island Innovators Bahamas?</label>
-        <select name="referral_source" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
+        <select name="how_did_you_hear_about_us" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
           <option value="">Select</option>
           <option>Instagram</option>
           <option>Facebook</option>
@@ -965,22 +965,22 @@
       }
 
       // Then: show and enable only the selected track
-      if (track === "coding") {
+      if (track === "Coding") {
         const el = document.getElementById("placement-coding");
         el.classList.remove("hidden");
         setPlacementEnabled("placement-coding", true);
-      } else if (track === "music") {
+      } else if (track === "Music") {
         const el = document.getElementById("placement-music");
         el.classList.remove("hidden");
         setPlacementEnabled("placement-music", true);
-      } else if (track === "robotics") {
+      } else if (track === "Robotics") {
         const el = document.getElementById("placement-robotics");
         el.classList.remove("hidden");
         setPlacementEnabled("placement-robotics", true);
         // robotics_level inputs stay disabled until "yes" is clicked
         showRoboticsLevel(false);
         // Re-check if "yes" was previously selected
-        const priorYes = document.querySelector('input[name="robotics_prior"][value="yes"]');
+        const priorYes = document.querySelector('input[name="prior_robotics_or_electronics_experience"][value="Yes"]');
         if (priorYes && priorYes.checked) showRoboticsLevel(true);
       } else {
         document.getElementById("placement-none").classList.remove("hidden");
