@@ -315,10 +315,11 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          What do you hope to leave this program with by the end of the two weeks? <span class="text-coral">*</span>
+          What would you be excited to build, create, or explore during this program? <span class="text-coral">*</span>
+          <span class="text-night/40 font-normal block mt-0.5">Think forward — not what you've done before, but what you'd want to make, try, or figure out over these two weeks. Be specific.</span>
         </label>
-        <textarea name="goal_from_program" rows="4" required
-          placeholder="Be specific — what skill, project, experience, or kind of growth are you hoping for?"
+        <textarea name="excited_to_build" rows="4" required
+          placeholder="E.g. I want to build a working game. Or produce a short beat I could actually share. Or program a robot to do something real — even if it's small..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
 
@@ -519,8 +520,34 @@
 
       <!-- MUSIC placement -->
       <div id="placement-music" class="placement-section hidden space-y-5">
+        <!-- REQUIRED differentiator: primary music focus -->
         <div>
-          <label class="block text-sm font-medium text-night mb-3">Which best describes your music background? <span class="text-night/40 font-normal">(Select all that apply)</span></label>
+          <label class="block text-sm font-medium text-night mb-3">Which best describes your primary interest in music? <span class="text-coral">*</span></label>
+          <div class="space-y-2">
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
+              <input type="radio" name="music_focus" value="instrumental" class="accent-orange" required disabled />
+              Instrumental performance — I play (or want to play) an instrument
+            </label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
+              <input type="radio" name="music_focus" value="singing" class="accent-orange" disabled />
+              Singing / vocals — my voice is my instrument
+            </label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
+              <input type="radio" name="music_focus" value="production" class="accent-orange" disabled />
+              Music production / beat-making — I want to make music digitally
+            </label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
+              <input type="radio" name="music_focus" value="songwriting" class="accent-orange" disabled />
+              Songwriting — I want to write and compose original music
+            </label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70 option-group">
+              <input type="radio" name="music_focus" value="not_sure" class="accent-orange" disabled />
+              Not sure yet — I'm open to exploring everything
+            </label>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-night mb-3">Which of these apply to your music background? <span class="text-night/40 font-normal">(Select all that apply)</span></label>
           <div class="flex flex-wrap gap-2">
             <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-orange/40 text-sm text-night/70"><input type="checkbox" name="music_background" value="instrument" class="accent-orange" disabled /> I play an instrument</label>
             <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-orange/40 text-sm text-night/70"><input type="checkbox" name="music_background" value="vocals" class="accent-orange" disabled /> I sing</label>
