@@ -168,8 +168,8 @@
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-night mb-1.5">Where in Nassau will your child be commuting from? <span class="text-coral">*</span></label>
-        <input type="text" name="area_of_residence" required placeholder="e.g. Cable Beach, East Nassau, Carmichael Road, etc."
+        <label class="block text-sm font-medium text-night mb-1.5">What area of Nassau are you based in? <span class="text-night/35 font-normal">(Optional)</span></label>
+        <input type="text" name="area_of_residence" placeholder="e.g. Cable Beach, East Nassau, Carmichael Road, etc."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
     </div>
@@ -188,7 +188,7 @@
         </label>
         <label class="flex items-start gap-3 cursor-pointer option-group">
           <input type="checkbox" name="understands_music_program_focus" value="Yes" required class="mt-1 accent-orange shrink-0" />
-          <span class="text-sm text-night/70 leading-relaxed">Island Innovators Bahamas 2026 is a <strong class="text-night">music and music technology program</strong> — students develop performance and production skills together, working toward original work performed at the final showcase</span>
+          <span class="text-sm text-night/70 leading-relaxed">Island Innovators Bahamas 2026 is a <strong class="text-night">music and music technology program</strong> — students develop performance and production skills together, working toward creating original work they can perform, present, or continue developing beyond the program</span>
         </label>
         <label class="flex items-start gap-3 cursor-pointer option-group">
           <input type="checkbox" name="understands_program_schedule" value="Yes" required class="mt-1 accent-orange shrink-0" />
@@ -217,46 +217,28 @@
       </div>
 
       <div id="scholarship-detail" class="hidden bg-cream rounded-xl p-5 border border-night/10 space-y-5">
-        <div>
-          <p class="text-xs font-heading font-semibold text-night/40 uppercase tracking-wider mb-1">Financial Assistance Request</p>
-          <p class="text-sm text-night/55 leading-relaxed">Assistance requests are reviewed as part of the admissions process. Please respond thoughtfully and honestly. This information is handled with care and does not affect how your application is evaluated for program fit.</p>
-        </div>
+        <p class="text-sm text-night/55 leading-relaxed">Financial assistance is reviewed as part of the admissions process and considered on the basis of both need and fit. This information is handled with care and does not affect how your application is evaluated.</p>
 
         <div>
-          <label class="block text-sm font-medium text-night mb-1.5">Why is financial assistance being requested? <span class="text-night/40 font-normal">(Please describe your family's situation)</span></label>
-          <textarea name="financial_assistance_reason" rows="4"
-            placeholder="Please describe your family's financial situation and why the full tuition would present a barrier to participation..."
-            class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-night mb-1.5">What level of support would make participation possible?</label>
-          <select name="financial_assistance_level_needed" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
-            <option value="">Select</option>
-            <option value="A modest reduction in tuition would help">A modest reduction in tuition would help</option>
-            <option value="Partial support (roughly half) would be needed">Partial support (roughly half) would be needed</option>
-            <option value="Significant support would be needed">Significant support would be needed to make this possible</option>
-            <option value="Full scholarship consideration would be needed">Full scholarship consideration would be needed</option>
-            <option value="Not yet sure — would like to discuss">Not yet sure — we'd like to discuss</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-night mb-1.5">If full financial assistance is not available, would you still like your application reviewed for possible partial support?</label>
-          <select name="would_consider_partial_support_if_full_not_available" class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
-            <option value="">Select</option>
-            <option value="Yes — partial support would still be meaningful">Yes — partial support would still be meaningful</option>
-            <option value="Yes — any level of support would help">Yes — any level of support would help</option>
-            <option value="Only able to participate with full support">We would only be able to participate with full support</option>
-            <option value="Not sure yet">Not sure yet</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-night mb-1.5">Is there anything else the admissions team should understand about your family's situation? <span class="text-night/40 font-normal">(Optional)</span></label>
-          <textarea name="financial_assistance_additional_context" rows="3"
-            placeholder="Any additional context that would help us make a fair and informed decision..."
-            class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none text-sm"></textarea>
+          <label class="block text-sm font-medium text-night mb-3">What level of support would make participation possible?</label>
+          <div class="space-y-2">
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70">
+              <input type="radio" name="financial_assistance_level_needed" value="Partial assistance" class="accent-orange" />
+              Partial assistance
+            </label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70">
+              <input type="radio" name="financial_assistance_level_needed" value="Significant assistance" class="accent-orange" />
+              Significant assistance
+            </label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70">
+              <input type="radio" name="financial_assistance_level_needed" value="Full assistance" class="accent-orange" />
+              Full assistance
+            </label>
+            <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70">
+              <input type="radio" name="financial_assistance_level_needed" value="Not sure" class="accent-orange" />
+              Not sure
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -731,6 +713,48 @@
     </div>
 
   </form>
+
+  <!-- CONFIRMATION SCREEN — shown after successful submission -->
+  <div id="confirmation-screen" style="display:none;" class="bg-white rounded-2xl shadow-sm border border-night/5 overflow-hidden">
+    <div class="bg-gradient-to-br from-night to-ocean px-8 py-10 text-center">
+      <div class="w-14 h-14 rounded-full bg-teal/20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <p class="text-gold font-heading font-semibold text-xs uppercase tracking-widest mb-2">Application Received</p>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl text-cream mb-2">Your application has been submitted.</h2>
+      <p class="text-cream/60 text-sm">Island Innovators Bahamas 2026</p>
+    </div>
+    <div class="px-8 py-8 space-y-7">
+      <div class="bg-sand rounded-xl p-5 border border-night/8">
+        <p class="text-xs font-heading font-semibold text-night/35 uppercase tracking-wider mb-3">Application Summary</p>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between">
+            <span class="text-night/40">Student</span>
+            <span id="confirm-student-name" class="font-medium text-night"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-night/40">Program</span>
+            <span class="font-medium text-night">Island Innovators Bahamas 2026</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-night/40">Status</span>
+            <span class="font-medium text-teal">Under Review</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-heading font-semibold text-night/35 uppercase tracking-wider mb-3">What Happens Next</p>
+        <p class="text-night/65 text-sm leading-relaxed mb-3">Your application has been successfully submitted and is now under review. Applications are reviewed on a rolling basis — we'll reach out by email within the coming weeks with an update on your application status.</p>
+        <p class="text-night/50 text-sm leading-relaxed">No action is needed on your end at this time. If you have not heard from us and believe significant time has passed, contact us at <a href="mailto:islandinnovatorsbahamas@gmail.com" class="text-orange hover:text-coral transition-colors">islandinnovatorsbahamas@gmail.com</a>.</p>
+      </div>
+      <div class="border-t border-night/5"></div>
+      <div class="text-center">
+        <p class="text-night/35 text-xs leading-relaxed mb-4">Please check your spam folder if you are expecting a response and do not see one in your inbox.</p>
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm text-night/50 hover:text-orange transition-colors font-heading font-medium">← Return to Island Innovators Bahamas</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 ```
 
@@ -899,10 +923,18 @@
         console.log("Formspree response body:", bodyText);
 
         if (response.ok) {
-          btn.textContent = "✓ Application Received";
-          btn.classList.remove("bg-orange", "hover:bg-coral");
-          btn.classList.add("bg-green");
-          document.getElementById("form-nav").classList.add("hidden");
+          // Hide the form entirely
+          document.getElementById("apply-form").style.display = "none";
+          document.querySelector(".mb-6").style.display = "none"; // progress bar
+
+          // Get student name for summary
+          const studentName = document.querySelector('input[name="student_full_name"]').value || "the applicant";
+
+          // Show premium confirmation screen
+          const confirmScreen = document.getElementById("confirmation-screen");
+          confirmScreen.style.display = "block";
+          document.getElementById("confirm-student-name").textContent = studentName;
+          window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
           btn.textContent = "Submit Application";
           btn.disabled = false;
