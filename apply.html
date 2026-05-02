@@ -150,22 +150,32 @@
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">Student Age <span class="text-coral">*</span></label>
-          <select name="student_age" required class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
+          <select name="student_age" id="student-age-select" required class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
             <option value="">Select</option>
             <option>11</option><option>12</option><option>13</option><option>14</option>
             <option>15</option><option>16</option><option>17</option>
+            <option value="Outside typical age range">Outside typical age range</option>
           </select>
           <p class="text-night/40 text-xs mt-1.5 leading-relaxed">In select cases, applicants slightly outside this age range may be considered based on overall fit.</p>
         </div>
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">Grade (Fall 2026) <span class="text-coral">*</span></label>
-          <select name="grade_fall_2026" required class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
+          <select name="grade_fall_2026" id="student-grade-select" required class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
             <option value="">Select</option>
             <option value="6th Grade">6th</option><option value="7th Grade">7th</option><option value="8th Grade">8th</option>
             <option value="9th Grade">9th</option><option value="10th Grade">10th</option><option value="11th Grade">11th</option><option value="12th Grade">12th</option>
+            <option value="Outside typical grade range">Outside typical grade range</option>
           </select>
         </div>
       </div>
+
+      <div id="age-exception-field" style="display:none">
+        <label class="block text-sm font-medium text-night mb-1.5">
+          Please briefly explain the student's age/grade and why this program may still be a strong fit. <span class="text-coral">*</span>
+        </label>
+        <textarea name="age_grade_exception_context" rows="3"
+          placeholder="Share the student's age/grade and any context you want us to consider."
+          class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">Current School <span class="text-coral">*</span></label>
@@ -666,6 +676,19 @@
       current -= 1;
       showSection(current);
     });
+
+    // Age/grade exception field
+    const ageSelect   = document.getElementById("student-age-select");
+    const gradeSelect = document.getElementById("student-grade-select");
+    const exField     = document.getElementById("age-exception-field");
+    const exTextarea  = exField.querySelector("textarea");
+    function checkException() {
+      const show = ageSelect.value === "Outside typical age range" || gradeSelect.value === "Outside typical grade range";
+      exField.style.display = show ? "block" : "none";
+      show ? exTextarea.setAttribute("required","") : (exTextarea.removeAttribute("required"), exTextarea.value = "");
+    }
+    ageSelect.addEventListener("change", checkException);
+    gradeSelect.addEventListener("change", checkException);
 
     // Show/hide "Other" detail field
     const howHeardSelect = document.getElementById("how-heard-select");
