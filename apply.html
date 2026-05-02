@@ -78,7 +78,7 @@
       <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-cream leading-tight mb-5">Apply to Island Innovators Bahamas</h1>
       <p class="text-cream/65 text-lg max-w-2xl mx-auto mb-4">This is a selective application — not a registration. Every submission is reviewed individually by the program team.</p>
       <div class="bg-cream/8 border border-cream/12 rounded-xl px-5 py-4 max-w-xl mx-auto mb-4 text-left">
-        <p class="text-cream/75 text-sm leading-relaxed"><strong class="text-cream font-semibold">This is Stage One.</strong> Submitting this application does not guarantee acceptance into the cohort. Selected applicants may be invited to Stage Two, which may include a short interview or audition. All applicants will be notified of their status by email.</p>
+        <p class="text-cream/75 text-sm leading-relaxed"><strong class="text-cream font-semibold">This is Stage One.</strong> Selected applicants may be invited to Stage Two, which may include a short interview or audition. All applicants will be notified by email.</p>
       </div>
       <div class="inline-flex items-center gap-2 bg-cream/10 border border-cream/15 rounded-full px-5 py-2.5">
         <svg class="w-4 h-4 text-gold shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -106,6 +106,8 @@
   </div>
 
   <form id="apply-form" novalidate class="bg-white rounded-2xl shadow-sm border border-night/5 overflow-hidden" action="https://formspree.io/f/mdaplvkw" method="POST">
+    <input type="hidden" name="_next" value="https://islandinnovatorsbahamas.com/apply.html" />
+    <input type="hidden" name="_redirect" value="https://islandinnovatorsbahamas.com/apply.html" />
 
     <!-- ── SECTION 1: Basic Information ── -->
     <div class="form-section active p-6 sm:p-10 space-y-5" data-section="1" data-name="Basic Information">
@@ -256,16 +258,8 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          Tell us about something you've made, practiced, or figured out on your own. <span class="text-coral">*</span>
-        </label>
-        <textarea name="something_made_practiced_solved_or_self_taught" rows="4" required
-          placeholder="What was it and what did you take away from it?"
-          class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
-      </div>
-
-      <div>
-        <label class="block text-sm font-medium text-night mb-1.5">
-          What do you want to create or try by the end of this program? <span class="text-coral">*</span>
+          What would you most like to get out of this program? <span class="text-coral">*</span>
+          <span class="text-night/40 font-normal block mt-0.5">What would make this experience feel successful for you?</span>
         </label>
         <textarea name="what_i_want_to_build_create_or_explore" rows="3" required
           placeholder="What would feel like a win for you?"
@@ -325,19 +319,21 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          Tell us about a time you stuck with something even when it got hard. <span class="text-coral">*</span>
+          What part of music do you find most challenging right now? <span class="text-coral">*</span>
+          <span class="text-night/40 font-normal block mt-0.5">What makes it difficult?</span>
         </label>
         <textarea name="grit_example" rows="4" required
-          placeholder="What was it, what did you do, and what happened?"
+          placeholder="Be honest — what are you still working on?"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          Is there something in music you've always wanted to try but haven't had the chance? <span class="text-coral">*</span>
+          What is something in music you want to learn more about or try? <span class="text-coral">*</span>
+          <span class="text-night/40 font-normal block mt-0.5">It could be performing, producing, writing, or anything you're curious about.</span>
         </label>
         <textarea name="unexplored_interest_or_lack_of_access" rows="3" required
-          placeholder="What is it, and what's kept you from it?"
+          placeholder="What are you curious about?"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
     </div>
