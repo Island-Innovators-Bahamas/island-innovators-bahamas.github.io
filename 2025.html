@@ -455,5 +455,22 @@
     </div>
   </footer>
 
+  <!-- Apply Button Tracking -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('a[href="apply.html"]').forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          if (typeof gtag === "function") {
+            gtag("event", "apply_click", {
+              event_category: "engagement",
+              event_label: "apply_button"
+            });
+          }
+        }, { once: false, passive: true });
+      });
+    });
+  </script>
+
 </body>
 </html>
