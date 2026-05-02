@@ -226,21 +226,21 @@
         <select name="primary_track" id="track-select" required
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
           <option value="">Select your primary focus</option>
-          <option value="Music — Instrumental Performance">Instrumental Performance — I play an instrument</option>
-          <option value="Music — Vocals">Vocals / Singing — my voice is my instrument</option>
-          <option value="Music — Production">Music Production — I make beats or produce digitally</option>
-          <option value="Music — Songwriting / Composition">Songwriting / Composition — I write and compose music</option>
-          <option value="Music — Open / Not sure yet">Open / Not sure yet — I want to explore</option>
+          <option value="Music — Instrumental Performance">Instrumental Performance</option>
+          <option value="Music — Vocals">Vocals / Singing</option>
+          <option value="Music — Production">Music Production</option>
+          <option value="Music — Songwriting / Composition">Songwriting / Composition</option>
+          <option value="Music — Open / Not sure yet">Open / Not sure yet</option>
         </select>
         <p class="info-note mt-2">This program integrates performance and production — you don't need to be one or the other. Select what best describes where you're starting from. Both sides of the work will be developed together.</p>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          What draws you to the intersection of music performance and music technology? <span class="text-coral">*</span>
+          What draws you to music performance and music technology? <span class="text-coral">*</span>
         </label>
         <textarea name="interest_in_music_and_technology" rows="4" required
-          placeholder="For example: I play guitar and I've always been curious how the music I listen to gets made in the studio. Or I've been producing beats but I want to understand more about musical structure and performance..."
+          placeholder="Tell us what interests you about both sides — performance and production."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
 
@@ -248,28 +248,26 @@
         <label class="block text-sm font-medium text-night mb-1.5">
           Why do you want to be part of Island Innovators Bahamas? <span class="text-coral">*</span>
         </label>
-        <textarea name="why_this_program" rows="5" required
-          placeholder="Tell us what draws you to this program and why it feels like a meaningful fit for where you are right now..."
+        <textarea name="why_this_program" rows="4" required
+          placeholder="Be specific about what draws you here."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          Tell us about something you've made, practiced, solved, or taught yourself. <span class="text-coral">*</span>
-          <span class="text-night/40 font-normal">Could be a song, performance, composition, production project, or anything else — in or out of school.</span>
+          Tell us about something you've made, practiced, or taught yourself. <span class="text-coral">*</span>
         </label>
         <textarea name="something_made_practiced_solved_or_self_taught" rows="4" required
-          placeholder="What was it, how did you approach it, and what did it teach you?"
+          placeholder="What was it and what did you learn from it?"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          What would you be excited to create or perform by the end of this program? <span class="text-coral">*</span>
-          <span class="text-night/40 font-normal block mt-0.5">Think forward — what do you want to make, try, or figure out? Be specific.</span>
+          What would you want to create or explore by the end of this program? <span class="text-coral">*</span>
         </label>
-        <textarea name="what_i_want_to_build_create_or_explore" rows="4" required
-          placeholder="E.g. I want to produce an original beat I could actually perform. Or write and record a short song — even if it's my first time. Or combine what I play with something I've made digitally..."
+        <textarea name="what_i_want_to_build_create_or_explore" rows="3" required
+          placeholder="Be specific — what do you want to make or figure out?"
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
       </div>
 
@@ -335,17 +333,7 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          What kind of environment helps you do your best work? <span class="text-coral">*</span>
-          <span class="text-night/40 font-normal">(Be honest — this helps us understand what you need to thrive)</span>
-        </label>
-        <textarea name="best_work_environment" rows="3" required
-          placeholder="For example: clear structure, collaborative energy, quiet focus time, accountability, hands-on challenges..."
-          class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
-      </div>
-
-      <div>
-        <label class="block text-sm font-medium text-night mb-1.5">
-          Is there a skill, subject, or area of music you've always wanted to explore but haven't had access to? <span class="text-coral">*</span>
+          Is there a skill or area of music you've always wanted to explore but haven't had access to? <span class="text-coral">*</span>
         </label>
         <textarea name="unexplored_interest_or_lack_of_access" rows="3" required
           placeholder="What is it, and what's kept you from it so far?"
@@ -379,26 +367,6 @@
           </label>
         </div>
       </div>
-
-      <div>
-        <label class="block text-sm font-medium text-night mb-3">
-          This program requires active participation, consistent attendance, and respectful engagement in a focused environment. Which best describes you? <span class="text-coral">*</span>
-        </label>
-        <div class="space-y-2.5">
-          <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="readiness_for_structured_program" value="Ready — I understand what it asks of me" required class="mt-0.5 accent-orange shrink-0" />
-            <span class="text-sm text-night/70">I'm ready for that kind of environment and I understand what it asks of me</span>
-          </label>
-          <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="readiness_for_structured_program" value="I think so — may need support with consistency" class="mt-0.5 accent-orange shrink-0" />
-            <span class="text-sm text-night/70">I believe I am, but I may need some support with consistency or focus</span>
-          </label>
-          <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="readiness_for_structured_program" value="Still exploring — not fully sure yet" class="mt-0.5 accent-orange shrink-0" />
-            <span class="text-sm text-night/70">I'm still exploring and not fully sure yet</span>
-          </label>
-        </div>
-      </div>
     </div>
 
     <!-- ── SECTION 6: Experience & Starting Point ── -->
@@ -422,9 +390,9 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          Instrument, voice type, or production setup — if applicable <span class="text-night/40 font-normal">(Leave blank if not applicable)</span>
+          Instrument, voice type, or tools — if applicable <span class="text-night/40 font-normal">(Optional)</span>
         </label>
-        <input type="text" name="instruments_or_voice" placeholder="e.g. Trumpet, Alto Saxophone, Tenor Voice, Piano, Guitar, FL Studio, GarageBand..."
+        <input type="text" name="instruments_or_voice" placeholder="e.g. Trumpet, Alto Sax, Tenor Voice, Guitar, FL Studio..."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
 
