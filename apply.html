@@ -224,16 +224,6 @@
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">
-          What part of music are you most interested in right now? <span class="text-coral">*</span>
-          <span class="text-night/40 font-normal block mt-0.5">For example: performing, producing, songwriting, recording, or something else</span>
-        </label>
-        <textarea name="interest_in_music_and_technology" rows="4" required
-          placeholder="Tell us what part of music you're most interested in right now."
-          class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
-      </div>
-
-      <div>
-        <label class="block text-sm font-medium text-night mb-1.5">
           Why do you want to join Island Innovators Bahamas? <span class="text-coral">*</span>
         </label>
         <textarea name="why_this_program" rows="4" required
@@ -336,26 +326,26 @@
         </label>
         <div class="space-y-2.5">
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="attendance_confidence" value="Fully confident — no conflicts" required class="mt-0.5 accent-orange shrink-0" />
-            <span class="text-sm text-night/70">Fully confident — I have no scheduling conflicts this summer</span>
+            <input type="radio" name="attendance_confidence" value="Fully confident" required class="mt-0.5 accent-orange shrink-0" />
+            <span class="text-sm text-night/70">Fully confident</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="attendance_confidence" value="Mostly confident — one possible conflict" class="mt-0.5 accent-orange shrink-0" />
-            <span class="text-sm text-night/70">Mostly confident — there is one possible conflict I would want to flag</span>
+            <input type="radio" name="attendance_confidence" value="Mostly confident" class="mt-0.5 accent-orange shrink-0" />
+            <span class="text-sm text-night/70">Mostly confident</span>
           </label>
           <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-            <input type="radio" name="attendance_confidence" value="Not sure — possible scheduling challenges" class="mt-0.5 accent-orange shrink-0" />
-            <span class="text-sm text-night/70">Not sure yet — there may be scheduling challenges</span>
+            <input type="radio" name="attendance_confidence" value="Not sure yet" class="mt-0.5 accent-orange shrink-0" />
+            <span class="text-sm text-night/70">Not sure yet</span>
           </label>
         </div>
       </div>
     </div>
 
-    <!-- ── SECTION 6: Experience & Starting Point ── -->
-    <div class="form-section p-6 sm:p-10 space-y-5" data-section="6" data-name="Experience & Starting Point">
+    <!-- ── SECTION 6: Experience ── -->
+    <div class="form-section p-6 sm:p-10 space-y-5" data-section="6" data-name="Experience">
       <div class="pb-4 border-b border-night/5">
-        <h3 class="font-heading font-bold text-lg text-night">Experience &amp; Starting Point</h3>
-        <p class="text-night/50 text-sm mt-1 font-medium">This section does <em>not</em> affect your chances of being admitted. It helps us understand your starting point and place you appropriately.</p>
+        <h3 class="font-heading font-bold text-lg text-night">Experience</h3>
+        <p class="text-night/50 text-sm mt-1 font-medium">This section does <em>not</em> affect your chances of being accepted. It helps us understand your starting point and place you appropriately.</p>
       </div>
 
       <div>
@@ -393,20 +383,20 @@
       <div>
         <label class="block text-sm font-medium text-night mb-3">Have you used music production software before?</label>
         <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Very interested — this is a big part of why I'm applying" class="accent-orange" /> Yes — it's a big reason I'm applying</label>
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Curious — want to try it, no experience yet" class="accent-orange" /> No — but I'm curious to try it</label>
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Have experimented before (GarageBand, FL Studio, etc.)" class="accent-orange" /> Yes — I've used GarageBand, FL Studio, or something similar</label>
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Not my main focus — more interested in performance or theory" class="accent-orange" /> Not really — I'm more focused on performance or theory</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Yes — big part of why I'm applying" class="accent-orange" /> Yes — big part of why I'm applying</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="Yes — some experience" class="accent-orange" /> Yes — some experience</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="No — but I'm curious" class="accent-orange" /> No — but I'm curious</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="interest_in_music_production" value="No — more focused on performance/theory" class="accent-orange" /> No — I'm more focused on performance/theory</label>
         </div>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-3">Which best describes your overall music experience level?</label>
         <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Beginner — new to most areas of music" class="accent-orange" /> Beginner — new to most areas of music</label>
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Early intermediate — some foundation, still developing" class="accent-orange" /> Early intermediate — some foundation, still developing</label>
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Intermediate — comfortable, can play or create independently" class="accent-orange" /> Intermediate — comfortable and can play or create independently</label>
-          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Advanced for my age — strong skills in at least one area" class="accent-orange" /> Advanced for my age — strong skills in at least one area</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Beginner" class="accent-orange" /> Beginner</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Early intermediate" class="accent-orange" /> Early intermediate</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Intermediate" class="accent-orange" /> Intermediate</label>
+          <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Advanced" class="accent-orange" /> Advanced</label>
         </div>
       </div>
 
@@ -433,7 +423,7 @@
     <div class="form-section p-6 sm:p-10 space-y-5" data-section="8" data-name="Final Acknowledgments">
       <div class="pb-4 border-b border-night/5">
         <h3 class="font-heading font-bold text-lg text-night">Before You Submit</h3>
-        <p class="text-night/50 text-sm mt-1">Please confirm the following before submitting.</p>
+        <p class="text-night/50 text-sm mt-1">Please confirm the following:</p>
       </div>
 
       <div class="space-y-2.5">
@@ -583,7 +573,7 @@
       "Your Application",
       "About You",
       "Commitment",
-      "Experience & Starting Point",
+      "Experience",
       "Parent / Guardian",
       "Final Acknowledgments"
     ];
