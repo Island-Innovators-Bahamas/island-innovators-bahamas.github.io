@@ -176,6 +176,7 @@
         <textarea name="age_grade_exception_context" rows="3"
           placeholder="Share the student's age/grade and any context you want us to consider."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
+      </div>
 
       <div>
         <label class="block text-sm font-medium text-night mb-1.5">Current School <span class="text-coral">*</span></label>
@@ -184,7 +185,7 @@
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-night mb-1.5">Home Address <span class="text-night/35 font-normal">(Optional)</span></label>
+        <label class="block text-sm font-medium text-night mb-1.5">Address <span class="text-night/35 font-normal">(Optional)</span></label>
         <input type="text" name="area_of_residence" placeholder="e.g. Cable Beach, East Nassau, Carmichael Road, etc."
           class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
       </div>
@@ -628,7 +629,7 @@
       let valid = true;
 
       const requiredInputs = Array.from(section.querySelectorAll("[required]"))
-        .filter(el => !el.disabled);
+        .filter(el => !el.disabled && el.offsetParent !== null);
 
       const radioGroups = new Set();
       requiredInputs.forEach(input => {
