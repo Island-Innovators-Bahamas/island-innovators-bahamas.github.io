@@ -72,5 +72,16 @@
       </div>
     </div>
   </div>
+  <!-- Conversion Tracking -->
+  <script>
+    window.addEventListener("load", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "form_submit", {
+          event_category: "conversion",
+          event_label: "application_submitted"
+        });
+      }
+    });
+  </script>
 </body>
 </html>
