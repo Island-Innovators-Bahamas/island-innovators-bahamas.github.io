@@ -44,39 +44,13 @@
       background: linear-gradient(135deg,rgba(242,184,48,.12),rgba(232,87,61,.08));
       border: 1px solid rgba(242,184,48,.25);
     }
-    .page-nav {
-      position: sticky;
-      top: 64px;
-      z-index: 40;
-      background: rgba(13,27,42,.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(253,246,236,.08);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .page-nav::-webkit-scrollbar { display: none; }
-    .page-nav-inner {
-      display: flex;
-      align-items: center;
-      padding: 0 1rem;
-      white-space: nowrap;
-      min-width: max-content;
-    }
-    .page-nav a {
-      display: inline-block;
-      padding: .65rem 1rem;
-      font-size: .72rem;
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(253,246,236,.5);
-      text-decoration: none;
-      transition: color .2s ease, border-color .2s ease;
-      border-bottom: 2px solid transparent;
-    }
-    .page-nav a:hover { color: #D4722A; border-bottom-color: #D4722A; }
+    .mobile-nav  { transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1) }
+    .mobile-nav.open { transform:translateX(0) }
+    .nav-link { position:relative; color:rgba(253,246,236,.65); font-size:.85rem; font-weight:500; transition:color .2s; text-decoration:none; }
+    .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:1.5px; background:#D4722A; transition:width .25s ease; }
+    .nav-link:hover { color:#D4722A }
+    .nav-link:hover::after { width:100% }
+    nav.scrolled { box-shadow:0 2px 20px rgba(0,0,0,.3) }
 
 ```
 .sponsor-row {
@@ -176,30 +150,41 @@
 
   <!-- NAV -->
 
-  <nav class="sticky top-0 z-50 bg-night/95 backdrop-blur-sm border-b border-cream/10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2.5">
-        <img src="images/logos/updated_beige_logo.jpeg" alt="Island Innovators Bahamas" class="h-9 rounded-full ring-2 ring-orange/20">
-        <span class="font-heading font-bold text-orange text-sm hidden sm:block">Island Innovators Bahamas</span>
-      </a>
-      <div class="flex items-center gap-4">
-        <a href="index.html" class="text-cream/60 hover:text-cream text-sm transition-colors">← Back to Site</a>
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 bg-night/95 backdrop-blur-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+          <img src="images/logos/updated_beige_logo.jpeg" alt="Island Innovators Bahamas" class="h-10 rounded-full ring-2 ring-orange/20">
+          <span class="font-heading font-bold text-orange text-sm hidden sm:block">Island Innovators Bahamas</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#overview"   class="nav-link">Overview</a>
+          <a href="#curriculum" class="nav-link">What We Covered</a>
+          <a href="#gallery"    class="nav-link">Gallery</a>
+          <a href="#funding"    class="nav-link">Support &amp; Funding</a>
+          <a href="#next"       class="nav-link">What's Next</a>
+          <a href="#future"     class="nav-link">Future Initiatives</a>
+          <a href="apply.html"  class="inline-flex items-center px-5 py-2 bg-orange text-cream font-heading font-semibold text-sm rounded-full hover:bg-coral transition-colors">Apply</a>
+        </div>
+        <button id="nav-toggle" class="lg:hidden text-cream p-2" aria-label="Open menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
   </nav>
 
-  <!-- 2025 PAGE ANCHOR NAV -->
-
-  <nav class="page-nav">
-    <div class="page-nav-inner max-w-5xl mx-auto">
-      <a href="#overview">Overview</a>
-      <a href="#curriculum">What We Covered</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#funding">Support &amp; Funding</a>
-      <a href="#next">What's Next</a>
-      <a href="#future">Future Initiatives</a>
-    </div>
-  </nav>
+  <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] bg-gradient-to-br from-night via-ocean to-violet flex flex-col items-center justify-center gap-8 lg:hidden">
+    <button id="nav-close" class="absolute top-5 right-5 text-cream p-2" aria-label="Close menu">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <a href="#overview"   class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Overview</a>
+    <a href="#curriculum" class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">What We Covered</a>
+    <a href="#gallery"    class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Gallery</a>
+    <a href="#funding"    class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Support &amp; Funding</a>
+    <a href="#next"       class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">What's Next</a>
+    <a href="#future"     class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Future Initiatives</a>
+    <a href="apply.html"  class="mt-2 inline-flex items-center px-8 py-3.5 bg-orange text-cream font-heading font-bold text-lg rounded-full hover:bg-coral transition-colors">Apply</a>
+  </div>
 
   <!-- HEADER -->
 
@@ -442,7 +427,7 @@
         <p class="text-night/55 text-sm leading-relaxed max-w-lg mx-auto">Last summer's pilot included music, coding, and robotics. While the 2026 program is focused on music and music technology, we're still exploring how other creative and technical disciplines may return in future cycles.<br><br>If you'd like to stay informed about future workshops, programs, or initiatives, you can leave your information below.</p>
       </div>
       <form id="future-form" action="https://formspree.io/f/mdaplvkw" method="POST" class="bg-white rounded-2xl p-8 shadow-sm border border-night/5 space-y-5">
-        <input type="hidden" name="_subject" value="Future Initiatives Interest — Island Innovators Bahamas" />
+        <input type="hidden" name="_subject" value="Island Innovators — Future Interest" />
         <input type="hidden" name="form_type" value="future_interest" />
         <div>
           <label class="block text-sm font-medium text-night mb-1.5">Name <span class="text-coral">*</span></label>
@@ -498,6 +483,20 @@
       <p class="text-cream/15 text-xs text-center">Island Innovators Bahamas is a youth music program founded by Christopher Hilton in Nassau, Bahamas. It is not affiliated with any other organization using the name "Island Innovators."</p>
     </div>
   </footer>
+
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const navClose  = document.getElementById('nav-close');
+    const mobileNav = document.getElementById('mobile-nav');
+    const openNav  = () => { mobileNav.classList.add('open'); document.body.style.overflow='hidden'; navToggle.setAttribute('aria-expanded','true'); }
+    const closeNav = () => { mobileNav.classList.remove('open'); document.body.style.overflow=''; navToggle.setAttribute('aria-expanded','false'); }
+    navToggle.addEventListener('click', openNav);
+    navClose.addEventListener('click', closeNav);
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
 
   <!-- Apply Button Tracking -->
 
