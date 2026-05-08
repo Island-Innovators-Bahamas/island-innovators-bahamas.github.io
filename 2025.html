@@ -447,11 +447,9 @@
         <div>
           <label class="block text-sm font-medium text-night mb-3">What areas interest you most? <span class="text-night/35 font-normal">(Select all that apply)</span></label>
           <div class="flex flex-wrap gap-2">
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Music Production" class="accent-teal" /> Music Production</label>
             <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Coding / Software Development" class="accent-teal" /> Coding / Software Development</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Robotics" class="accent-teal" /> Robotics</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="AI & Creative Technology" class="accent-teal" /> AI & Creative Technology</label>
-            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Film / Digital Media" class="accent-teal" /> Film / Digital Media</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Robotics & Engineering" class="accent-teal" /> Robotics & Engineering</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Film & Media" class="accent-teal" /> Film & Media</label>
             <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Theatre / Performing Arts" class="accent-teal" /> Theatre / Performing Arts</label>
           </div>
         </div>
@@ -460,12 +458,16 @@
           <textarea name="future_vision" rows="3" placeholder="Share anything you'd love to see in the future..."
             class="w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-teal/30 transition-all resize-none text-sm"></textarea>
         </div>
-        <button type="submit"
+        <button type="submit" id="future-form-btn"
           class="w-full px-6 py-3 bg-teal text-cream font-heading font-semibold text-sm rounded-full hover:opacity-90 transition-opacity">
           Stay Informed
         </button>
         <p class="text-night/30 text-xs text-center leading-relaxed">This is not an application. Submitting your information does not guarantee any future program or initiative.</p>
       </form>
+      <div id="future-form-success" class="hidden bg-white rounded-2xl p-8 shadow-sm border border-night/5 text-center">
+        <p class="text-teal font-heading font-semibold text-sm mb-1">You're on the list.</p>
+        <p class="text-night/50 text-sm">We'll keep you informed as Island Innovators Bahamas grows beyond the 2026 program.</p>
+      </div>
     </div>
   </section>
 
@@ -496,6 +498,38 @@
     window.addEventListener('scroll', () => {
       document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
+  </script>
+
+  <!-- Future form AJAX -->
+
+  <script>
+    const futureForm2025 = document.getElementById('future-form');
+    const futureBtn2025 = document.getElementById('future-form-btn');
+    const futureSuccess2025 = document.getElementById('future-form-success');
+    if (futureForm2025) {
+      futureForm2025.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        futureBtn2025.textContent = 'Sending...';
+        futureBtn2025.disabled = true;
+        try {
+          const res = await fetch('https://formspree.io/f/mdaplvkw', {
+            method: 'POST',
+            body: new FormData(futureForm2025),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            futureForm2025.style.display = 'none';
+            futureSuccess2025.classList.remove('hidden');
+          } else {
+            futureBtn2025.textContent = 'Try again';
+            futureBtn2025.disabled = false;
+          }
+        } catch {
+          futureBtn2025.textContent = 'Try again';
+          futureBtn2025.disabled = false;
+        }
+      });
+    }
   </script>
 
   <!-- Apply Button Tracking -->
