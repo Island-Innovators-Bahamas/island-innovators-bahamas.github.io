@@ -538,6 +538,16 @@
         <form id="future-interest-form" action="https://formspree.io/f/mdaplvkw" method="POST">
           <input type="hidden" name="form_type" value="future_interest" />
           <input type="hidden" name="_subject" value="Island Innovators — Future Interest" />
+          <div class="grid grid-cols-2 gap-2 mb-3">
+            <div>
+              <input type="text" name="future_name" placeholder="Your name"
+                class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 transition-all" />
+            </div>
+            <div>
+              <input type="email" name="future_email" placeholder="Your email"
+                class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 transition-all" />
+            </div>
+          </div>
           <div class="flex flex-wrap gap-2 mb-4">
             <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Coding / Software Development" class="accent-teal" /> Coding</label>
             <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Robotics & Engineering" class="accent-teal" /> Robotics & Engineering</label>
@@ -546,6 +556,7 @@
           </div>
           <textarea name="future_vision" rows="2" placeholder="Anything specific you'd love to see Island Innovators build? (Optional)"
             class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 resize-none mb-3"></textarea>
+          <p id="future-interest-error" class="hidden text-coral text-xs mb-2">Please enter your name and email so we can keep you updated.</p>
           <button type="submit" id="future-submit-btn"
             class="px-5 py-2 bg-teal/10 text-teal font-heading font-semibold text-xs rounded-full hover:bg-teal/20 transition-colors border border-teal/20">
             Submit Interest
@@ -776,9 +787,17 @@
     const futureForm = document.getElementById("future-interest-form");
     const futureSuccess = document.getElementById("future-success");
     const futureBtn = document.getElementById("future-submit-btn");
+    const futureError = document.getElementById("future-interest-error");
     if (futureForm) {
       futureForm.addEventListener("submit", async function(e) {
         e.preventDefault();
+        const name = futureForm.querySelector('[name="future_name"]').value.trim();
+        const email = futureForm.querySelector('[name="future_email"]').value.trim();
+        if (!name || !email) {
+          futureError.classList.remove("hidden");
+          return;
+        }
+        futureError.classList.add("hidden");
         futureBtn.textContent = "Sending...";
         futureBtn.disabled = true;
         try {
