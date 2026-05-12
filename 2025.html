@@ -114,6 +114,23 @@
   min-height: 148px;
 }
 
+@media (min-width: 641px) {
+  .sponsor-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sponsor-card {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 640px) {
   .sponsor-row {
     display: grid;
