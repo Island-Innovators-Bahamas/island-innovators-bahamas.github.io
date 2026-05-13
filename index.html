@@ -10,11 +10,13 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://islandinnovatorsbahamas.com/">
   <script>history.scrollRestoration = 'manual';</script>
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon_padded.png">
   <link rel="apple-touch-icon" href="/favicon_padded.png">
   <meta property="og:title" content="Island Innovators Bahamas — Selective Music &amp; Music Technology Program">
   <meta property="og:description" content="Island Innovators Bahamas is a selective music and music technology program in Nassau, Bahamas, where students build skills in performance, production, creativity, and artistic identity.">
-  <meta property="og:image" content="https://islandinnovatorsbahamas.com/images/photos/Photo_6.jpg">
+  <meta property="og:image" content="https://islandinnovatorsbahamas.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Christopher Hilton mentoring a student at Island Innovators Bahamas">
@@ -23,12 +25,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Island Innovators Bahamas — Selective Music &amp; Music Technology Program">
   <meta name="twitter:description" content="Island Innovators Bahamas is a selective music and music technology program in Nassau, Bahamas, where students build skills in performance, production, creativity, and artistic identity.">
-  <meta name="twitter:image" content="https://islandinnovatorsbahamas.com/images/photos/Photo_6.jpg">
+  <meta name="twitter:image" content="https://islandinnovatorsbahamas.com/og-image.png">
   <meta name="twitter:image:alt" content="Christopher Hilton mentoring a student at Island Innovators Bahamas">
   <meta name="google-site-verification" content="FEmcr4n-f8pZ41kyeLRz-QWCbnU5aTX887rYCxisCcs" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -63,6 +65,14 @@
   }
   </script>
   <style>
+  :root {
+    --iib-navy:  #0A1628;
+    --iib-cream: #F5F0E8;
+    --iib-font:  'Space Mono', 'IBM Plex Mono', 'Courier New', monospace;
+    --iib-track-wordmark: 0.28em;
+    --iib-track-nav:      0.22em;
+    --iib-track-label:    0.18em;
+  }
     html { scroll-behavior: smooth }
     section[id] { scroll-margin-top: 80px; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
@@ -98,6 +108,11 @@
     .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:1.5px; background:#D4722A; transition:width .25s ease; }
     .nav-link:hover { color:#D4722A }
     .nav-link:hover::after { width:100% }
+    .iib-hero-mark { height: 120px }
+    .iib-hero-logo { margin-bottom: 10px }
+    .iib-hero-pt   { padding-top: 80px }
+    @media (min-width: 640px)  { .iib-hero-mark { height: 160px } .iib-hero-logo { margin-bottom: 20px } .iib-hero-pt { padding-top: 96px } }
+    @media (min-width: 1024px) { .iib-hero-mark { height: 180px } .iib-hero-logo { margin-bottom: 24px } }
     .accordion-body { max-height:0; overflow:hidden; transition:max-height .4s ease,padding-bottom .4s ease }
     .accordion-body.open { max-height:500px; padding-bottom:1.25rem }
     .accordion-icon { transition:transform .3s ease }
@@ -119,9 +134,14 @@
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 bg-night/95 backdrop-blur-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="flex items-center gap-2.5 shrink-0">
-          <img src="images/logos/updated_beige_logo.jpeg" alt="Island Innovators Bahamas" class="h-10 rounded-full ring-2 ring-orange/20">
-          <span class="font-heading font-bold text-orange text-sm hidden sm:block">Island Innovators Bahamas</span>
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="flex items-center shrink-0" aria-label="Island Innovators Bahamas">
+          <!-- Mobile: micro-mark only, 24px cream -->
+          <svg class="lg:hidden" style="height:24px;color:var(--iib-cream);display:block" viewBox="0 0 440 580" fill="none"><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
+          <!-- Desktop: full mark (32px) + wordmark -->
+          <span class="hidden lg:flex items-center" style="gap:16px;padding-left:4px">
+            <svg style="height:32px;color:var(--iib-cream);display:block;flex-shrink:0" viewBox="0 0 440 580" fill="none"><path d="M 38,57 C 46,30 78,24 104,29 C 120,32 136,40 138,54 C 138,62 128,72 108,80 C 82,84 54,80 39,66 Z" fill="currentColor"/><path d="M 172,26 C 178,6 202,2 212,20 C 222,38 218,82 200,96 C 182,108 161,82 172,26 Z" fill="currentColor"/><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 184,203 C 184,192 200,186 213,187 C 226,188 234,197 233,206 C 232,215 220,219 206,219 C 192,219 182,213 184,203 Z" fill="currentColor"/><path d="M 305,316 C 312,296 334,294 341,314 C 347,334 337,362 318,370 C 301,374 293,348 305,316 Z" fill="currentColor"/><path d="M 220,358 C 228,334 256,330 265,352 C 272,372 264,416 244,426 C 226,434 212,406 214,382 C 216,366 218,360 220,358 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
+            <span style="font-family:var(--iib-font);font-size:10px;letter-spacing:var(--iib-track-nav);text-transform:uppercase;color:var(--iib-cream);font-weight:300;white-space:nowrap">ISLAND INNOVATORS</span>
+          </span>
         </a>
         <div class="hidden lg:flex items-center gap-8">
           <a href="#proof"     class="nav-link">2025 Results</a>
@@ -160,21 +180,19 @@
     <div class="absolute top-20 left-10 w-72 h-72 bg-teal/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-24 right-10 w-80 h-80 bg-orange/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute inset-0 opacity-[0.04] circuit-bg pointer-events-none"></div>
-    <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto pt-24 pb-12">
-      <div class="hero-logo mb-8">
-        <img src="images/logos/updated_beige_logo.jpeg" alt="Island Innovators Bahamas" class="w-28 h-28 sm:w-36 sm:h-36 mx-auto rounded-full shadow-2xl ring-4 ring-orange/30">
+    <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto iib-hero-pt pb-12">
+      <div class="hero-logo flex flex-col items-center iib-hero-logo" style="gap:8px">
+        <svg class="iib-hero-mark" viewBox="0 0 440 580" fill="none" style="color:var(--iib-cream);display:block"><path d="M 38,57 C 46,30 78,24 104,29 C 120,32 136,40 138,54 C 138,62 128,72 108,80 C 82,84 54,80 39,66 Z" fill="currentColor"/><path d="M 172,26 C 178,6 202,2 212,20 C 222,38 218,82 200,96 C 182,108 161,82 172,26 Z" fill="currentColor"/><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 184,203 C 184,192 200,186 213,187 C 226,188 234,197 233,206 C 232,215 220,219 206,219 C 192,219 182,213 184,203 Z" fill="currentColor"/><path d="M 305,316 C 312,296 334,294 341,314 C 347,334 337,362 318,370 C 301,374 293,348 305,316 Z" fill="currentColor"/><path d="M 220,358 C 228,334 256,330 265,352 C 272,372 264,416 244,426 C 226,434 212,406 214,382 C 216,366 218,360 220,358 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
+        <div class="flex flex-col items-center" style="gap:4px">
+          <span style="font-family:var(--iib-font);font-size:13px;letter-spacing:var(--iib-track-wordmark);text-transform:uppercase;color:var(--iib-cream);font-weight:300">ISLAND INNOVATORS</span>
+          <span style="font-family:var(--iib-font);font-size:7px;letter-spacing:0.22em;text-transform:uppercase;color:var(--iib-cream);font-weight:300;opacity:0.3">NASSAU · MMXXVI</span>
+        </div>
       </div>
-      <div class="hero-badge flex justify-center mb-7">
-        <span class="tribune-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-gold text-xs font-heading font-semibold uppercase tracking-wider">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          Featured in The Tribune · July 4, 2025
-        </span>
-      </div>
-      <h1 class="hero-headline font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.1] mb-6">
+      <h1 class="hero-headline font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.1] mb-4">
         Be Part of Something That<br>
         <span class="animated-gradient-text">Didn't Exist Before You</span>
       </h1>
-      <p class="hero-sub text-cream/75 text-lg sm:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+      <p class="hero-sub text-cream/75 text-base sm:text-lg max-w-xl mx-auto mb-7 leading-snug sm:leading-relaxed">
         A selective music and music technology intensive in Nassau, Bahamas — where students develop skills in performance and production and begin to define their own artistic identity.
       </p>
       <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -185,7 +203,13 @@
           See the Program
         </a>
       </div>
-      <div class="mt-16">
+      <div class="hero-badge flex justify-center mt-8 mb-2">
+        <span class="tribune-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-gold text-xs font-heading font-semibold uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          Featured in The Tribune · July 4, 2025
+        </span>
+      </div>
+      <div class="mt-8">
         <a href="#proof" class="bounce inline-block text-cream/40 hover:text-cream/60 transition-colors" aria-label="Scroll down">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </a>
@@ -524,9 +548,16 @@
 
   <!-- FOOTER -->
 
-  <footer class="bg-night py-8 border-t border-cream/8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-cream/25 text-xs">&copy; 2026 Island Innovators Bahamas · Founded by Christopher Hilton</p>
+  <footer class="bg-night py-14 border-t border-cream/8">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Stacked lockup -->
+      <div class="flex flex-col items-center" style="gap:12px;margin-bottom:32px">
+        <svg style="height:40px;color:var(--iib-cream);display:block" viewBox="0 0 440 580" fill="none"><path d="M 38,57 C 46,30 78,24 104,29 C 120,32 136,40 138,54 C 138,62 128,72 108,80 C 82,84 54,80 39,66 Z" fill="currentColor"/><path d="M 172,26 C 178,6 202,2 212,20 C 222,38 218,82 200,96 C 182,108 161,82 172,26 Z" fill="currentColor"/><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 184,203 C 184,192 200,186 213,187 C 226,188 234,197 233,206 C 232,215 220,219 206,219 C 192,219 182,213 184,203 Z" fill="currentColor"/><path d="M 305,316 C 312,296 334,294 341,314 C 347,334 337,362 318,370 C 301,374 293,348 305,316 Z" fill="currentColor"/><path d="M 220,358 C 228,334 256,330 265,352 C 272,372 264,416 244,426 C 226,434 212,406 214,382 C 216,366 218,360 220,358 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
+        <span style="font-family:var(--iib-font);font-size:10px;letter-spacing:var(--iib-track-wordmark);text-transform:uppercase;color:var(--iib-cream);font-weight:300">ISLAND INNOVATORS</span>
+        <span style="font-family:var(--iib-font);font-size:7px;letter-spacing:0.22em;text-transform:uppercase;color:var(--iib-cream);font-weight:300;opacity:0.3">NASSAU · MMXXVI</span>
+      </div>
+      <!-- Credits -->
+      <p style="font-family:var(--iib-font);font-size:7px;letter-spacing:0.16em;text-transform:uppercase;color:var(--iib-cream);font-weight:300;opacity:0.4;margin-bottom:8px">&copy; ISLAND INNOVATORS BAHAMAS · Founded by Christopher Hilton</p>
       <p class="text-cream/12 text-xs text-center">Island Innovators Bahamas is a youth program founded by Christopher Hilton in Nassau, Bahamas. Not affiliated with any other organization using the name "Island Innovators."</p>
     </div>
   </footer>
