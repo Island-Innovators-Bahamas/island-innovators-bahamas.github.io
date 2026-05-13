@@ -8,12 +8,14 @@
   <meta name="description" content="Apply to Island Innovators Bahamas 2026. A selective music and music technology program for students ages 11–17 in Nassau, Bahamas." />
   <meta name="robots" content="noindex" />
 
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon_padded.png">
   <link rel="apple-touch-icon" href="/favicon_padded.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -35,7 +37,15 @@
   </script>
 
   <style>
-    html { scroll-behavior: smooth; }
+  :root {
+    --iib-navy:  #0A1628;
+    --iib-cream: #F5F0E8;
+    --iib-font:  'Space Mono', 'IBM Plex Mono', 'Courier New', monospace;
+    --iib-track-wordmark: 0.28em;
+    --iib-track-nav:      0.22em;
+    --iib-track-label:    0.18em;
+  }
+      html { scroll-behavior: smooth; }
     .form-input:focus { border-color: rgba(212,114,42,0.5); }
     .form-section { display: none; }
     .form-section.active { display: block; }
@@ -586,13 +596,10 @@
 
   <!-- FOOTER -->
 
-  <footer class="bg-night py-10 border-t border-cream/10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="images/logos/updated_beige_logo.jpeg" alt="Island Innovators Bahamas" class="h-9 rounded-full" />
-        <span class="font-heading font-bold text-orange text-sm">Island Innovators Bahamas</span>
-      </div>
-      <p class="text-cream/30 text-xs">&copy; 2026 Island Innovators Bahamas &middot; Founded by Christopher Hilton</p>
+  <footer class="bg-night py-8 border-t border-cream/8">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p style="font-family:var(--iib-font);font-size:9px;letter-spacing:var(--iib-track-nav);text-transform:uppercase;color:var(--iib-cream);font-weight:300;opacity:0.4">&copy; ISLAND INNOVATORS BAHAMAS</p>
+      <p style="font-family:var(--iib-font);font-size:7px;letter-spacing:0.16em;text-transform:uppercase;color:var(--iib-cream);font-weight:300;opacity:0.25;margin-top:4px">NASSAU · MMXXVI · Founded by Christopher Hilton</p>
     </div>
   </footer>
 
