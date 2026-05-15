@@ -77,14 +77,88 @@
           <p class="text-night/65 text-sm leading-relaxed">No further action is required at this time.</p>
         </div>
         <div class="border-t border-night/5"></div>
-        <div class="text-center space-y-3">
-          <p class="text-night/35 text-xs leading-relaxed">For general inquiries: <a href="mailto:hello@islandinnovatorsbahamas.com" class="text-orange hover:text-coral transition-colors">hello@islandinnovatorsbahamas.com</a></p>
-          <a href="index.html" class="inline-flex items-center gap-2 text-sm text-night/50 hover:text-orange transition-colors font-heading font-medium">← Return to Island Innovators Bahamas</a>
+
+```
+    <!-- FUTURE INTEREST FORM -->
+    <div>
+      <p class="text-xs font-heading font-semibold text-night/40 uppercase tracking-wider mb-1">Beyond 2026</p>
+      <p class="text-night/65 text-sm leading-relaxed mb-5">Island Innovators Bahamas grows each cycle. If you'd like to stay informed about future programs in other disciplines, leave your details below.</p>
+      <form id="future-form" action="https://formspree.io/f/mdaplvkw" method="POST" class="space-y-4">
+        <input type="hidden" name="form_type" value="future_interest" />
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-heading font-semibold text-night/50 uppercase tracking-wide mb-1.5">Name <span class="text-orange">*</span></label>
+            <input type="text" name="future_name" required placeholder="Your name"
+              class="w-full px-3 py-2.5 text-sm border border-night/15 rounded-lg bg-sand text-night placeholder-night/30 focus:outline-none focus:border-teal/50">
+          </div>
+          <div>
+            <label class="block text-xs font-heading font-semibold text-night/50 uppercase tracking-wide mb-1.5">Email <span class="text-orange">*</span></label>
+            <input type="email" name="future_email" required placeholder="your@email.com"
+              class="w-full px-3 py-2.5 text-sm border border-night/15 rounded-lg bg-sand text-night placeholder-night/30 focus:outline-none focus:border-teal/50">
+          </div>
         </div>
-      </div>
+        <div>
+          <label class="block text-xs font-heading font-semibold text-night/50 uppercase tracking-wide mb-2">Areas of interest <span class="text-night/30 font-normal normal-case tracking-normal">(optional)</span></label>
+          <div class="grid grid-cols-1 gap-1.5">
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Music Performance" class="accent-teal" /> Music Performance</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Recording Arts & Production" class="accent-teal" /> Recording Arts &amp; Production</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Theatre & Performing Arts" class="accent-teal" /> Theatre &amp; Performing Arts</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Film & Media" class="accent-teal" /> Film &amp; Media</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Coding & Software Development" class="accent-teal" /> Coding &amp; Software Development</label>
+            <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-sm text-night/70"><input type="checkbox" name="future_interest" value="Robotics & Engineering" class="accent-teal" /> Robotics &amp; Engineering</label>
+          </div>
+        </div>
+        <button type="submit" id="future-form-btn"
+          class="w-full py-3 bg-night text-cream text-sm font-heading font-semibold rounded-lg hover:bg-night/80 transition-colors tracking-wide">
+          Stay Informed
+        </button>
+        <div id="future-success" class="hidden text-center py-3 text-teal text-sm font-heading font-semibold">✓ You're on the list.</div>
+      </form>
+    </div>
+
+    <div class="border-t border-night/5"></div>
+    <div class="text-center space-y-3">
+      <p class="text-night/35 text-xs leading-relaxed">For general inquiries: <a href="mailto:hello@islandinnovatorsbahamas.com" class="text-orange hover:text-coral transition-colors">hello@islandinnovatorsbahamas.com</a></p>
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm text-night/50 hover:text-orange transition-colors font-heading font-medium">← Return to Island Innovators Bahamas</a>
     </div>
   </div>
+</div>
+```
+
+  </div>
+  <!-- Future Interest Form Handler -->
+  <script>
+    const futureForm = document.getElementById('future-form');
+    if (futureForm) {
+      futureForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('future-form-btn');
+        const success = document.getElementById('future-success');
+        btn.disabled = true;
+        btn.textContent = 'Submitting…';
+        try {
+          const res = await fetch('https://formspree.io/f/mdaplvkw', {
+            method: 'POST',
+            body: new FormData(futureForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            futureForm.style.display = 'none';
+            success.classList.remove('hidden');
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Stay Informed';
+          }
+        } catch {
+          btn.disabled = false;
+          btn.textContent = 'Stay Informed';
+        }
+      });
+    }
+  </script>
+
   <!-- Conversion Tracking -->
+
   <script>
     window.addEventListener("load", function () {
       if (typeof gtag === "function") {
