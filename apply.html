@@ -354,6 +354,39 @@
     background: rgba(10,26,40,0.04);
     border-color: rgba(10,26,40,0.08);
   }
+  
+  /* Mobile responsive — stacks CTA vertically */
+  @media (max-width: 600px) {
+    .iib-assist-cta { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+    .iib-assist-rule { display: none; }
+    .iib-assist-toggle { width: 100%; text-align: center; padding: 0.75rem 1rem; }
+  }
+  /* Escalation buttons */
+  .iib-escalate {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    margin-top: 0.875rem;
+  }
+  .iib-esc-btn {
+    display: block;
+    font-family: var(--iib-font);
+    font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(10,26,40,0.75); text-decoration: none;
+    border: 1px solid rgba(10,26,40,0.15);
+    padding: 0.55rem 0.875rem;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+    text-align: center;
+  }
+  .iib-esc-btn:hover { border-color: #C06628; color: #C06628; text-decoration: none; }
+  .iib-esc-note {
+    margin-top: 0.625rem;
+    font-family: var(--iib-font);
+    font-size: 0.58rem; letter-spacing: 0.04em;
+    color: rgba(10,26,40,0.3); font-style: italic;
+  }
+  /* Pointer-events guard on closed panel */
+  .iib-assist-panel { pointer-events: none; }
+  .iib-assist-panel.iib-open { pointer-events: auto; }
   </style>
 </head>
 <body class="bg-sand font-body text-night antialiased">
@@ -402,7 +435,7 @@
       <div class="iib-adm-banner">
         <div class="iib-adm-banner-text">
           <strong>Questions before applying?</strong>
-          Our Admissions Assistant can help.
+          Common questions about eligibility, tuition, and the application process.
         </div>
         <button class="iib-adm-banner-btn" id="iib-adm-btn">Ask a Question</button>
       </div>
@@ -455,7 +488,7 @@
             <p class="text-night/50 text-sm mt-1"></p>
           </div>
           <div class="text-center pt-1">
-            <p class="text-night/40 text-xs leading-relaxed">Questions before applying? <a href="mailto:admissions@islandinnovatorsbahamas.com" class="hover:text-orange transition-colors">admissions@islandinnovatorsbahamas.com</a></p>
+            <p class="text-night/40 text-xs leading-relaxed">Need to reach the team directly? <a href="mailto:admissions@islandinnovatorsbahamas.com" class="hover:text-orange transition-colors">admissions@islandinnovatorsbahamas.com</a></p>
           </div>
 
           <div>
@@ -1148,6 +1181,7 @@
   <script>
   /* ── Admissions Assistant ────────────────────────────────────────── */
   (function() {
+
     const KB = [
       {
         k: 'age',
@@ -1257,8 +1291,6 @@
       },
     ];
 
-    const FALLBACK = 'That's a great question. For anything I'm not able to address here, please reach out directly at <a href="mailto:admissions@islandinnovatorsbahamas.com">admissions@islandinnovatorsbahamas.com</a> — our team will be happy to help.';
-
     const OPENING = 'Hello. I can answer questions about the program, application, dates, tuition, and what to expect. What would you like to know?';
 
     function findAnswer(q) {
@@ -1269,35 +1301,48 @@
       return null;
     }
 
+    function getFallback(q) {
+      const sub1 = encodeURIComponent('Island Innovators Bahamas — Admissions Question');
+      const sub2 = encodeURIComponent('Island Innovators Bahamas — General Inquiry');
+      const body = encodeURIComponent('Hello,\n\nI had a question from your website:\n\n' + q + '\n\nThank you.');
+      const adm   = 'mailto:admissions@islandinnovatorsbahamas.com?subject=' + sub1 + '&body=' + body;
+      const hello = 'mailto:hello@islandinnovatorsbahamas.com?subject=' + sub2 + '&body=' + body;
+      return 'I may not have enough information to answer that accurately. You can reach the Island Innovators Bahamas team directly — clicking below will open in your email app:'
+        + '<div class="iib-escalate">'
+        + '<a href="' + adm   + '" class="iib-esc-btn">Application &amp; Admissions Question</a>'
+        + '<a href="' + hello + '" class="iib-esc-btn">General &amp; Partnership Inquiry</a>'
+        + '</div>'
+        + '<p class="iib-esc-note">This will open your email app. Nothing is sent automatically.</p>';
+    }
+
     function initPanel(id) {
-      const panel = document.getElementById('iib-panel-' + id);
+      const panel  = document.getElementById('iib-panel-' + id);
       const thread = document.getElementById('iib-thread-' + id);
       const input  = document.getElementById('iib-input-' + id);
       const send   = document.getElementById('iib-send-' + id);
       const sugg   = document.getElementById('iib-sugg-' + id);
       const reset  = document.getElementById('iib-reset-' + id);
       const toggle = document.getElementById('iib-toggle-' + id);
-      if (!panel) return;
+      if (!panel || !thread || !input || !send) return;
 
       function appendMsg(role, html) {
         const d = document.createElement('div');
         d.className = 'iib-msg iib-' + role;
         d.innerHTML = '<span class="iib-msg-role">' + (role === 'assistant' ? 'Admissions' : 'You') + '</span><p class="iib-msg-text">' + html + '</p>';
         thread.appendChild(d);
-        thread.scrollTop = thread.scrollHeight;
+        setTimeout(() => { thread.scrollTop = thread.scrollHeight; }, 10);
       }
 
       function hideSugg() {
         if (!sugg) return;
         sugg.style.opacity = '0';
         sugg.style.pointerEvents = 'none';
-        setTimeout(() => sugg.style.display = 'none', 200);
+        setTimeout(() => { sugg.style.display = 'none'; }, 200);
       }
 
       function process(q) {
         send.disabled = true;
         appendMsg('user', q);
-        // typing
         const t = document.createElement('div');
         t.className = 'iib-msg iib-assistant';
         t.id = 'iib-typing-' + id;
@@ -1307,13 +1352,12 @@
         setTimeout(() => {
           const el = document.getElementById('iib-typing-' + id);
           if (el) el.remove();
-          appendMsg('assistant', findAnswer(q) || FALLBACK);
+          appendMsg('assistant', findAnswer(q) || getFallback(q));
           send.disabled = false;
           input.focus();
         }, 920 + Math.random() * 360);
       }
 
-      // Send button
       send.addEventListener('click', () => {
         const v = input.value.trim();
         if (!v) return;
@@ -1322,7 +1366,6 @@
         process(v);
       });
 
-      // Enter key
       input.addEventListener('keydown', e => {
         if (e.key === 'Enter') {
           const v = input.value.trim();
@@ -1333,7 +1376,6 @@
         }
       });
 
-      // Suggestion buttons
       panel.querySelectorAll('.iib-suggest-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           hideSugg();
@@ -1341,7 +1383,6 @@
         });
       });
 
-      // Reset
       if (reset) {
         reset.addEventListener('click', () => {
           thread.innerHTML = '<div class="iib-msg iib-assistant"><span class="iib-msg-role">Admissions</span><p class="iib-msg-text">' + OPENING + '</p></div>';
@@ -1349,31 +1390,32 @@
         });
       }
 
-      // Toggle (FAQ variant)
       if (toggle) {
         toggle.addEventListener('click', () => {
           const open = panel.classList.toggle('iib-open');
-          toggle.setAttribute('aria-expanded', open);
+          toggle.setAttribute('aria-expanded', String(open));
           toggle.textContent = open ? 'Close' : 'Ask the Admissions Assistant';
-          if (open) setTimeout(() => input.focus(), 460);
+          if (open) setTimeout(() => { input.focus(); }, 460);
         });
       }
     }
 
-    // Admissions page banner button
     const admBtn = document.getElementById('iib-adm-btn');
     if (admBtn) {
       admBtn.addEventListener('click', () => {
         const panel = document.getElementById('iib-panel-adm');
+        if (!panel) return;
         const open = panel.classList.toggle('iib-open');
         admBtn.textContent = open ? 'Close' : 'Ask a Question';
-        if (open) setTimeout(() => document.getElementById('iib-input-adm').focus(), 460);
+        if (open) setTimeout(() => {
+          const inp = document.getElementById('iib-input-adm');
+          if (inp) inp.focus();
+        }, 460);
       });
     }
 
-    // Init all panels
-    ['faq','adm'].forEach(initPanel);
+    ['faq', 'adm'].forEach(initPanel);
   })();
-  </script>
+</script>
 </body>
 </html>
