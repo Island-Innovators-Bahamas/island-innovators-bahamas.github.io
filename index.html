@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -132,11 +131,282 @@
     gtag("js", new Date());
     gtag("config", "G-3D6CR9MP2K");
   </script>
+  <style>
+  /* ── Admissions Assistant Component ─────────────────────────────── */
+  .iib-assist-wrapper {
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(10,26,40,0.08);
+    padding-top: 2rem;
+  }
+  .iib-assist-cta {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .iib-assist-cta-label {
+    font-family: var(--iib-font);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(10,26,40,0.5);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .iib-assist-rule {
+    flex: 1;
+    height: 1px;
+    background: rgba(10,26,40,0.08);
+  }
+  .iib-assist-toggle {
+    background: none;
+    border: 1px solid rgba(10,26,40,0.2);
+    color: rgba(10,26,40,0.7);
+    font-family: var(--iib-font);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .iib-assist-toggle:hover {
+    background: #0A1628;
+    color: #F5F0E8;
+    border-color: #0A1628;
+  }
+
+  /* Panel */
+  .iib-assist-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    opacity: 0;
+  }
+  .iib-assist-panel.iib-open {
+    max-height: 680px;
+    opacity: 1;
+  }
+  .iib-assist-inner {
+    margin-top: 1.25rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(10,26,40,0.07);
+    padding: 1.5rem 1.5rem 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  /* Thread */
+  .iib-thread {
+    min-height: 60px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    scroll-behavior: smooth;
+  }
+  .iib-thread::-webkit-scrollbar { width: 3px; }
+  .iib-thread::-webkit-scrollbar-thumb { background: rgba(10,26,40,0.1); border-radius: 2px; }
+
+  .iib-msg {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    animation: iibFadeUp 0.28s ease forwards;
+    opacity: 0;
+  }
+  @keyframes iibFadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .iib-msg-role {
+    font-family: var(--iib-font);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(10,26,40,0.35);
+  }
+  .iib-msg.iib-assistant .iib-msg-role { color: #C06628; }
+  .iib-msg-text {
+    font-size: 0.825rem;
+    line-height: 1.7;
+    color: #0A1628;
+  }
+  .iib-msg.iib-user .iib-msg-text { color: rgba(10,26,40,0.55); }
+  .iib-msg-text a { color: #C06628; text-decoration: none; }
+  .iib-msg-text a:hover { text-decoration: underline; }
+
+  /* Suggestions */
+  .iib-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    transition: opacity 0.2s;
+  }
+  .iib-suggest-btn {
+    background: none;
+    border: 1px solid rgba(10,26,40,0.1);
+    color: rgba(10,26,40,0.6);
+    font-family: var(--iib-font);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .iib-suggest-btn:hover { border-color: #C06628; color: #C06628; }
+
+  /* Input row */
+  .iib-input-row {
+    display: flex;
+    gap: 0.625rem;
+    border-top: 1px solid rgba(10,26,40,0.07);
+    padding-top: 1rem;
+  }
+  .iib-question-input {
+    flex: 1;
+    font-family: var(--iib-font);
+    font-size: 0.75rem;
+    color: #0A1628;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(10,26,40,0.15);
+    padding: 0.5rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .iib-question-input::placeholder { color: rgba(10,26,40,0.35); }
+  .iib-question-input:focus { border-color: #C06628; }
+  .iib-send-btn {
+    background: #0A1628;
+    color: #F5F0E8;
+    border: none;
+    font-family: var(--iib-font);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+    border-radius: 2px;
+  }
+  .iib-send-btn:hover { background: #C06628; }
+  .iib-send-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* Footnote */
+  .iib-assist-footnote {
+    margin-top: 0.875rem;
+    font-family: var(--iib-font);
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    color: rgba(10,26,40,0.35);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .iib-assist-footnote a { color: #C06628; text-decoration: none; }
+  .iib-assist-footnote a:hover { text-decoration: underline; }
+  .iib-reset-btn {
+    background: none;
+    border: none;
+    color: rgba(10,26,40,0.3);
+    font-family: var(--iib-font);
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 0;
+  }
+  .iib-reset-btn:hover { color: #C06628; }
+
+  /* Typing indicator */
+  .iib-typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 0;
+  }
+  .iib-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #C06628;
+    animation: iibBlink 1.2s infinite;
+  }
+  .iib-dot:nth-child(2) { animation-delay: 0.2s; }
+  .iib-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes iibBlink {
+    0%,80%,100% { opacity: 0.2; }
+    40% { opacity: 1; }
+  }
+
+  /* Admissions page dark banner variant */
+  .iib-adm-banner {
+    background: linear-gradient(to bottom, #1A3A6C 0%, #0A1628 100%);
+    padding: 1.5rem 1.75rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .iib-adm-banner-text {
+    font-family: var(--iib-font);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+    color: rgba(245,240,232,0.75);
+  }
+  .iib-adm-banner-text strong {
+    display: block;
+    color: #F5F0E8;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-weight: 400;
+  }
+  .iib-adm-banner-btn {
+    background: none;
+    border: 1px solid rgba(245,240,232,0.25);
+    color: rgba(245,240,232,0.75);
+    font-family: var(--iib-font);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .iib-adm-banner-btn:hover {
+    border-color: #F5F0E8;
+    color: #F5F0E8;
+    background: rgba(245,240,232,0.06);
+  }
+  /* Dark panel variant for admissions page */
+  .iib-adm-banner + .iib-assist-panel .iib-assist-inner {
+    background: rgba(10,26,40,0.04);
+    border-color: rgba(10,26,40,0.08);
+  }
+  </style>
 </head>
 <body class="bg-sand font-body text-night antialiased">
 
   <!-- NAV -->
-
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background:rgba(10,26,50,0.82)">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -166,7 +436,6 @@
   </nav>
 
   <!-- MOBILE NAV -->
-
   <div id="mobile-nav" class="mobile-nav fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 lg:hidden" style="background:linear-gradient(135deg,#07111D 0%,#0C1F38 40%,#181030 70%,#08121E 100%)">
     <button id="nav-close" class="absolute top-5 right-5 text-cream p-2" aria-label="Close menu">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -181,52 +450,49 @@
   </div>
 
   <!-- HERO -->
-
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background:linear-gradient(135deg,#07111D 0%,#0C1F38 40%,#181030 70%,#08121E 100%)">
-
-```
-<div class="absolute inset-0 opacity-[0.04] circuit-bg pointer-events-none"></div>
-<div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto iib-hero-pt pb-12">
-  <div class="hero-logo flex flex-col items-center iib-hero-logo" style="gap:8px">
-    <svg class="iib-hero-mark" viewBox="0 0 440 580" fill="none" style="color:var(--iib-cream);display:block"><path d="M 38,57 C 46,30 78,24 104,29 C 120,32 136,40 138,54 C 138,62 128,72 108,80 C 82,84 54,80 39,66 Z" fill="currentColor"/><path d="M 172,26 C 178,6 202,2 212,20 C 222,38 218,82 200,96 C 182,108 161,82 172,26 Z" fill="currentColor"/><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 184,203 C 184,192 200,186 213,187 C 226,188 234,197 233,206 C 232,215 220,219 206,219 C 192,219 182,213 184,203 Z" fill="currentColor"/><path d="M 305,316 C 312,296 334,294 341,314 C 347,334 337,362 318,370 C 301,374 293,348 305,316 Z" fill="currentColor"/><path d="M 220,358 C 228,334 256,330 265,352 C 272,372 264,416 244,426 C 226,434 212,406 214,382 C 216,366 218,360 220,358 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
-    <div class="flex flex-col items-center" style="gap:4px">
-      <span style="font-family:var(--iib-font);font-size:13px;letter-spacing:var(--iib-track-wordmark);text-transform:uppercase;color:var(--iib-cream);font-weight:300">ISLAND INNOVATORS</span>
-      <span style="font-family:var(--iib-font);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--iib-cream);font-weight:400;opacity:0.62">NASSAU · MMXXVI</span>
+    
+    
+    <div class="absolute inset-0 opacity-[0.04] circuit-bg pointer-events-none"></div>
+    <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto iib-hero-pt pb-12">
+      <div class="hero-logo flex flex-col items-center iib-hero-logo" style="gap:8px">
+        <svg class="iib-hero-mark" viewBox="0 0 440 580" fill="none" style="color:var(--iib-cream);display:block"><path d="M 38,57 C 46,30 78,24 104,29 C 120,32 136,40 138,54 C 138,62 128,72 108,80 C 82,84 54,80 39,66 Z" fill="currentColor"/><path d="M 172,26 C 178,6 202,2 212,20 C 222,38 218,82 200,96 C 182,108 161,82 172,26 Z" fill="currentColor"/><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 184,203 C 184,192 200,186 213,187 C 226,188 234,197 233,206 C 232,215 220,219 206,219 C 192,219 182,213 184,203 Z" fill="currentColor"/><path d="M 305,316 C 312,296 334,294 341,314 C 347,334 337,362 318,370 C 301,374 293,348 305,316 Z" fill="currentColor"/><path d="M 220,358 C 228,334 256,330 265,352 C 272,372 264,416 244,426 C 226,434 212,406 214,382 C 216,366 218,360 220,358 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
+        <div class="flex flex-col items-center" style="gap:4px">
+          <span style="font-family:var(--iib-font);font-size:13px;letter-spacing:var(--iib-track-wordmark);text-transform:uppercase;color:var(--iib-cream);font-weight:300">ISLAND INNOVATORS</span>
+          <span style="font-family:var(--iib-font);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--iib-cream);font-weight:400;opacity:0.62">NASSAU · MMXXVI</span>
+        </div>
+      </div>
+      <h1 class="hero-headline font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.1] mb-4">
+        Be Part of Something That<br>
+        <span class="animated-gradient-text">Didn't Exist Before You</span>
+      </h1>
+      <p class="hero-sub text-cream/75 text-base sm:text-lg max-w-xl mx-auto mb-7 leading-snug sm:leading-[1.5]">
+        A selective music and music technology intensive in Nassau, Bahamas — where students develop skills in performance and production and begin to define their own artistic identity.
+      </p>
+      <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="apply.html" class="inline-flex items-center px-9 py-4 bg-orange text-cream font-heading font-bold text-lg rounded-full hover:bg-coral transition-colors shadow-sm">
+          Apply Now
+        </a>
+        <a href="#program" class="inline-flex items-center px-8 py-4 border border-cream/22 text-cream/85 font-heading font-semibold text-base rounded-full hover:border-cream/45 hover:bg-cream/5 transition-all">
+          See the Program
+        </a>
+      </div>
+      <div class="hero-badge flex justify-center mt-8 mb-2">
+        <span class="tribune-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-gold text-xs font-heading font-semibold uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          Featured in The Tribune · July 4, 2025
+        </span>
+      </div>
+      <div class="mt-8">
+        <a href="#proof" class="bounce inline-block text-cream/40 hover:text-cream/60 transition-colors" aria-label="Scroll down">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+      </div>
     </div>
-  </div>
-  <h1 class="hero-headline font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.1] mb-4">
-    Be Part of Something That<br>
-    <span class="animated-gradient-text">Didn't Exist Before You</span>
-  </h1>
-  <p class="hero-sub text-cream/75 text-base sm:text-lg max-w-xl mx-auto mb-7 leading-snug sm:leading-[1.5]">
-    A selective music and music technology intensive in Nassau, Bahamas — where students develop skills in performance and production and begin to define their own artistic identity.
-  </p>
-  <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4">
-    <a href="apply.html" class="inline-flex items-center px-9 py-4 bg-orange text-cream font-heading font-bold text-lg rounded-full hover:bg-coral transition-colors shadow-sm">
-      Apply Now
-    </a>
-    <a href="#program" class="inline-flex items-center px-8 py-4 border border-cream/22 text-cream/85 font-heading font-semibold text-base rounded-full hover:border-cream/45 hover:bg-cream/5 transition-all">
-      See the Program
-    </a>
-  </div>
-  <div class="hero-badge flex justify-center mt-8 mb-2">
-    <span class="tribune-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-gold text-xs font-heading font-semibold uppercase tracking-wider">
-      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-      Featured in The Tribune · July 4, 2025
-    </span>
-  </div>
-  <div class="mt-8">
-    <a href="#proof" class="bounce inline-block text-cream/40 hover:text-cream/60 transition-colors" aria-label="Scroll down">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-    </a>
-  </div>
-</div>
-```
-
   </section>
 
-  <!-- TESTIMONIALS + PRESS — up front -->
 
+  <!-- TESTIMONIALS + PRESS — up front -->
   <section id="proof" class="py-20 bg-sand">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="reveal text-center mb-10">
@@ -268,22 +534,18 @@
         <p class="text-center text-night/30 text-xs font-heading uppercase tracking-widest">Nassau, Bahamas · Summer 2025</p>
       </div>
 
-```
-  <div class="reveal text-center mt-8">
-    <p class="text-night/45 text-sm leading-relaxed mb-6 max-w-xl mx-auto">Island Innovators Bahamas began as a broader creative and technical pilot spanning music, coding, and robotics. The 2026 intensive focuses exclusively on music and music technology.</p>
-    <a href="2025.html" class="inline-flex items-center gap-2 px-6 py-3 border border-night/10 text-night/55 font-heading font-semibold text-sm rounded-full hover:border-orange hover:text-orange transition-all">
-      Explore the 2025 Pilot
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-    </a>
-    <p class="text-night/35 text-xs mt-3">Interested in future programs beyond music? <a href="2025.html#future" class="text-teal hover:text-teal/70 transition-colors">Join the future interest list →</a></p>
-  </div>
-</div>
-```
-
+      <div class="reveal text-center mt-8">
+        <p class="text-night/45 text-sm leading-relaxed mb-6 max-w-xl mx-auto">Island Innovators Bahamas began as a broader creative and technical pilot spanning music, coding, and robotics. The 2026 intensive focuses exclusively on music and music technology.</p>
+        <a href="2025.html" class="inline-flex items-center gap-2 px-6 py-3 border border-night/10 text-night/55 font-heading font-semibold text-sm rounded-full hover:border-orange hover:text-orange transition-all">
+          Explore the 2025 Pilot
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <p class="text-night/35 text-xs mt-3">Interested in future programs beyond music? <a href="2025.html#future" class="text-teal hover:text-teal/70 transition-colors">Join the future interest list →</a></p>
+      </div>
+    </div>
   </section>
 
   <!-- APPLY CTA — high on the page -->
-
   <section class="py-16" style="background:linear-gradient(to bottom,#1A3A6C 0%,#0A1628 100%)">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
       <p class="text-gold font-heading font-semibold text-sm uppercase tracking-widest mb-3">Summer 2026</p>
@@ -301,7 +563,6 @@
   </section>
 
   <!-- THE 2026 PROGRAM -->
-
   <section id="program" class="py-20 sm:py-28 bg-sand">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 reveal">
@@ -368,7 +629,6 @@
   </section>
 
   <!-- ABOUT THE FOUNDER -->
-
   <section id="about" class="py-20 bg-cream overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="reveal grid md:grid-cols-5 gap-10 items-start">
@@ -421,7 +681,6 @@
   </section>
 
   <!-- FAQ -->
-
   <section id="faq" class="py-20 bg-sand">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 reveal">
@@ -430,91 +689,121 @@
       </div>
       <div class="space-y-3 reveal">
 
-```
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">What kind of student is this for?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">What kind of student is this for?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Students should come in with some foundation in music — formal or self-taught. This program is built to push students who are already engaged, not introduce the subject from scratch. We look for curiosity, commitment, and a genuine interest in music over credentials or accolades.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">What ages and grades are eligible?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Ages 11–17, currently in Grades 6–12. We accept students entering any grade in the 2026–27 school year. In exceptional cases, applicants slightly outside this range may be considered based on fit and readiness.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">When does the program take place?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The program runs July 13–24, 2026. Accepted students will receive onboarding information before the program begins.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">How long is the program?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The program is a focused 2-week intensive.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">What does the program include?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The program runs Monday–Friday and centers on performance and production — building musicianship, creative practice, and original work within a focused cohort. The experience leads toward a final public showcase where students perform and present their work.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">Is financial assistance available?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Financial assistance is available in select cases and is based on both need and program fit. Tuition is $500 — the 2026 Founding Cohort rate. We do not turn away strong applicants for financial reasons alone, but assistance is limited and not guaranteed. Priority is given to applicants who demonstrate strong commitment and potential.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">How selective is admissions?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">We accept a small cohort of 12–15 students. Every application is reviewed individually. We look for students with genuine musical engagement, a clear reason for applying, and the commitment to see the program through to the final showcase.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">When will I hear back?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Applications are reviewed on a rolling basis. Stage One decisions are expected to begin the week of June 8, 2026.</div>
+        </div>
+
+        <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
+          <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
+            <span class="font-heading font-semibold text-night text-sm">Where is the program held?</span>
+            <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+          <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The 2026 program takes place in Nassau, Bahamas. Final venue details will be shared with accepted students before the program begins.</div>
+        </div>
+
+      </div>
+
+  <!-- ADMISSIONS ASSISTANT — FAQ placement -->
+  <div class="iib-assist-wrapper reveal">
+    <div class="iib-assist-cta">
+      <span class="iib-assist-cta-label">Still have a question?</span>
+      <div class="iib-assist-rule"></div>
+      <button class="iib-assist-toggle" id="iib-toggle-faq" aria-expanded="false">
+        Ask the Admissions Assistant
       </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Students should come in with some foundation in music — formal or self-taught. This program is built to push students who are already engaged, not introduce the subject from scratch. We look for curiosity, commitment, and a genuine interest in music over credentials or accolades.</div>
     </div>
 
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">What ages and grades are eligible?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Ages 11–17, currently in Grades 6–12. We accept students entering any grade in the 2026–27 school year. In exceptional cases, applicants slightly outside this range may be considered based on fit and readiness.</div>
+    <div class="iib-assist-panel" id="iib-panel-faq" role="region" aria-label="Admissions Assistant">
+      <div class="iib-assist-inner">
+        <div class="iib-thread" id="iib-thread-faq">
+          <div class="iib-msg iib-assistant">
+            <span class="iib-msg-role">Admissions</span>
+            <p class="iib-msg-text">Hello. I can answer questions about the program, application, dates, tuition, and what to expect. What would you like to know?</p>
+          </div>
+        </div>
+        <div class="iib-suggestions" id="iib-sugg-faq">
+          <button class="iib-suggest-btn" data-q="What ages is the program for?">What ages is the program for?</button>
+          <button class="iib-suggest-btn" data-q="What is the tuition?">What is the tuition?</button>
+          <button class="iib-suggest-btn" data-q="How did the program start?">How did it start?</button>
+          <button class="iib-suggest-btn" data-q="When will I hear back?">When will I hear back?</button>
+        </div>
+        <div class="iib-input-row">
+          <input class="iib-question-input" id="iib-input-faq" type="text" placeholder="Type your question…" autocomplete="off" />
+          <button class="iib-send-btn" id="iib-send-faq">Send</button>
+        </div>
+        <p class="iib-assist-footnote">
+          For admissions decisions or sensitive matters, contact us at
+          <a href="mailto:admissions@islandinnovatorsbahamas.com">admissions@islandinnovatorsbahamas.com</a>
+          &nbsp;·&nbsp;
+          <button class="iib-reset-btn" id="iib-reset-faq">Start over</button>
+        </p>
+      </div>
     </div>
-
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">When does the program take place?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The program runs July 13–24, 2026. Accepted students will receive onboarding information before the program begins.</div>
-    </div>
-
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">How long is the program?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The program is a focused 2-week intensive.</div>
-    </div>
-
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">What does the program include?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The program runs Monday–Friday and centers on performance and production — building musicianship, creative practice, and original work within a focused cohort. The experience leads toward a final public showcase where students perform and present their work.</div>
-    </div>
-
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">Is financial assistance available?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Financial assistance is available in select cases and is based on both need and program fit. Tuition is $500 — the 2026 Founding Cohort rate. We do not turn away strong applicants for financial reasons alone, but assistance is limited and not guaranteed. Priority is given to applicants who demonstrate strong commitment and potential.</div>
-    </div>
-
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">How selective is admissions?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">We accept a small cohort of 12–15 students. Every application is reviewed individually. We look for students with genuine musical engagement, a clear reason for applying, and the commitment to see the program through to the final showcase.</div>
-    </div>
-
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">When will I hear back?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">Applications are reviewed on a rolling basis. Stage One decisions are expected to begin the week of June 8, 2026.</div>
-    </div>
-
-    <div class="accordion-item bg-white rounded-xl border border-night/5 shadow-sm overflow-hidden">
-      <button class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left" aria-expanded="false">
-        <span class="font-heading font-semibold text-night text-sm">Where is the program held?</span>
-        <svg class="accordion-icon w-5 h-5 text-night/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-      </button>
-      <div class="accordion-body px-6 text-night/65 text-sm leading-relaxed">The 2026 program takes place in Nassau, Bahamas. Final venue details will be shared with accepted students before the program begins.</div>
-    </div>
-
   </div>
-  <div class="mt-10 text-center reveal">
-    <p class="text-night/45 text-sm mb-1">Still have questions?</p>
-    <a href="mailto:hello@islandinnovatorsbahamas.com" class="text-orange font-heading font-semibold hover:text-coral transition-colors">hello@islandinnovatorsbahamas.com</a>
-  </div>
-</div>
-```
-
+    </div>
   </section>
 
   <!-- PARTNER / SUPPORT -->
-
   <section id="partners" class="py-14 bg-sand border-t border-night/5">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-teal font-heading font-semibold text-xs uppercase tracking-widest mb-3">Partners & Supporters</p>
@@ -527,7 +816,6 @@
   </section>
 
   <!-- FINAL CTA -->
-
   <section class="pt-24 pb-14 bg-night">
     <div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
       <h2 class="font-heading font-bold text-3xl sm:text-4xl text-cream mb-4">Ready to Apply?</h2>
@@ -553,7 +841,6 @@
   </section>
 
   <!-- FOOTER -->
-
   <footer class="bg-night pt-5 pb-6">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="flex flex-col items-center" style="gap:4px;margin-bottom:8px">
@@ -599,7 +886,6 @@
   </script>
 
   <!-- Apply Button Tracking -->
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll('a[href="apply.html"]').forEach(function (btn) {
@@ -615,5 +901,235 @@
     });
   </script>
 
+  <script>
+  /* ── Admissions Assistant ────────────────────────────────────────── */
+  (function() {
+    const KB = [
+      {
+        k: 'age',
+        t: ['age','how old','grade','year','old enough','too young','too old','eligib','qualify','13','14','15','16','17','11','12'],
+        r: 'The program is open to students ages 11–17, currently in Grades 6–12. In exceptional cases, applicants slightly outside this range may be considered based on fit and readiness.'
+      },
+      {
+        k: 'tuition',
+        t: ['cost','tuition','price','fee','how much','$500','500','money','pay'],
+        r: 'Tuition for the 2026 Founding Cohort is $500. Financial assistance is available in select cases — indicate your interest when you apply and our team will follow up directly.'
+      },
+      {
+        k: 'financial',
+        t: ['financial','scholarship','assistance','aid','afford','free','discount','help with cost','need-based'],
+        r: 'Financial assistance is available in select cases, based on need and program fit. We do not turn away strong applicants for financial reasons alone, but assistance is limited and not guaranteed. Indicate your interest in the application.'
+      },
+      {
+        k: 'experience',
+        t: ['experience','beginner','prior','level','skill','background','already play','trained','foundation','instrument','know how'],
+        r: 'Students should come with some foundation in music — formal or self-taught. The program is built to push students who are already engaged, not introduce the subject from scratch. We look for curiosity, commitment, and a clear reason for applying.'
+      },
+      {
+        k: 'program',
+        t: ['what do','what will','learn','include','cover','curriculum','production','performance','technology','track','music tech','what is'],
+        r: 'The program centers on performance and production developed together — building musicianship, creative practice, and original work within a focused cohort. The experience leads toward a final public showcase where students perform and present their work.'
+      },
+      {
+        k: 'oberlin',
+        t: ['oberlin','conservatory','college','university','partner','institution','pathway'],
+        r: 'Oberlin Conservatory has confirmed a virtual session for the 2026 cohort — covering conservatory life, auditions, musical pathways, and student questions. Students will have direct access to Oberlin Admissions.'
+      },
+      {
+        k: 'showcase',
+        t: ['showcase','perform','public','present','concert','final','audience','family','families'],
+        r: 'The program culminates in a final public showcase where students perform and present the work they created during the intensive. The showcase is open to families and the community in Nassau.'
+      },
+      {
+        k: 'dates',
+        t: ['when','date','july','schedule','start','end','how long','duration','weeks','days'],
+        r: 'The 2026 program runs July 13–24 in Nassau, Bahamas. It is a 10-day intensive, Monday through Friday.'
+      },
+      {
+        k: 'location',
+        t: ['where','location','venue','held','place','st john','nassau','bahamas','address'],
+        r: 'The 2026 program takes place in Nassau, Bahamas. Venue details will be shared with accepted students before the program begins.'
+      },
+      {
+        k: 'deadline',
+        t: ['deadline','apply by','last day','close','still open','application window','when can i apply'],
+        r: 'Applications are reviewed on a rolling basis. We encourage applying as early as possible — the cohort is small and applications are considered as they arrive.'
+      },
+      {
+        k: 'decision',
+        t: ['hear back','notif','decision','accept','status','when will i','wait','response','stage one','stage two','musical submission','respond'],
+        r: 'Stage One decisions are expected to begin the week of June 8, 2026. If you advance, you'll be invited to Stage Two — a brief musical submission for further review. All applicants will be notified by email.'
+      },
+      {
+        k: 'cohort',
+        t: ['how many','class size','cohort','small','spots','seats','capacity','selective','size'],
+        r: 'The 2026 cohort accepts 12–15 students. Every application is reviewed individually. The cohort is intentionally small so each student receives close mentorship and attention throughout the program.'
+      },
+      {
+        k: 'apply',
+        t: ['how do i apply','how to apply','sign up','register','submit','process','start application','link'],
+        r: 'Applications are open at islandinnovatorsbahamas.com. The application includes basic information, a short personal statement, and questions about your musical background. Stage Two — a brief musical submission — is only required if you advance from Stage One.'
+      },
+      {
+        k: 'garment',
+        t: ['apparel','garment','piece','clothing','wear','hoodie','sweatshirt','outfit','merch'],
+        r: 'Accepted students receive an official Founding Cohort piece — worn throughout the program and onto the showcase stage.'
+      }
+
+      {
+        k: 'founder',
+        t: ['who founded','who started','who created','who runs','christopher','hilton','barry','griffin','someone else','whos behind','who is the founder','who made','founded by'],
+        r: 'Island Innovators Bahamas was founded by Christopher Hilton, a Bahamian jazz bassist and student at Oberlin Conservatory. If you\'ve seen other organizations or search results with similar names, they are unrelated — Island Innovators Bahamas is a separate initiative founded and led by Christopher Hilton.'
+      },
+      {
+        k: 'history',
+        t: ['how did it start','history','2025','pilot','last summer','where did it come from','background','before 2026','original program','first year','how it began'],
+        r: 'Island Innovators Bahamas began in Summer 2025 as a pilot program in Nassau — two sessions over eight weeks, serving 14 students. The program explored music, coding, and robotics as connected ways of thinking, building, and creating. What stood out most was the importance of depth: students developed most when they had the time and structure to go deeper into something and actually create. That lesson shaped the 2026 model.'
+      },
+      {
+        k: 'philosophy',
+        t: ['why','mission','purpose','what is the goal','philosophy','vision','belief','what do you believe','approach','how does it work','why this program','why does this exist'],
+        r: 'Island Innovators Bahamas exists because young people in The Bahamas with real creative and musical ability deserve environments where those abilities are taken seriously and developed. The program is built around depth over breadth — serious mentorship, creative ownership, and the belief that students grow most when they are given the tools and a real starting point, and then trusted to find their own way. It is not just instruction. It is a space where students build real things and are taken seriously doing it.'
+      },
+      {
+        k: 'press',
+        t: ['tribune','newspaper','press','media','featured','article','coverage','publicity','big ideas','been in the news'],
+        r: 'Island Innovators Bahamas was featured in The Tribune in connection with the 2025 pilot program. The article ran in the Weekend Culture section on July 4, 2025, under the headline "Big ideas for young Bahamians."'
+      },
+      {
+        k: 'coding_robotics',
+        t: ['coding','robotics','web development','javascript','html','stem','steam','other subjects','tech only','just music','what about robotics','will coding come back','future cycles'],
+        r: 'The 2025 pilot included music, coding, and robotics — explored as connected ways of thinking, building, and creating. The 2026 program focuses on music and music technology. Coding and robotics are not abandoned. The organization is still exploring how those disciplines could return in future cycles. For now, the 2026 intensive is centered entirely on music performance and production.'
+      },
+      {
+        k: 'contact_routing',
+        t: ['email','contact','get in touch','reach out','who do i contact','questions','general','hello','admissions email','how do i reach'],
+        r: 'For application and admissions questions, contact admissions@islandinnovatorsbahamas.com. For general inquiries, partnerships, or sponsorship conversations, contact hello@islandinnovatorsbahamas.com.'
+      },
+      {
+        k: 'partnership',
+        t: ['sponsor','partner','support','donate','fund','collaborate','school','organization','institution','work with','get involved'],
+        r: 'Island Innovators Bahamas welcomes conversations with schools, sponsors, artists, and organizations committed to serious artistic development for young Bahamians. Reach out at hello@islandinnovatorsbahamas.com.'
+      },
+    ];
+
+    const FALLBACK = 'That's a great question. For anything I'm not able to address here, please reach out directly at <a href="mailto:admissions@islandinnovatorsbahamas.com">admissions@islandinnovatorsbahamas.com</a> — our team will be happy to help.';
+
+    const OPENING = 'Hello. I can answer questions about the program, application, dates, tuition, and what to expect. What would you like to know?';
+
+    function findAnswer(q) {
+      const lower = q.toLowerCase();
+      for (const entry of KB) {
+        if (entry.t.some(t => lower.includes(t))) return entry.r;
+      }
+      return null;
+    }
+
+    function initPanel(id) {
+      const panel = document.getElementById('iib-panel-' + id);
+      const thread = document.getElementById('iib-thread-' + id);
+      const input  = document.getElementById('iib-input-' + id);
+      const send   = document.getElementById('iib-send-' + id);
+      const sugg   = document.getElementById('iib-sugg-' + id);
+      const reset  = document.getElementById('iib-reset-' + id);
+      const toggle = document.getElementById('iib-toggle-' + id);
+      if (!panel) return;
+
+      function appendMsg(role, html) {
+        const d = document.createElement('div');
+        d.className = 'iib-msg iib-' + role;
+        d.innerHTML = '<span class="iib-msg-role">' + (role === 'assistant' ? 'Admissions' : 'You') + '</span><p class="iib-msg-text">' + html + '</p>';
+        thread.appendChild(d);
+        thread.scrollTop = thread.scrollHeight;
+      }
+
+      function hideSugg() {
+        if (!sugg) return;
+        sugg.style.opacity = '0';
+        sugg.style.pointerEvents = 'none';
+        setTimeout(() => sugg.style.display = 'none', 200);
+      }
+
+      function process(q) {
+        send.disabled = true;
+        appendMsg('user', q);
+        // typing
+        const t = document.createElement('div');
+        t.className = 'iib-msg iib-assistant';
+        t.id = 'iib-typing-' + id;
+        t.innerHTML = '<span class="iib-msg-role">Admissions</span><div class="iib-typing"><div class="iib-dot"></div><div class="iib-dot"></div><div class="iib-dot"></div></div>';
+        thread.appendChild(t);
+        thread.scrollTop = thread.scrollHeight;
+        setTimeout(() => {
+          const el = document.getElementById('iib-typing-' + id);
+          if (el) el.remove();
+          appendMsg('assistant', findAnswer(q) || FALLBACK);
+          send.disabled = false;
+          input.focus();
+        }, 920 + Math.random() * 360);
+      }
+
+      // Send button
+      send.addEventListener('click', () => {
+        const v = input.value.trim();
+        if (!v) return;
+        input.value = '';
+        hideSugg();
+        process(v);
+      });
+
+      // Enter key
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const v = input.value.trim();
+          if (!v) return;
+          input.value = '';
+          hideSugg();
+          process(v);
+        }
+      });
+
+      // Suggestion buttons
+      panel.querySelectorAll('.iib-suggest-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          hideSugg();
+          process(btn.dataset.q);
+        });
+      });
+
+      // Reset
+      if (reset) {
+        reset.addEventListener('click', () => {
+          thread.innerHTML = '<div class="iib-msg iib-assistant"><span class="iib-msg-role">Admissions</span><p class="iib-msg-text">' + OPENING + '</p></div>';
+          if (sugg) { sugg.style.cssText = ''; }
+        });
+      }
+
+      // Toggle (FAQ variant)
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const open = panel.classList.toggle('iib-open');
+          toggle.setAttribute('aria-expanded', open);
+          toggle.textContent = open ? 'Close' : 'Ask the Admissions Assistant';
+          if (open) setTimeout(() => input.focus(), 460);
+        });
+      }
+    }
+
+    // Admissions page banner button
+    const admBtn = document.getElementById('iib-adm-btn');
+    if (admBtn) {
+      admBtn.addEventListener('click', () => {
+        const panel = document.getElementById('iib-panel-adm');
+        const open = panel.classList.toggle('iib-open');
+        admBtn.textContent = open ? 'Close' : 'Ask a Question';
+        if (open) setTimeout(() => document.getElementById('iib-input-adm').focus(), 460);
+      });
+    }
+
+    // Init all panels
+    ['faq','adm'].forEach(initPanel);
+  })();
+  </script>
 </body>
 </html>
