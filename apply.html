@@ -444,14 +444,10 @@
           <div class="iib-thread" id="iib-thread-adm">
             <div class="iib-msg iib-assistant">
               <span class="iib-msg-role">Admissions</span>
-              <p class="iib-msg-text">Hello. I can answer questions about the program, application, dates, tuition, and what to expect. What would you like to know?</p>
+              <p class="iib-msg-text">I’m here to help with questions about Island Innovators Bahamas — the program, the experience, and the application process.</p>
             </div>
           </div>
-          <div class="iib-suggestions" id="iib-sugg-adm">
-            <button class="iib-suggest-btn" data-q="What is the application process?">What is the application process?</button>
-            <button class="iib-suggest-btn" data-q="Is financial assistance available?">Is financial assistance available?</button>
-            <button class="iib-suggest-btn" data-q="Who founded Island Innovators Bahamas?">Who founded this program?</button>
-          </div>
+
           <div class="iib-input-row">
             <input class="iib-question-input" id="iib-input-adm" type="text" placeholder="Type your question…" autocomplete="off" />
             <button class="iib-send-btn" id="iib-send-adm">Send</button>
@@ -1291,7 +1287,7 @@
       },
     ];
 
-    const OPENING = 'Hello. I can answer questions about the program, application, dates, tuition, and what to expect. What would you like to know?';
+    const OPENING = 'I\'m here to help with questions about Island Innovators Bahamas — the program, the experience, and the application process.';
 
     function findAnswer(q) {
       const lower = q.toLowerCase();
