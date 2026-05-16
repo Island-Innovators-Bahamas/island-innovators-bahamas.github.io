@@ -419,7 +419,7 @@
       <div class="iib-adm-banner">
         <div class="iib-adm-banner-text">
           <strong>Questions before applying?</strong>
-          Common questions about eligibility, tuition, and the application process.
+          Ask the Admissions Assistant.
         </div>
         <button class="iib-adm-banner-btn" id="iib-adm-btn">Ask a Question</button>
       </div>
@@ -1307,10 +1307,8 @@
       return q.toLowerCase().replace(/[?!.,;:'"]/g, ' ').replace(/\s+/g, ' ').trim();
     }
 
-    // Topics that should always escalate regardless of context
     const UNSAFE_TOPICS = ['dating','girlfriend','boyfriend','married','salary','political','religion','private life','rumor','personal life','net worth','wealth','his address','her address','personal address','personal relationship'];
 
-    // When answering a topic, these are the natural follow-on topics
     const FOLLOW_ON = {
       founder:         ['history','inspired_origin','oberlin'],
       history:         ['inspired_origin','philosophy','program'],
@@ -1328,28 +1326,48 @@
       differentiation: ['philosophy','overview','history'],
     };
 
-    // KB keys whose responses involve a person as the primary subject
     const PERSON_KEYS = new Set(['founder','inspired_origin','history']);
+
+    // Optional response variants — selected by session depth to reduce repetition
+    // Keys without variants always use r directly
+    const VARIANTS = {
+      program: [
+        'Performance and production are explored together throughout the two weeks \u2014 students develop musical craft, build original work, and present it at the public showcase that closes the program.',
+      ],
+      overview: [
+        'Island Innovators Bahamas is a selective 10-day intensive in Nassau built around music and music technology. The 2026 cohort is 12\u201315 students, reviewed individually, working across performance and production toward a final public showcase.',
+      ],
+      experience_feel: [
+        'Two weeks, Monday through Friday. Students work across performance and production each day \u2014 mentored throughout and building toward the final public showcase. The environment is intentional and serious, aimed at students ready to produce something real.',
+      ],
+      cohort: [
+        'Twelve to fifteen students, selected individually. The cohort is kept small so every student receives real attention \u2014 a mentored intensive, not a classroom.',
+      ],
+      apply: [
+        'Applications are open at islandinnovatorsbahamas.com. Stage One covers background information and a personal statement. Students who advance are invited to Stage Two, which involves a brief musical submission.',
+      ],
+    };
+
+    function getResponse(entry, ctx) {
+      const vars = VARIANTS[entry.k];
+      if (vars && vars.length > 0 && ctx.trail.length % 2 === 1) {
+        return vars[(ctx.trail.length >> 1) % vars.length];
+      }
+      return entry.r;
+    }
 
     function resolveEntry(q, ctx) {
       const n = _normalize(q);
-
-      // Safety pass: certain topics always escalate
       if (UNSAFE_TOPICS.some(u => n.includes(u))) return null;
 
-      // Context analysis
       const last = ctx.trail.length ? ctx.trail[ctx.trail.length - 1] : null;
       let boostKeys = [], boostScore = 0;
 
       if (last) {
-        // Person-pronoun follow-ups
-        const personRefs = ['he ','him ','his ',"he s",'about him','does he','did he','is he','was he','what he','who he'];
-        // Generic follow-ups
+        const personRefs = ['he ','him ','his ','he s','about him','does he','did he','is he','was he','what he','who he'];
         const genericRefs = ['what else','tell me more','more about','can you elaborate','what about it','what about that','go on','and what','anything else'];
-
         const hasPersonRef = personRefs.some(p => n.includes(p));
         const hasGenericRef = genericRefs.some(p => n.includes(p));
-
         if (hasPersonRef && PERSON_KEYS.has(last.key)) {
           boostKeys = FOLLOW_ON[last.key] || [];
           boostScore = 9;
@@ -1359,28 +1377,46 @@
         }
       }
 
-      // Scoring pass
-      let best = null, bestScore = 0;
-      for (const entry of KB) {
+      // Score all entries
+      const scored = KB.map(entry => {
         let score = 0;
         for (const t of entry.t) {
           if (n.includes(_normalize(t))) score += t.split(' ').length;
         }
         if (boostKeys.includes(entry.k)) score += boostScore;
-        if (score > bestScore) { bestScore = score; best = entry; }
+        return { entry, score };
+      }).filter(x => x.score > 0).sort((a, b) => b.score - a.score);
+
+      if (!scored.length) return null;
+
+      const first = scored[0];
+      const second = scored[1];
+
+      // Synthesis: if secondary is in first's FOLLOW_ON chain and scores meaningfully,
+      // compose from both — first entry full, plus opening sentence of second
+      if (second && second.score >= 2) {
+        const followOns = FOLLOW_ON[first.entry.k] || [];
+        if (followOns.includes(second.entry.k)) {
+          const leadFull = getResponse(first.entry, ctx);
+          const secondOpen = second.entry.r.split('. ')[0] + '.';
+          // Only append if second adds genuinely new information (not a repeat of the same facts)
+          if (!leadFull.includes(secondOpen.slice(0, 20))) {
+            return { r: leadFull + '\n\n' + secondOpen, k: first.entry.k, _synthesized: true };
+          }
+        }
       }
 
-      return best || null;
+      return first.entry;
     }
 
     function findAnswer(q, ctx) {
-      const entry = resolveEntry(q, ctx);
-      if (!entry) return null;
+      const result = resolveEntry(q, ctx);
+      if (!result) return null;
       if (ctx) {
-        ctx.trail.push({ key: entry.k });
+        ctx.trail.push({ key: result.k });
         if (ctx.trail.length > 4) ctx.trail.shift();
       }
-      return entry.r;
+      return result._synthesized ? result.r : getResponse(result, ctx);
     }
 
     function initPanel(id) {
@@ -1393,7 +1429,6 @@
       const toggle = document.getElementById('iib-toggle-' + id);
       if (!panel || !thread || !input || !send) return;
 
-      // Per-panel scoped context — cleared on reset
       const ctx = { trail: [] };
 
       function appendMsg(role, html) {
@@ -1423,13 +1458,19 @@
         setTimeout(() => {
           const el = document.getElementById('iib-typing-' + id);
           if (el) el.remove();
-          appendMsg('assistant', findAnswer(q, ctx) || getFallback(q));
-          send.disabled = false;
-          input.focus();
+          try {
+            appendMsg('assistant', findAnswer(q, ctx) || getFallback(q));
+          } catch(err) {
+            appendMsg('assistant', getFallback(q));
+          } finally {
+            send.disabled = false;
+            input.focus();
+          }
         }, 920 + Math.random() * 360);
       }
 
       send.addEventListener('click', () => {
+        if (send.disabled) return;
         const v = input.value.trim();
         if (!v) return;
         input.value = '';
@@ -1439,6 +1480,7 @@
 
       input.addEventListener('keydown', e => {
         if (e.key === 'Enter') {
+          if (send.disabled) return;
           const v = input.value.trim();
           if (!v) return;
           input.value = '';
@@ -1456,10 +1498,10 @@
 
       if (reset) {
         reset.addEventListener('click', () => {
-          // Clear thread AND context
           ctx.trail = [];
           thread.innerHTML = '<div class="iib-msg iib-assistant"><span class="iib-msg-role">Admissions</span><p class="iib-msg-text">' + OPENING + '</p></div>';
           if (sugg) { sugg.style.cssText = ''; }
+          send.disabled = false;
         });
       }
 
