@@ -1159,266 +1159,47 @@
 
 
   <script>
-  /* ── Admissions Assistant ───────────────────────────────────────────── */
+  /* ── Admissions Assistant ──────────────────────────────────────────────────── */
   (function() {
 
-    const KB = [
-      {
-        k: 'age',
-        t: ['age','how old','grade','year','old enough','too young','too old','eligib','qualify'],
-        r: 'The program is open to students ages 11\u201317, currently in Grades 6\u201312. In exceptional cases, applicants slightly outside this range may be considered based on fit and readiness.'
-      },
-      {
-        k: 'tuition',
-        t: ['cost','tuition','price','fee','how much','$500','500','money','pay'],
-        r: 'Tuition for the 2026 Founding Cohort is $500. Financial assistance is available in select cases \u2014 indicate your interest when you apply and our team will follow up directly.'
-      },
-      {
-        k: 'financial',
-        t: ['financial','scholarship','assistance','aid','afford','free','discount','help with cost','need-based'],
-        r: 'Financial assistance is available in select cases, based on need and program fit. We do not turn away strong applicants for financial reasons alone, but assistance is limited and not guaranteed. Indicate your interest in the application.'
-      },
-      {
-        k: 'experience',
-        t: ['experience','beginner','prior','level','skill','background','already play','trained','foundation','instrument','know how'],
-        r: 'Students should come with some foundation in music \u2014 formal or self-taught. The program is built to push students who are already engaged, not introduce the subject from scratch. We look for curiosity, commitment, and a clear reason for applying.'
-      },
-      {
-        k: 'program',
-        t: ['what do','what will','learn','include','cover','curriculum','production','performance','music tech'],
-        r: 'The program centers on performance and production developed together \u2014 building musicianship, creative practice, and original work within a focused cohort. The experience leads toward a final public showcase where students perform and present their work.'
-      },
-      {
-        k: 'oberlin',
-        t: ['oberlin','conservatory','college','university','institution','pathway'],
-        r: 'Oberlin Conservatory has confirmed a virtual session for the 2026 cohort \u2014 covering conservatory life, auditions, musical pathways, and student questions. Students will have the opportunity to engage directly with Oberlin Admissions staff.'
-      },
-      {
-        k: 'showcase',
-        t: ['showcase','perform','public','present','concert','final','audience','family','families'],
-        r: 'The program culminates in a final public showcase where students perform and present the work they created during the intensive. The showcase is open to families and the community in Nassau.'
-      },
-      {
-        k: 'dates',
-        t: ['date','july','schedule','how long','duration','weeks','days','when is the program','when does it','when does the'],
-        r: 'The 2026 program runs July 13\u201324 in Nassau, Bahamas. It is a 10-day intensive, Monday through Friday.'
-      },
-      {
-        k: 'location',
-        t: ['where','location','venue','held','place','st john','nassau','bahamas','address'],
-        r: 'The 2026 program takes place in Nassau, Bahamas. Venue details will be shared with accepted students before the program begins.'
-      },
-      {
-        k: 'deadline',
-        t: ['deadline','apply by','last day','close','still open','application window','when can i apply'],
-        r: 'Applications are reviewed on a rolling basis. We encourage applying as early as possible \u2014 the cohort is small and applications are considered as they arrive.'
-      },
-      {
-        k: 'decision',
-        t: ['hear back','notif','decision','accept','status','when will i','wait','response','stage one','stage two','musical submission','respond','audition'],
-        r: 'Stage One decisions are expected to begin the week of June 8, 2026. If you advance, you\'ll be invited to Stage Two \u2014 a brief musical submission for further review. All applicants will be notified by email.'
-      },
-      {
-        k: 'cohort',
-        t: ['how many','class size','cohort','small','spots','seats','capacity','selective','size'],
-        r: 'The 2026 cohort accepts 12\u201315 students. Every application is reviewed individually. The cohort is intentionally small so each student receives close mentorship and attention throughout the program.'
-      },
-      {
-        k: 'apply',
-        t: ['how do i apply','how to apply','sign up','register','submit','start application','link','application'],
-        r: 'You can apply at islandinnovatorsbahamas.com. The application includes basic information, a short personal statement, and questions about your musical background. Stage Two \u2014 a brief musical submission \u2014 is only required if you advance from Stage One.'
-      },
-      {
-        k: 'garment',
-        t: ['apparel','garment','piece','clothing','wear','hoodie','sweatshirt','outfit','merch'],
-        r: 'Accepted students receive an official Founding Cohort piece \u2014 worn throughout the program and onto the showcase stage.'
-      },
-      {
-        k: 'founder',
-        t: ['who founded','who started','who created','who runs','christopher hilton','christopher','barry','griffin','someone else','whos behind','who is the founder','who made','founded by'],
-        r: 'Island Innovators Bahamas was founded by Christopher Hilton, a Bahamian jazz bassist and student at Oberlin Conservatory. If you\'ve seen other organizations with similar names, they are unrelated \u2014 Island Innovators Bahamas is a separate initiative founded and led by Christopher Hilton.'
-      },
-      {
-        k: 'history',
-        t: ['how did it start','history','2025','pilot','last summer','where did it come from','background','before 2026','original program','first year','how it began'],
-        r: 'Island Innovators Bahamas began in Summer 2025 as a pilot program in Nassau \u2014 two sessions over eight weeks, serving 14 students. The program explored music, coding, and robotics as connected ways of thinking, building, and creating. What stood out most was the importance of depth: students developed most when they had the time and structure to go deeper into something and actually create. That lesson shaped the 2026 model.'
-      },
-      {
-        k: 'philosophy',
-        t: ['why','mission','purpose','what is the goal','goal of the','goal of','philosophy','vision','belief','what do you believe','approach','how does it work','why this program','why does this exist'],
-        r: 'Island Innovators Bahamas exists because young people in The Bahamas with real creative and musical ability deserve environments where those abilities are taken seriously and developed. The program is built around depth over breadth \u2014 serious mentorship, creative ownership, and the belief that students grow most when they are given the tools and a real starting point, and then trusted to find their own way. It is not just instruction. It is a space where students build real things and are taken seriously doing it.'
-      },
-      {
-        k: 'press',
-        t: ['tribune','newspaper','press','media','featured','article','coverage','publicity','big ideas','been in the news'],
-        r: 'Island Innovators Bahamas was featured in The Tribune in connection with the 2025 pilot program. The article ran in the Weekend Culture section on July 4, 2025, under the headline "Big ideas for young Bahamians."'
-      },
-      {
-        k: 'coding_robotics',
-        t: ['coding','robotics','web development','javascript','html','stem','steam','other subjects','tech only','just music','what about robotics','will coding come back','future cycles'],
-        r: 'The 2025 pilot included music, coding, and robotics \u2014 explored as connected ways of thinking, building, and creating. The 2026 program focuses on music and music technology. Other disciplines remain part of the longer-term vision and may return in future cycles. For now, the 2026 intensive centers entirely on music performance and production.'
-      },
-      {
-        k: 'contact_routing',
-        t: ['reach out','who do i contact','admissions email','how do i reach','contact us','get in touch'],
-        r: 'For application and admissions questions, contact admissions@islandinnovatorsbahamas.com. For general inquiries, partnerships, or sponsorship conversations, contact hello@islandinnovatorsbahamas.com.'
-      },
-      {
-        k: 'partnership',
-        t: ['sponsor','partner','support','donate','collaborate','institution','work with','partnership inquiry','sponsor the program'],
-        r: 'Island Innovators Bahamas welcomes conversations with schools, sponsors, artists, and organizations committed to serious artistic development for young Bahamians. Reach out at hello@islandinnovatorsbahamas.com.'
-      },
-
-      {
-        k: 'capabilities',
-        t: ['what can you do','what can you help','how can you help','what do you know','what can i ask','what can you tell','what are you able','what questions','can you answer','what do you cover'],
-        r: 'I can help with questions about Island Innovators Bahamas \u2014 the 2026 program, application and admissions process, program philosophy, dates and logistics, financial assistance, and the organization\'s background. For anything outside that scope, I can point you toward the right contact.'
-      },
-      {
-        k: 'overview',
-        t: ['tell me about','what is island innovators','what\' s this program','what\' s this about','give me an overview','overview of the program','introduce the program','learn more about','about island innovators','describe the program','what is this program','about the program'],
-        r: 'Island Innovators Bahamas is a selective music and music technology intensive in Nassau, accepting 12\u201315 students per cohort. The 2026 program runs July 13\u201324, focusing on performance and production developed together. Students work toward a final public showcase, and every application is reviewed individually. The cohort is intentionally small \u2014 built around depth, mentorship, and serious creative work.'
-      },
-      {
-        k: 'student_profile',
-        t: ['what kind of students','who applies','who attends','type of student','what students','who is this for','is this for me','who would benefit','what level','what type of student'],
-        r: 'The program is built for students ages 11\u201317 who have a genuine foundation in music and are ready to go deeper. We look for curiosity, commitment, and a clear reason for applying \u2014 not a specific level of prior training. Students come engaged with their craft and leave having built and presented original work.'
-      },
-      {
-        k: 'differentiation',
-        t: ['what makes this different','different from','what sets it apart','stand out','what\'s special','unlike other','what makes it unique','why this program over','why island innovators','why choose','like a camp','just a camp','is this a camp','summer camp'],
-        r: 'Island Innovators Bahamas is intentionally small, Nassau-based, and built around one conviction: that young Bahamians with real creative ability deserve environments where those abilities are taken seriously. The focus is depth over breadth \u2014 students don\'t survey subjects, they build real work and present it publicly. The program treats young artists as serious artists.'
-      },
-      {
-        k: 'experience_feel',
-        t: ['what happens during','what does it feel like','experience like','feel like','what does the experience','experience feel','what is it like','typical day','day in the program','what do students do','during the program','what would i do','daily experience'],
-        r: 'The program runs Monday through Friday over two weeks. Each day combines performance and production \u2014 students are working on their craft, receiving mentorship, and building toward the final public showcase. The environment is serious but creative. The goal is for every student to leave with something real they made and presented in front of an audience.'
-      },
-      {
-        k: 'inspired_origin',
-        t: ['what inspired','where did the idea','why did you start','origin of','how did you think of','what motivated','what was the vision','how did christopher','what led to','what sparked'],
-        r: 'Island Innovators Bahamas grew from what founder Christopher Hilton observed firsthand: that young people in Nassau with genuine creative ability often lacked spaces where those abilities were developed seriously. The 2025 pilot \u2014 two sessions, 14 students, music, coding, and robotics \u2014 confirmed what was possible. The 2026 model was shaped by that experience, particularly the lesson that depth matters more than breadth.'
-      },
-    ];
+    // ── CONFIG ──────────────────────────────────────────────────────────────────
+    // After deploying your Cloudflare Worker, replace this URL with your worker URL.
+    // Format: https://iib-assistant.YOURNAME.workers.dev
+    const WORKER_URL = 'REPLACE_WITH_YOUR_WORKER_URL';
 
     const OPENING = 'I can help with questions about Island Innovators Bahamas \u2014 the program, the experience, and the application process.';
 
-    function _normalize(q) {
-      return q.toLowerCase().replace(/[?!.,;:'"]/g, ' ').replace(/\s+/g, ' ').trim();
+    // ── FALLBACK (used when API is unavailable) ─────────────────────────────────
+    function getFallback(q) {
+      const sub1 = encodeURIComponent('Island Innovators Bahamas \u2014 Admissions Question');
+      const sub2 = encodeURIComponent('Island Innovators Bahamas \u2014 General Inquiry');
+      const body = encodeURIComponent('Hello,\n\nI had a question from your website:\n\n' + (q || '') + '\n\nThank you.');
+      const adm   = 'mailto:admissions@islandinnovatorsbahamas.com?subject=' + sub1 + '&body=' + body;
+      const hello = 'mailto:hello@islandinnovatorsbahamas.com?subject=' + sub2 + '&body=' + body;
+      return 'I\u2019m not able to process that right now. You can reach the team directly \u2014 clicking below will open your email app:'
+        + '<div class="iib-escalate">'
+        + '<a href="' + adm   + '" class="iib-esc-btn">Application &amp; Admissions</a>'
+        + '<a href="' + hello + '" class="iib-esc-btn">General &amp; Partnerships</a>'
+        + '</div>'
+        + '<p class="iib-esc-note">This will open your email app. Nothing is sent automatically.</p>';
     }
 
-    const UNSAFE_TOPICS = ['dating','girlfriend','boyfriend','married','salary','political','religion','private life','rumor','personal life','net worth','wealth','his address','her address','personal address','personal relationship'];
-
-    const FOLLOW_ON = {
-      founder:         ['history','inspired_origin','oberlin'],
-      history:         ['inspired_origin','philosophy','program'],
-      inspired_origin: ['philosophy','history','overview'],
-      philosophy:      ['differentiation','program','experience_feel'],
-      program:         ['experience_feel','showcase','student_profile'],
-      overview:        ['program','apply','student_profile'],
-      student_profile: ['experience','cohort','apply'],
-      cohort:          ['apply','decision','financial'],
-      apply:           ['decision','financial','deadline'],
-      decision:        ['financial','deadline','apply'],
-      oberlin:         ['founder','program','apply'],
-      showcase:        ['program','dates','cohort'],
-      experience_feel: ['showcase','program','student_profile'],
-      differentiation: ['philosophy','overview','history'],
-    };
-
-    const PERSON_KEYS = new Set(['founder','inspired_origin','history']);
-
-    // Optional response variants — selected by session depth to reduce repetition
-    // Keys without variants always use r directly
-    const VARIANTS = {
-      program: [
-        'Performance and production are explored together throughout the two weeks \u2014 students develop musical craft, build original work, and present it at the public showcase that closes the program.',
-      ],
-      overview: [
-        'Island Innovators Bahamas is a selective 10-day intensive in Nassau built around music and music technology. The 2026 cohort is 12\u201315 students, reviewed individually, working across performance and production toward a final public showcase.',
-      ],
-      experience_feel: [
-        'Two weeks, Monday through Friday. Students work across performance and production each day \u2014 mentored throughout and building toward the final public showcase. The environment is intentional and serious, aimed at students ready to produce something real.',
-      ],
-      cohort: [
-        'Twelve to fifteen students, selected individually. The cohort is kept small so every student receives real attention \u2014 a mentored intensive, not a classroom.',
-      ],
-      apply: [
-        'Applications are open at islandinnovatorsbahamas.com. Stage One covers background information and a personal statement. Students who advance are invited to Stage Two, which involves a brief musical submission.',
-      ],
-    };
-
-    function getResponse(entry, ctx) {
-      const vars = VARIANTS[entry.k];
-      if (vars && vars.length > 0 && ctx.trail.length % 2 === 1) {
-        return vars[(ctx.trail.length >> 1) % vars.length];
-      }
-      return entry.r;
+    // ── API CALL ────────────────────────────────────────────────────────────────
+    async function callWorker(question, history) {
+      const messages = history.concat([{ role: 'user', content: question }]);
+      const res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages })
+      });
+      if (!res.ok) throw new Error('Worker ' + res.status);
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      if (!data.answer) throw new Error('Empty response');
+      return data.answer;
     }
 
-    function resolveEntry(q, ctx) {
-      const n = _normalize(q);
-      if (UNSAFE_TOPICS.some(u => n.includes(u))) return null;
-
-      const last = ctx.trail.length ? ctx.trail[ctx.trail.length - 1] : null;
-      let boostKeys = [], boostScore = 0;
-
-      if (last) {
-        const personRefs = ['he ','him ','his ','he s','about him','does he','did he','is he','was he','what he','who he'];
-        const genericRefs = ['what else','tell me more','more about','can you elaborate','what about it','what about that','go on','and what','anything else'];
-        const hasPersonRef = personRefs.some(p => n.includes(p));
-        const hasGenericRef = genericRefs.some(p => n.includes(p));
-        if (hasPersonRef && PERSON_KEYS.has(last.key)) {
-          boostKeys = FOLLOW_ON[last.key] || [];
-          boostScore = 9;
-        } else if (hasGenericRef) {
-          boostKeys = FOLLOW_ON[last.key] || [];
-          boostScore = 5;
-        }
-      }
-
-      // Score all entries
-      const scored = KB.map(entry => {
-        let score = 0;
-        for (const t of entry.t) {
-          if (n.includes(_normalize(t))) score += t.split(' ').length;
-        }
-        if (boostKeys.includes(entry.k)) score += boostScore;
-        return { entry, score };
-      }).filter(x => x.score > 0).sort((a, b) => b.score - a.score);
-
-      if (!scored.length) return null;
-
-      const first = scored[0];
-      const second = scored[1];
-
-      // Synthesis: if secondary is in first's FOLLOW_ON chain and scores meaningfully,
-      // compose from both — first entry full, plus opening sentence of second
-      if (second && second.score >= 2) {
-        const followOns = FOLLOW_ON[first.entry.k] || [];
-        if (followOns.includes(second.entry.k)) {
-          const leadFull = getResponse(first.entry, ctx);
-          const secondOpen = second.entry.r.split('. ')[0] + '.';
-          // Only append if second adds genuinely new information (not a repeat of the same facts)
-          if (!leadFull.includes(secondOpen.slice(0, 20))) {
-            return { r: leadFull + '\n\n' + secondOpen, k: first.entry.k, _synthesized: true };
-          }
-        }
-      }
-
-      return first.entry;
-    }
-
-    function findAnswer(q, ctx) {
-      const result = resolveEntry(q, ctx);
-      if (!result) return null;
-      if (ctx) {
-        ctx.trail.push({ key: result.k });
-        if (ctx.trail.length > 4) ctx.trail.shift();
-      }
-      return result._synthesized ? result.r : getResponse(result, ctx);
-    }
-
+    // ── PANEL INIT ──────────────────────────────────────────────────────────────
     function initPanel(id) {
       const panel  = document.getElementById('iib-panel-' + id);
       const thread = document.getElementById('iib-thread-' + id);
@@ -1429,14 +1210,33 @@
       const toggle = document.getElementById('iib-toggle-' + id);
       if (!panel || !thread || !input || !send) return;
 
-      const ctx = { trail: [] };
+      // Full conversation history for this panel session
+      // Each entry: { role: 'user'|'assistant', content: '...' }
+      const history = [];
 
       function appendMsg(role, html) {
         const d = document.createElement('div');
         d.className = 'iib-msg iib-' + role;
-        d.innerHTML = '<span class="iib-msg-role">' + (role === 'assistant' ? 'Admissions' : 'You') + '</span><p class="iib-msg-text">' + html + '</p>';
+        d.innerHTML = '<span class="iib-msg-role">'
+          + (role === 'assistant' ? 'Admissions' : 'You')
+          + '</span><p class="iib-msg-text">' + html + '</p>';
         thread.appendChild(d);
         setTimeout(() => { thread.scrollTop = thread.scrollHeight; }, 10);
+      }
+
+      function showTyping() {
+        const t = document.createElement('div');
+        t.className = 'iib-msg iib-assistant';
+        t.id = 'iib-typing-' + id;
+        t.innerHTML = '<span class="iib-msg-role">Admissions</span>'
+          + '<div class="iib-typing"><div class="iib-dot"></div><div class="iib-dot"></div><div class="iib-dot"></div></div>';
+        thread.appendChild(t);
+        thread.scrollTop = thread.scrollHeight;
+      }
+
+      function removeTyping() {
+        const el = document.getElementById('iib-typing-' + id);
+        if (el) el.remove();
       }
 
       function hideSugg() {
@@ -1446,35 +1246,37 @@
         setTimeout(() => { sugg.style.display = 'none'; }, 200);
       }
 
-      function process(q) {
+      async function process(q) {
+        if (send.disabled) return;
         send.disabled = true;
         appendMsg('user', q);
-        const t = document.createElement('div');
-        t.className = 'iib-msg iib-assistant';
-        t.id = 'iib-typing-' + id;
-        t.innerHTML = '<span class="iib-msg-role">Admissions</span><div class="iib-typing"><div class="iib-dot"></div><div class="iib-dot"></div><div class="iib-dot"></div></div>';
-        thread.appendChild(t);
-        thread.scrollTop = thread.scrollHeight;
-        setTimeout(() => {
-          const el = document.getElementById('iib-typing-' + id);
-          if (el) el.remove();
-          try {
-            appendMsg('assistant', findAnswer(q, ctx) || getFallback(q));
-          } catch(err) {
-            appendMsg('assistant', getFallback(q));
-          } finally {
-            send.disabled = false;
-            input.focus();
-          }
-        }, 920 + Math.random() * 360);
+        showTyping();
+        hideSugg();
+
+        try {
+          const answer = await callWorker(q, history);
+          removeTyping();
+          appendMsg('assistant', answer);
+          // Update history for conversational continuity
+          history.push({ role: 'user', content: q });
+          history.push({ role: 'assistant', content: answer });
+          // Keep last 6 exchanges (12 messages) to control token cost
+          if (history.length > 12) history.splice(0, 2);
+        } catch (err) {
+          removeTyping();
+          appendMsg('assistant', getFallback(q));
+        } finally {
+          send.disabled = false;
+          input.focus();
+        }
       }
 
+      // ── Event listeners ──────────────────────────────────────────────────────
       send.addEventListener('click', () => {
         if (send.disabled) return;
         const v = input.value.trim();
         if (!v) return;
         input.value = '';
-        hideSugg();
         process(v);
       });
 
@@ -1484,24 +1286,23 @@
           const v = input.value.trim();
           if (!v) return;
           input.value = '';
-          hideSugg();
           process(v);
         }
       });
 
       panel.querySelectorAll('.iib-suggest-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          hideSugg();
-          process(btn.dataset.q);
-        });
+        btn.addEventListener('click', () => { process(btn.dataset.q); });
       });
 
       if (reset) {
         reset.addEventListener('click', () => {
-          ctx.trail = [];
-          thread.innerHTML = '<div class="iib-msg iib-assistant"><span class="iib-msg-role">Admissions</span><p class="iib-msg-text">' + OPENING + '</p></div>';
-          if (sugg) { sugg.style.cssText = ''; }
+          // Clear all: visible thread, conversation history, send state
+          history.length = 0;
           send.disabled = false;
+          thread.innerHTML = '<div class="iib-msg iib-assistant">'
+            + '<span class="iib-msg-role">Admissions</span>'
+            + '<p class="iib-msg-text">' + OPENING + '</p></div>';
+          if (sugg) { sugg.style.cssText = ''; }
         });
       }
 
@@ -1515,6 +1316,7 @@
       }
     }
 
+    // ── Admissions page banner button ────────────────────────────────────────────
     const admBtn = document.getElementById('iib-adm-btn');
     if (admBtn) {
       admBtn.addEventListener('click', () => {
@@ -1531,7 +1333,6 @@
 
     ['faq', 'adm'].forEach(initPanel);
   })();
-
 </script>
 </body>
 </html>
