@@ -372,6 +372,26 @@
   }
   .iib-assist-panel.iib-open { pointer-events: auto; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["EducationalOrganization", "Organization"],
+    "name": "Island Innovators Bahamas",
+    "url": "https://islandinnovatorsbahamas.com",
+    "description": "Island Innovators Bahamas is a selective music and music technology intensive for students ages 11\u201317 in Nassau, Bahamas. Founded by Christopher Hilton.",
+    "disambiguatingDescription": "Island Innovators Bahamas is an independent youth music and music technology organization founded solely by Christopher Hilton. It is not affiliated with, sponsored by, or connected to any other individual, political figure, business, or organization using the name Island Innovators.",
+    "founder": {
+      "@type": "Person",
+      "name": "Christopher Hilton",
+      "description": "Bahamian jazz bassist, Oberlin Conservatory student, and founder of Island Innovators Bahamas"
+    },
+    "location": { "@type": "Place", "name": "Nassau, Bahamas" },
+    "sameAs": [
+      "https://www.instagram.com/islandinnovatorsbahamas",
+      "https://www.facebook.com/share/1CsY7yxz4d/?mibextid=wwXIfr"
+    ]
+  }
+  </script>
 </head>
 <body class="bg-sand font-body text-night antialiased">
 
@@ -590,36 +610,22 @@
 
           <div>
             <label class="block text-sm font-medium text-night mb-1.5">
-              Why are you interested in Island Innovators Bahamas? <span class="text-night/35 font-normal">(Optional)</span>
+              Tell us about your experience with music so far. <span class="text-coral">*</span>
+              <span class="text-night/40 font-normal block mt-0.5">This can include lessons, church, school groups, self-teaching, performances, production, or anything else that has been part of your musical life.</span>
             </label>
-            <textarea name="why_this_program" rows="4"
-              placeholder="What drew you to the program?"
+            <textarea name="music_background" rows="5" required
+              placeholder="Tell us about your musical life so far."
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
           </div>
 
-          <!-- Learning style -->
+          <!-- Q3: Why IIB matters -->
           <div>
-            <label class="block text-sm font-medium text-night mb-3">
-              Which sounds most like you when you're working on something new? <span class="text-coral">*</span>
+            <label class="block text-sm font-medium text-night mb-1.5">
+              Why does being a part of Island Innovators Bahamas matter to you personally? <span class="text-coral">*</span>
             </label>
-            <div class="space-y-2.5">
-              <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-                <input type="radio" name="learning_style" value="Experiment and figure things out as I go" required class="mt-0.5 accent-orange shrink-0" />
-                <span class="text-sm text-night/70">I like to experiment and figure things out as I go</span>
-              </label>
-              <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-                <input type="radio" name="learning_style" value="Examples and step-by-step guidance first" class="mt-0.5 accent-orange shrink-0" />
-                <span class="text-sm text-night/70">I like examples and step-by-step guidance before I try things myself</span>
-              </label>
-              <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-                <input type="radio" name="learning_style" value="Work with others and talk ideas through" class="mt-0.5 accent-orange shrink-0" />
-                <span class="text-sm text-night/70">I like to work with others and talk ideas through</span>
-              </label>
-              <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 hover:bg-orange/3 transition-all option-group">
-                <input type="radio" name="learning_style" value="Quiet focus and independent work" class="mt-0.5 accent-orange shrink-0" />
-                <span class="text-sm text-night/70">I like quiet focus and working through things independently</span>
-              </label>
-            </div>
+            <textarea name="why_iib_matters" rows="4" required
+              placeholder="Tell us what this means to you."
+              class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
           </div>
         </div>
 
@@ -632,20 +638,10 @@
 
           <div>
             <label class="block text-sm font-medium text-night mb-1.5">
-              What's something you're currently working on or trying to improve? <span class="text-coral">*</span>
+              What are some things you currently want to improve, explore, or become better at in music? <span class="text-coral">*</span>
             </label>
-            <textarea name="grit_example" rows="4" required
-              placeholder="Could be a skill, a habit, a concept — anything you're actively developing."
-              class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-night mb-1.5">
-              What is something in music you want to learn more about or try? <span class="text-coral">*</span>
-              <span class="text-night/40 font-normal block mt-0.5">It could be performing, producing, writing, or anything you're curious about.</span>
-            </label>
-            <textarea name="unexplored_interest_or_lack_of_access" rows="3" required
-              placeholder="What are you curious about?"
+            <textarea name="music_goals" rows="4" required
+              placeholder="Be specific — what's calling your attention right now?"
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
           </div>
         </div>
@@ -659,22 +655,31 @@
 
           <div>
             <label class="block text-sm font-medium text-night mb-3">
-              The program runs two weeks, Monday–Friday, 9 AM–3 PM. How confident are you that you can be there every day? <span class="text-coral">*</span>
+              Are you able to attend the full program July 13–24, Monday–Friday, 9 AM–3 PM? <span class="text-coral">*</span>
             </label>
             <div class="space-y-2.5">
-              <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-                <input type="radio" name="attendance_confidence" value="Fully confident" required class="mt-0.5 accent-orange shrink-0" />
-                <span class="text-sm text-night/70">Fully confident</span>
+              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group"">
+                <input type="radio" name="attendance_commitment" value="Yes, full schedule" required class="mt-0.5 accent-orange shrink-0" />
+                <span class="text-sm text-night/70">Yes, I can commit to the full schedule</span>
               </label>
-              <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-                <input type="radio" name="attendance_confidence" value="Mostly confident" class="mt-0.5 accent-orange shrink-0" />
-                <span class="text-sm text-night/70">Mostly confident</span>
+              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group"">
+                <input type="radio" name="attendance_commitment" value="Mostly, possible conflict" class="mt-0.5 accent-orange shrink-0" />
+                <span class="text-sm text-night/70">Mostly, but I may have a conflict</span>
               </label>
-              <label class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group">
-                <input type="radio" name="attendance_confidence" value="Not sure yet" class="mt-0.5 accent-orange shrink-0" />
-                <span class="text-sm text-night/70">Not sure yet</span>
+              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group"">
+                <input type="radio" name="attendance_commitment" value="Not sure yet" class="mt-0.5 accent-orange shrink-0" />
+                <span class="text-sm text-night/70">I'm not sure yet</span>
               </label>
             </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-night mb-1.5">
+              If you have or anticipate any conflicts during July 13–24, please describe them briefly. <span class="text-night/35 font-normal">(Optional)</span>
+            </label>
+            <textarea name="scheduling_conflicts" rows="2"
+              placeholder="It\'s okay to explain — we just need to know."
+              class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
           </div>
         </div>
 
@@ -682,7 +687,7 @@
         <div class="form-section p-6 sm:p-10 space-y-5" data-section="6" data-name="Experience">
           <div class="pb-4 border-b border-night/5">
             <h3 class="font-heading font-bold text-lg text-night">Experience</h3>
-            <p class="text-night/50 text-sm mt-1 font-medium">This section does <em>not</em> affect your chances of being accepted. It helps us understand your starting point and place you appropriately.</p>
+            <p class="text-night/50 text-sm mt-1 font-medium">This helps us understand your starting point. We’re looking for students who have some foundation in music — formal or self-taught.</p>
           </div>
 
           <div>
@@ -748,7 +753,8 @@
 
           <div>
             <label class="block text-sm font-medium text-night mb-1.5">
-              Is there anything medical, learning-related, or behavioral we should know to support your child? <span class="text-night/40 font-normal">(Optional)</span>
+              Is there anything about your child’s situation or background that you’d like us to know? <span class="text-night/40 font-normal">(Optional)</span>
+              <span class="text-night/35 font-normal block mt-0.5 text-xs">This does not affect admissions decisions. Any accommodations needed will be addressed before the program begins.</span>
             </label>
             <textarea name="parent_support_considerations" rows="4"
               placeholder="Optional — anything that would help us support your child if they're accepted."
