@@ -72,107 +72,104 @@
     .nav-link:hover::after { width:100% }
     nav.scrolled { box-shadow:0 2px 20px rgba(0,0,0,.3) }
 
-```
-.sponsor-row {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: 24px;
-}
-.sponsor-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: .65rem;
-  padding: 1.5rem;
-  background: #ffffff;
-  border: 1px solid rgba(13,27,42,.07);
-  border-radius: 1rem;
-  box-shadow: 0 1px 6px rgba(0,0,0,.04);
-  transition: box-shadow .2s ease;
-  flex: 1 1 0;
-  min-width: 140px;
-  max-width: 220px;
-  min-height: 148px;
-}
-.sponsor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.09); }
-.sponsor-card .logo-box {
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.sponsor-card img {
-  display: block;
-  max-height: 80px;
-  max-width: 130px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  transition: transform .2s ease;
-}
-.sponsor-card img:hover { transform: scale(1.04); }
-.sponsor-card .sponsor-label {
-  font-size: .7rem;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  color: rgba(13,27,42,.45);
-  text-align: center;
-  line-height: 1.45;
-}
-.sponsor-card-secondary {
-  border-style: dashed;
-  background: #ffffff;
-  padding: 1.5rem;
-  min-height: 148px;
-}
+    .sponsor-row {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      justify-content: center;
+      gap: 24px;
+    }
+    .sponsor-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      padding: 1.5rem;
+      background: #ffffff;
+      border: 1px solid rgba(13,27,42,.07);
+      border-radius: 1rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,.04);
+      transition: box-shadow .2s ease;
+      flex: 1 1 0;
+      min-width: 140px;
+      max-width: 220px;
+      min-height: 148px;
+    }
+    .sponsor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.09); }
+    .sponsor-card .logo-box {
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sponsor-card img {
+      display: block;
+      max-height: 80px;
+      max-width: 130px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      transition: transform .2s ease;
+    }
+    .sponsor-card img:hover { transform: scale(1.04); }
+    .sponsor-card .sponsor-label {
+      font-size: .7rem;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(13,27,42,.45);
+      text-align: center;
+      line-height: 1.45;
+    }
+    .sponsor-card-secondary {
+      border-style: dashed;
+      background: #ffffff;
+      padding: 1.5rem;
+      min-height: 148px;
+    }
 
-@media (min-width: 641px) {
-  .sponsor-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .sponsor-card {
-    flex: none;
-    width: 100%;
-    max-width: none;
-    min-width: 0;
-  }
-}
+    @media (min-width: 641px) {
+      .sponsor-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .sponsor-card {
+        flex: none;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+      }
+    }
 
-@media (max-width: 640px) {
-  .sponsor-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    justify-items: center;
-  }
-  .sponsor-card {
-    flex: none;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-  .sponsor-card:last-child:nth-child(odd) {
-    grid-column: span 2;
-    justify-self: center;
-    max-width: 220px;
-    width: 100%;
-  }
-}
-```
-
+    @media (max-width: 640px) {
+      .sponsor-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        justify-items: center;
+      }
+      .sponsor-card {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .sponsor-card:last-child:nth-child(odd) {
+        grid-column: span 2;
+        justify-self: center;
+        max-width: 220px;
+        width: 100%;
+      }
+    }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6CR9MP2K"></script>
@@ -182,11 +179,33 @@
     gtag("js", new Date());
     gtag("config", "G-3D6CR9MP2K");
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["EducationalOrganization", "Organization"],
+    "name": "Island Innovators Bahamas",
+    "url": "https://islandinnovatorsbahamas.com",
+    "description": "Island Innovators Bahamas 2025 pilot: a music, coding, and robotics intensive for youth in Nassau, Bahamas. Founded by Christopher Hilton. 14 students, 288 instructional hours.",
+    "disambiguatingDescription": "Island Innovators Bahamas is an independent youth music and music technology organization founded solely by Christopher Hilton. It is not affiliated with, sponsored by, or connected to any other individual, political figure, business, or organization using the name Island Innovators.",
+    "founder": {
+      "@type": "Person",
+      "name": "Christopher Hilton",
+      "description": "Bahamian jazz bassist, Oberlin Conservatory student, and founder of Island Innovators Bahamas",
+      "affiliation": "Oberlin Conservatory"
+    },
+    "location": { "@type": "Place", "name": "Nassau, Bahamas" },
+    "sameAs": [
+      "https://www.instagram.com/islandinnovatorsbahamas",
+      "https://www.facebook.com/share/1CsY7yxz4d/?mibextid=wwXIfr",
+      "https://www.linkedin.com/in/christopherhilton242"
+    ]
+  }
+  </script>
+  <link rel="canonical" href="https://islandinnovatorsbahamas.com/2025.html" />
 </head>
 <body class="bg-sand font-body text-night antialiased">
 
   <!-- NAV -->
-
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300" style="background:rgba(10,26,50,0.85)">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -229,7 +248,6 @@
   </div>
 
   <!-- HEADER -->
-
   <section class="py-20 sm:py-28" style="background:linear-gradient(to bottom,#1A3A6C 0%,#0A1628 100%)">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-gold font-heading font-semibold text-sm uppercase tracking-widest mb-4">Island Innovators Bahamas</p>
@@ -239,7 +257,6 @@
   </section>
 
   <!-- STATS -->
-
   <section class="bg-night py-14 border-b border-cream/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -264,7 +281,6 @@
   </section>
 
   <!-- OVERVIEW -->
-
   <section id="overview" class="py-16 bg-sand">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-heading font-bold text-2xl sm:text-3xl text-night mb-6">Program Overview</h2>
@@ -277,7 +293,6 @@
   </section>
 
   <!-- CURRICULUM OUTCOMES -->
-
   <section id="curriculum" class="pt-10 pb-16 bg-cream">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-heading font-bold text-2xl sm:text-3xl text-night mb-3">What Students Learned</h2>
@@ -326,47 +341,42 @@
   </section>
 
   <!-- IN THE ROOM -->
-
   <section id="gallery" class="py-16 bg-night">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-```
-  <h2 class="font-heading font-bold text-2xl sm:text-3xl text-cream mb-8">In the Room</h2>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl text-cream mb-8">In the Room</h2>
 
-  <!-- Sequence: observation → collaboration → immersion → community -->
-  <!-- NOTE: Add smiling-girl-at-computer and robotics images when filenames confirmed -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem">
-    <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:3/2">
-      <img src="assets/images/photos/2025-s2-student-smiling-at-computer.jpg"
-        alt="Student at keyboard during Island Innovators Bahamas 2025"
-        style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block">
+      <!-- Sequence: observation → collaboration → immersion → community -->
+      <!-- NOTE: Add smiling-girl-at-computer and robotics images when filenames confirmed -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem">
+        <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:3/2">
+          <img src="assets/images/photos/2025-s2-student-smiling-at-computer.jpg"
+            alt="Student at keyboard during Island Innovators Bahamas 2025"
+            style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block">
+        </div>
+        <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:3/2">
+          <img src="assets/images/photos/2025-s2-students-in-collaborative-workspace.jpg"
+            alt="Island Innovators Bahamas 2025 — students and instructors working together"
+            style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block">
+        </div>
+      </div>
+
+      <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:16/6;margin-bottom:.5rem">
+        <img src="assets/images/photos/2025-s1-students-in-robotics.jpg"
+          alt="Island Innovators Bahamas 2025 — music production session"
+          style="width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block">
+      </div>
+
+      <div style="overflow:hidden;border-radius:.75rem;margin-bottom:.5rem">
+        <img src="assets/images/photos/2025-s1-cohort-group.jpg"
+          alt="Island Innovators Bahamas 2025 — the founding cohort"
+          style="width:100%;object-fit:cover;display:block">
+      </div>
+
     </div>
-    <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:3/2">
-      <img src="assets/images/photos/2025-s2-students-in-collaborative-workspace.jpg"
-        alt="Island Innovators Bahamas 2025 — students and instructors working together"
-        style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block">
-    </div>
-  </div>
-
-  <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:16/6;margin-bottom:.5rem">
-    <img src="assets/images/photos/2025-s1-students-in-robotics.jpg"
-      alt="Island Innovators Bahamas 2025 — music production session"
-      style="width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block">
-  </div>
-
-  <div style="overflow:hidden;border-radius:.75rem;margin-bottom:.5rem">
-    <img src="assets/images/photos/2025-s1-cohort-group.jpg"
-      alt="Island Innovators Bahamas 2025 — the founding cohort"
-      style="width:100%;object-fit:cover;display:block">
-  </div>
-
-</div>
-```
-
   </section>
 
   <!-- PRESS COVERAGE -->
-
   <section class="py-16 bg-night">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="tribune-badge rounded-2xl p-8">
@@ -374,15 +384,11 @@
         <p class="text-cream/45 text-sm mb-6">Weekend Culture · July 4, 2025</p>
         <p class="text-cream text-base italic leading-relaxed">"At the end of the day, this is about planting seeds."</p>
 
-```
-  </div>
-</div>
-```
-
+      </div>
+    </div>
   </section>
 
   <!-- CAMPER VOICES -->
-
   <section class="py-16 bg-sand">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-heading font-bold text-2xl sm:text-3xl text-night mb-8">Student Voices</h2>
@@ -398,50 +404,45 @@
   </section>
 
   <!-- SUPPORT & FUNDING -->
-
   <section id="funding" class="py-16 bg-sand">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-```
-  <div class="text-center mb-12">
-    <p class="text-teal font-heading font-semibold text-sm uppercase tracking-widest mb-3">Sponsored By</p>
-    <h2 class="font-heading font-bold text-2xl sm:text-3xl text-night mb-4">Sponsors &amp; Partners</h2>
-    <p class="text-night/55 text-base max-w-xl mx-auto leading-relaxed">Supported through sponsorship and partnerships — enabling scholarships, daily snacks and water, and program materials for students.</p>
-  </div>
-
-  <div class="sponsor-row max-w-2xl mx-auto mb-4">
-
-    <div class="sponsor-card">
-      <div class="logo-box"><img src="assets/images/sponsors/island-game-logo.png" alt="Island Game"></div>
-      <span class="sponsor-label">Island Game</span>
-    </div>
-
-    <div class="sponsor-card">
-      <div class="logo-box">
-        <img src="assets/images/sponsors/government-logo.png" alt="Government of The Bahamas"
-          style="image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <span class="sponsor-label" style="display:none;font-size:.85rem;font-weight:700;color:#1B5E7B;line-height:1.5;align-items:center;justify-content:center;">🇧🇸<br>Government of<br>The Bahamas</span>
+      <div class="text-center mb-12">
+        <p class="text-teal font-heading font-semibold text-sm uppercase tracking-widest mb-3">Sponsored By</p>
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-night mb-4">Sponsors &amp; Partners</h2>
+        <p class="text-night/55 text-base max-w-xl mx-auto leading-relaxed">Supported through sponsorship and partnerships — enabling scholarships, daily snacks and water, and program materials for students.</p>
       </div>
-      <span class="sponsor-label">Government of<br>The Bahamas</span>
+
+      <div class="sponsor-row max-w-2xl mx-auto mb-4">
+
+        <div class="sponsor-card">
+          <div class="logo-box"><img src="assets/images/sponsors/island-game-logo.png" alt="Island Game"></div>
+          <span class="sponsor-label">Island Game</span>
+        </div>
+
+        <div class="sponsor-card">
+          <div class="logo-box">
+            <img src="assets/images/sponsors/government-logo.png" alt="Government of The Bahamas"
+              style="image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="sponsor-label" style="display:none;font-size:.85rem;font-weight:700;color:#1B5E7B;line-height:1.5;align-items:center;justify-content:center;">🇧🇸<br>Government of<br>The Bahamas</span>
+          </div>
+          <span class="sponsor-label">Government of<br>The Bahamas</span>
+        </div>
+
+        <div class="sponsor-card sponsor-card-secondary">
+          <div class="logo-box"><img src="assets/images/sponsors/bonner-logo.jpg" alt="Oberlin Bonner Scholars Program"></div>
+          <span class="sponsor-label">Additional<br>Program Support</span>
+        </div>
+
+      </div>
+
+      <p class="text-center text-night/50 text-xs sm:text-sm max-w-sm mx-auto mt-4 leading-relaxed">Supported by the Bonner Scholars Program (Oberlin College). Additional in-kind support: Asa H. Pritchard.</p>
+
     </div>
-
-    <div class="sponsor-card sponsor-card-secondary">
-      <div class="logo-box"><img src="assets/images/sponsors/bonner-logo.jpg" alt="Oberlin Bonner Scholars Program"></div>
-      <span class="sponsor-label">Additional<br>Program Support</span>
-    </div>
-
-  </div>
-
-  <p class="text-center text-night/50 text-xs sm:text-sm max-w-sm mx-auto mt-4 leading-relaxed">Supported by the Bonner Scholars Program (Oberlin College). Additional in-kind support: Asa H. Pritchard.</p>
-
-</div>
-```
-
   </section>
 
   <!-- LOOKING AHEAD -->
-
   <section id="next" class="py-16 bg-night">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-gold font-heading font-semibold text-sm uppercase tracking-widest mb-4">What's Next</p>
@@ -451,14 +452,10 @@
           Apply Now
         </a>
 
-```
-</div>
-```
-
+    </div>
   </section>
 
   <!-- FUTURE INITIATIVES INTEREST -->
-
   <section id="future" class="py-16 bg-sand">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8">
@@ -515,7 +512,6 @@
   </section>
 
   <!-- FOOTER -->
-
   <footer class="bg-night py-14 border-t border-cream/8">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="flex flex-col items-center" style="gap:12px;margin-bottom:32px">
@@ -527,6 +523,7 @@
       <p class="text-cream/15 text-xs text-center" style="margin-top:8px">Island Innovators Bahamas is a youth program founded by Christopher Hilton in Nassau, Bahamas. It is not affiliated with any other organization using the name "Island Innovators."</p>
     </div>
   </footer>
+
 
   <script>
     const navToggle = document.getElementById('nav-toggle');
@@ -543,7 +540,6 @@
   </script>
 
   <!-- Future form AJAX -->
-
   <script>
     const futureForm2025 = document.getElementById('future-form');
     const futureBtn2025 = document.getElementById('future-form-btn');
@@ -583,7 +579,6 @@
   </script>
 
   <!-- Apply Button Tracking -->
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll('a[href="apply.html"]').forEach(function (btn) {
@@ -598,6 +593,5 @@
       });
     });
   </script>
-
 </body>
 </html>
