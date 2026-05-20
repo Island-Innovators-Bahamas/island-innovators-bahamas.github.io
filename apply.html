@@ -11,9 +11,16 @@
   <meta property="og:title" content="Apply to Island Innovators Bahamas">
   <meta property="og:description" content="Stage One applications are open. Selective music and music technology intensive in Nassau, Bahamas. 12–15 students accepted per cohort. July 13–24, 2026.">
   <meta property="og:image" content="https://islandinnovatorsbahamas.com/assets/images/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Island Innovators Bahamas — Nassau, Bahamas">
+  <meta property="og:url" content="https://islandinnovatorsbahamas.com/apply.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apply to Island Innovators Bahamas">
+  <meta name="twitter:description" content="Stage One applications are open. Selective music and music technology intensive in Nassau, Bahamas. July 13–24, 2026.">
   <meta name="twitter:image" content="https://islandinnovatorsbahamas.com/assets/images/brand/og-image.png">
+  <meta name="twitter:image:alt" content="Island Innovators Bahamas — Nassau, Bahamas">
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
@@ -485,7 +492,8 @@
         <input type="hidden" name="_subject" value="Island Innovators — 2026 Application" />
 
         <!-- ── SECTION 1: Basic Information ── -->
-        <div class="form-section active p-6 sm:p-10 space-y-5" data-section="1" data-name="Basic Information">
+          <p class="text-night/40 text-xs text-center py-1 font-sans">Estimated time: about 10–15 minutes.</p>
+<div class="form-section active p-6 sm:p-10 space-y-5" data-section="1" data-name="Basic Information">
           <div class="pb-4 border-b border-night/5">
             <h3 class="font-heading font-bold text-lg text-night">Basic Information</h3>
             <p class="text-night/50 text-sm mt-1"></p>
@@ -525,7 +533,7 @@
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-night mb-1.5">Student Age <span class="text-coral">*</span></label>
               <select name="student_age" id="student-age-select" required class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all">
@@ -617,8 +625,10 @@
               <span class="text-night/40 font-normal block mt-0.5">This can include lessons, church, school groups, self-teaching, performances, production, or anything else that has been part of your musical life.</span>
             </label>
             <textarea name="music_background" rows="5" required
+              data-guided="true"
               placeholder="Tell us about your musical life so far."
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
+              <p class="text-night/35 text-xs mt-2" style="font-style:italic;">A few thoughtful sentences is completely fine.</p>
           </div>
 
           <!-- Q3: Why IIB matters -->
@@ -629,6 +639,7 @@
             <textarea name="why_iib_matters" rows="4" required
               placeholder="Tell us what this means to you."
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
+              <p class="text-night/35 text-xs mt-2" style="font-style:italic;">A few thoughtful sentences is completely fine.</p>
           </div>
         </div>
 
@@ -646,6 +657,7 @@
             <textarea name="music_goals" rows="4" required
               placeholder="Be specific — what's calling your attention right now?"
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
+              <p class="text-night/35 text-xs mt-2" style="font-style:italic;">A few thoughtful sentences is completely fine.</p>
           </div>
         </div>
 
@@ -661,15 +673,15 @@
               Are you able to attend the full program July 13–24, Monday–Friday, 9 AM–3 PM? <span class="text-coral">*</span>
             </label>
             <div class="space-y-2.5">
-              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group"">
+              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group w-full"">
                 <input type="radio" name="attendance_commitment" value="Yes, full schedule" required class="mt-0.5 accent-orange shrink-0" />
                 <span class="text-sm text-night/70">Yes, I can commit to the full schedule</span>
               </label>
-              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group"">
+              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group w-full"">
                 <input type="radio" name="attendance_commitment" value="Mostly, possible conflict" class="mt-0.5 accent-orange shrink-0" />
                 <span class="text-sm text-night/70">Mostly, but I may have a conflict</span>
               </label>
-              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group"">
+              <label class="class="flex items-start gap-3 p-3.5 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 transition-all option-group w-full"">
                 <input type="radio" name="attendance_commitment" value="Not sure yet" class="mt-0.5 accent-orange shrink-0" />
                 <span class="text-sm text-night/70">I'm not sure yet</span>
               </label>
@@ -743,7 +755,28 @@
               <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Intermediate" class="accent-orange" /> Intermediate</label>
               <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Advanced" class="accent-orange" /> Advanced</label>
             </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-night mb-2">
+              What are you currently most interested in exploring?
+              <span class="text-night/35 font-normal block text-xs mt-0.5">(Optional — for planning purposes only, not track placement)</span>
+            </label>
+            <div class="space-y-2">
+              <label class="flex items-start gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/20 transition-all w-full">
+                <input type="radio" name="track_interest" value="Performance" class="mt-0.5 accent-orange shrink-0" />
+                <span class="text-sm text-night/70">Performance</span>
+              </label>
+              <label class="flex items-start gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/20 transition-all w-full">
+                <input type="radio" name="track_interest" value="Music Production" class="mt-0.5 accent-orange shrink-0" />
+                <span class="text-sm text-night/70">Music Production</span>
+              </label>
+              <label class="flex items-start gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/20 transition-all w-full">
+                <input type="radio" name="track_interest" value="Both Equally" class="mt-0.5 accent-orange shrink-0" />
+                <span class="text-sm text-night/70">Both Equally</span>
+              </label>
+            </div>
           </div>
+</div>
 
         </div>
 
@@ -873,7 +906,7 @@
           <div>
             <p class="text-xs font-heading font-semibold text-night/40 uppercase tracking-wider mb-3">What Happens Next</p>
             <p class="text-night/65 text-sm leading-relaxed mb-2">Your application has been received and is currently under review.</p>
-            <p class="text-night/65 text-sm leading-relaxed mb-4">We review every application individually. You can expect to hear from us regarding Stage One around June 15, 2026.</p>
+            <p class="text-night/65 text-sm leading-relaxed mb-4">We review every application individually. Selected applicants will be invited to continue to Stage 2 of the admissions process. You can expect to hear from us by June 22, 2026.</p>
             <p class="text-night/65 text-sm leading-relaxed">No further action is required at this time.</p>
           </div>
 
@@ -886,7 +919,7 @@
             <form id="future-interest-form" action="https://formspree.io/f/mdaplvkw" method="POST">
               <input type="hidden" name="form_type" value="future_interest" />
               <input type="hidden" name="_subject" value="Island Innovators — Future Interest" />
-              <div class="grid grid-cols-2 gap-2 mb-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
                 <div>
                   <input type="text" name="future_name" placeholder="Your name"
                     class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 transition-all" />
@@ -897,10 +930,12 @@
                 </div>
               </div>
               <div class="flex flex-wrap gap-2 mb-4">
-                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Coding / Software Development" class="accent-teal" /> Coding</label>
-                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Robotics & Engineering" class="accent-teal" /> Robotics & Engineering</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Music Performance" class="accent-teal" /> Music Performance</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Recording Arts & Production" class="accent-teal" /> Recording Arts & Production</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Theatre & Performing Arts" class="accent-teal" /> Theatre & Performing Arts</label>
                 <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Film & Media" class="accent-teal" /> Film & Media</label>
-                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Theatre / Performing Arts" class="accent-teal" /> Theatre / Performing Arts</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Coding & Software Development" class="accent-teal" /> Coding & Software Development</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Robotics & Engineering" class="accent-teal" /> Robotics & Engineering</label>
               </div>
               <textarea name="future_vision" rows="2" placeholder="Anything specific you'd love to see Island Innovators build? (Optional)"
                 class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 resize-none mb-3"></textarea>
