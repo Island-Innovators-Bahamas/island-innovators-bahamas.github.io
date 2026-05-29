@@ -116,9 +116,9 @@
     background: rgba(10,26,40,0.08);
   }
   .iib-assist-toggle {
-    background: none;
-    border: 1px solid rgba(10,26,40,0.2);
-    color: rgba(10,26,40,0.7);
+    background: #0A1628;
+    border: 1px solid #0A1628;
+    color: #F5F0E8;
     font-family: var(--iib-font);
     font-size: 0.6rem;
     font-weight: 400;
@@ -126,14 +126,13 @@
     text-transform: uppercase;
     padding: 0.6rem 1.1rem;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    transition: background 0.2s, border-color 0.2s;
     white-space: nowrap;
     flex-shrink: 0;
   }
   .iib-assist-toggle:hover {
-    background: #0A1628;
-    color: #F5F0E8;
-    border-color: #0A1628;
+    background: #1A3A6C;
+    border-color: #1A3A6C;
   }
 
   /* Panel */
@@ -480,12 +479,12 @@
         </div>
         <button class="iib-adm-banner-btn" id="iib-adm-btn">Ask Clarity</button>
       </div>
-      <div class="iib-assist-panel" id="iib-panel-adm" role="region" aria-label="Admissions Assistant">
+      <div class="iib-assist-panel" id="iib-panel-adm" role="region" aria-label="Clarity">
         <div class="iib-assist-inner">
           <div class="iib-thread" id="iib-thread-adm">
             <div class="iib-msg iib-assistant">
               <span class="iib-msg-role">Admissions</span>
-              <p class="iib-msg-text">I'm Clarity, the Island Innovators Bahamas admissions assistant. You're on the application page. Ask me about Stage One, Stage Two, eligibility, financial assistance, or anything about the process.</p>
+              <p class="iib-msg-text">I'm Clarity. Ask me anything about Island Innovators Bahamas: Stage One, Stage Two, eligibility, financial assistance, or what to expect.</p>
             </div>
           </div>
 
@@ -1242,7 +1241,7 @@
     // Format: https://iib-assistant.YOURNAME.workers.dev
     const WORKER_URL = 'https://iib-assistant.islandinnovatorsbahamas.workers.dev';
 
-    const OPENING = "I'm Clarity, the Island Innovators Bahamas admissions assistant. Ask me about Stage One, Stage Two, eligibility, or financial assistance.";
+    const OPENING = "I'm Clarity. Ask me anything about Island Innovators Bahamas: Stage One, Stage Two, eligibility, financial assistance, or what to expect.";
 
     // ── FALLBACK (used when API is unavailable) ─────────────────────────────────
     function getFallback(q) {
@@ -1385,7 +1384,7 @@
         toggle.addEventListener('click', () => {
           const open = panel.classList.toggle('iib-open');
           toggle.setAttribute('aria-expanded', String(open));
-          toggle.textContent = open ? 'Close' : 'Ask the Admissions Assistant';
+          toggle.textContent = open ? 'Close Clarity' : 'Ask Clarity';
           if (open) setTimeout(() => { input.focus(); }, 460);
         });
       }
@@ -1398,7 +1397,7 @@
         const panel = document.getElementById('iib-panel-adm');
         if (!panel) return;
         const open = panel.classList.toggle('iib-open');
-        admBtn.textContent = open ? 'Close' : 'Ask a Question';
+        admBtn.textContent = open ? 'Close Clarity' : 'Ask Clarity';
         if (open) setTimeout(() => {
           const inp = document.getElementById('iib-input-adm');
           if (inp) inp.focus();
