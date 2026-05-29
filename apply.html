@@ -474,8 +474,7 @@
       <!-- ADMISSIONS ASSISTANT — application page banner -->
       <div class="iib-adm-banner">
         <div class="iib-adm-banner-text">
-          <strong>Questions before applying?</strong>
-          Ask Clarity.
+          <strong>Questions Before Applying?</strong>
         </div>
         <button class="iib-adm-banner-btn" id="iib-adm-btn">Ask Clarity</button>
       </div>
@@ -483,7 +482,7 @@
         <div class="iib-assist-inner">
           <div class="iib-thread" id="iib-thread-adm">
             <div class="iib-msg iib-assistant">
-              <span class="iib-msg-role">Admissions</span>
+              <span class="iib-msg-role">Clarity</span>
               <p class="iib-msg-text">I'm Clarity. Ask me anything about Island Innovators Bahamas: Stage One, Stage Two, eligibility, financial assistance, or what to expect.</p>
             </div>
           </div>
@@ -1302,7 +1301,7 @@
         const t = document.createElement('div');
         t.className = 'iib-msg iib-assistant';
         t.id = 'iib-typing-' + id;
-        t.innerHTML = '<span class="iib-msg-role">Admissions</span>'
+        t.innerHTML = '<span class="iib-msg-role">Clarity</span>'
           + '<div class="iib-typing"><div class="iib-dot"></div><div class="iib-dot"></div><div class="iib-dot"></div></div>';
         thread.appendChild(t);
         thread.scrollTop = thread.scrollHeight;
@@ -1374,7 +1373,7 @@
           history.length = 0;
           send.disabled = false;
           thread.innerHTML = '<div class="iib-msg iib-assistant">'
-            + '<span class="iib-msg-role">Admissions</span>'
+            + '<span class="iib-msg-role">Clarity</span>'
             + '<p class="iib-msg-text">' + OPENING + '</p></div>';
           if (sugg) { sugg.style.cssText = ''; }
         });
