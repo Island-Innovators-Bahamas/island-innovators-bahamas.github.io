@@ -432,6 +432,33 @@
     .iib-assist-panel { transition: opacity 0.15s ease; }
   }
   .iib-assist-panel.iib-open { pointer-events: auto; }
+  /* Suggested prompt chips */
+  .iib-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0 0 0.875rem;
+    margin-top: 0.25rem;
+  }
+  .iib-chip {
+    background: none;
+    border: 1px solid rgba(10,26,40,0.12);
+    color: rgba(10,26,40,0.5);
+    font-family: var(--iib-font);
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+    padding: 0.38rem 0.75rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .iib-chip:hover {
+    border-color: rgba(10,26,40,0.28);
+    color: rgba(10,26,40,0.72);
+  }
+  .iib-chips.iib-hidden { display: none; }
   </style>
 </head>
 <body class="bg-sand font-body text-night antialiased">
@@ -801,7 +828,7 @@
       <span class="iib-assist-cta-label">Still have a question?</span>
       <div class="iib-assist-rule"></div>
       <button class="iib-assist-toggle" id="iib-toggle-faq" aria-expanded="false">
-        Ask the Admissions Assistant
+        Ask Clarity
       </button>
     </div>
 
@@ -810,12 +837,17 @@
         <div class="iib-thread" id="iib-thread-faq">
           <div class="iib-msg iib-assistant">
             <span class="iib-msg-role">Admissions</span>
-            <p class="iib-msg-text">I can help with questions about Island Innovators Bahamas: the program, the experience, and the application process.</p>
+            <p class="iib-msg-text">I'm Clarity, the Island Innovators Bahamas admissions assistant. Ask me about the program, eligibility, the application process, or what to expect.</p>
           </div>
         </div>
 
-        <div class="iib-input-row">
-          <input class="iib-question-input" id="iib-input-faq" type="text" placeholder="Type your question…" autocomplete="off" />
+                  <div class="iib-chips" id="iib-chips-faq">
+            <button class="iib-chip" data-q="Who should apply to Island Innovators?">Who should apply?</button>
+            <button class="iib-chip" data-q="How does the admissions process work?">How does admissions work?</button>
+            <button class="iib-chip" data-q="What will students actually do each day?">What will students do?</button>
+          </div>
+          <div class="iib-input-row">
+          <input class="iib-question-input" id="iib-input-faq" type="text" placeholder="Ask about the program, eligibility, or how to apply…" autocomplete="off" />
           <button class="iib-send-btn" id="iib-send-faq">Send</button>
         </div>
         <p class="iib-assist-footnote">
@@ -936,7 +968,7 @@
     // Format: https://iib-assistant.YOURNAME.workers.dev
     const WORKER_URL = 'https://iib-assistant.islandinnovatorsbahamas.workers.dev';
 
-    const OPENING = 'I can help with questions about Island Innovators Bahamas \u2014 the program, the experience, and the application process.';
+    const OPENING = "I'm Clarity, the Island Innovators Bahamas admissions assistant. Ask me about the program, eligibility, the application process, or what to expect.";
 
     // ── FALLBACK (used when API is unavailable) ─────────────────────────────────
     function getFallback(q) {
@@ -987,7 +1019,7 @@
         const d = document.createElement('div');
         d.className = 'iib-msg iib-' + role;
         d.innerHTML = '<span class="iib-msg-role">'
-          + (role === 'assistant' ? 'Admissions' : 'You')
+          + (role === 'assistant' ? 'Clarity' : 'You')
           + '</span><p class="iib-msg-text">' + html + '</p>';
         thread.appendChild(d);
         setTimeout(() => { thread.scrollTop = thread.scrollHeight; }, 10);
@@ -1102,6 +1134,20 @@
 
     ['faq', 'adm'].forEach(initPanel);
   })();
+
+    // ── Suggested prompt chips ─────────────────────────────────────────────────
+    document.querySelectorAll('.iib-chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        const inner = this.closest('.iib-assist-inner');
+        if (!inner) return;
+        const input = inner.querySelector('.iib-question-input');
+        if (input) input.value = this.dataset.q;
+        const chipsEl = this.closest('.iib-chips');
+        if (chipsEl) chipsEl.classList.add('iib-hidden');
+        const sendBtn = inner.querySelector('.iib-send-btn');
+        if (sendBtn && !sendBtn.disabled) sendBtn.click();
+      });
+    });
 </script>
 </body>
 </html>
