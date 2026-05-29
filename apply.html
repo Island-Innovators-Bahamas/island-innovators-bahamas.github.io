@@ -490,11 +490,11 @@
                     <div class="iib-chips" id="iib-chips-adm">
             <button class="iib-chip" data-q="What does Stage Two of the application involve?">What is Stage Two?</button>
             <button class="iib-chip" data-q="When will I hear back after applying?">When will I hear back?</button>
-            <button class="iib-chip" data-q="Is financial assistance available?">Financial assistance?</button>
+            <button class="iib-chip" data-q="What music background do I need to apply?">What background do I need?</button>
           </div>
           <div class="iib-input-row">
-            <input class="iib-question-input" id="iib-input-adm" type="text" placeholder="Ask about the process, Stage Two, or eligibility…" autocomplete="off" />
-            <button class="iib-send-btn" id="iib-send-adm">Send</button>
+            <input class="iib-question-input" id="iib-input-adm" type="text" placeholder="" autocomplete="off" />
+            <button class="iib-send-btn" id="iib-send-adm">Ask</button>
           </div>
           <p class="iib-assist-footnote">
             For direct inquiries, contact us at
@@ -1397,10 +1397,20 @@
         if (!panel) return;
         const open = panel.classList.toggle('iib-open');
         admBtn.textContent = open ? 'Close Clarity' : 'Ask Clarity';
-        if (open) setTimeout(() => {
-          const inp = document.getElementById('iib-input-adm');
-          if (inp) inp.focus();
-        }, 460);
+        if (open) {
+          setTimeout(() => {
+            const banner = admBtn.closest('.iib-adm-banner');
+            if (banner) {
+              const navHeight = document.getElementById('main-nav')?.offsetHeight || 64;
+              const top = banner.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+          }, 50);
+          setTimeout(() => {
+            const inp = document.getElementById('iib-input-adm');
+            if (inp) inp.focus();
+          }, 460);
+        }
       });
     }
 
