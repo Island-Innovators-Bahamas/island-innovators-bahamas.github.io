@@ -1160,7 +1160,11 @@
         if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
         // Scroll directly to Clarity section
         const claritySection = document.getElementById('clarity-section');
-        if (claritySection) claritySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (claritySection) {
+          const navHeight = document.getElementById('main-nav')?.offsetHeight || 64;
+          const top = claritySection.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
 
       });
     }
