@@ -170,9 +170,9 @@
     background: rgba(10,26,40,0.08);
   }
   .iib-assist-toggle {
-    background: none;
-    border: 1px solid rgba(10,26,40,0.2);
-    color: rgba(10,26,40,0.7);
+    background: #0A1628;
+    border: 1px solid #0A1628;
+    color: #F5F0E8;
     font-family: var(--iib-font);
     font-size: 0.6rem;
     font-weight: 400;
@@ -180,14 +180,13 @@
     text-transform: uppercase;
     padding: 0.6rem 1.1rem;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    transition: background 0.2s, border-color 0.2s;
     white-space: nowrap;
     flex-shrink: 0;
   }
   .iib-assist-toggle:hover {
-    background: #0A1628;
-    color: #F5F0E8;
-    border-color: #0A1628;
+    background: #1A3A6C;
+    border-color: #1A3A6C;
   }
 
   /* Panel */
@@ -503,6 +502,7 @@
     <a href="#about"     class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">The Founder</a>
     <a href="#faq"       class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">FAQ</a>
     <a href="#partners"  class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Partners</a>
+    <a href="#faq" id="mobile-clarity-link" class="font-heading uppercase tracking-widest transition-colors" style="font-size:0.9rem;color:rgba(245,240,232,0.45);letter-spacing:0.18em;" >Ask Clarity</a>
     <a href="apply.html" class="mt-2 inline-flex items-center px-8 py-3.5 bg-orange text-cream font-heading font-bold text-lg rounded-full hover:bg-coral transition-colors">Apply</a>
   </div>
 
@@ -822,22 +822,22 @@
 
       </div>
 
-  <!-- ADMISSIONS ASSISTANT — FAQ placement -->
+  <!-- CLARITY — FAQ placement -->
   <div class="iib-assist-wrapper reveal">
     <div class="iib-assist-cta">
-      <span class="iib-assist-cta-label">Still have a question?</span>
+      <span class="iib-assist-cta-label">Questions?</span>
       <div class="iib-assist-rule"></div>
       <button class="iib-assist-toggle" id="iib-toggle-faq" aria-expanded="false">
         Ask Clarity
       </button>
     </div>
 
-    <div class="iib-assist-panel" id="iib-panel-faq" role="region" aria-label="Admissions Assistant">
+    <div class="iib-assist-panel" id="iib-panel-faq" role="region" aria-label="Clarity">
       <div class="iib-assist-inner">
         <div class="iib-thread" id="iib-thread-faq">
           <div class="iib-msg iib-assistant">
             <span class="iib-msg-role">Admissions</span>
-            <p class="iib-msg-text">I'm Clarity, the Island Innovators Bahamas admissions assistant. Ask me about the program, eligibility, the application process, or what to expect.</p>
+            <p class="iib-msg-text">I'm Clarity. Ask me anything about Island Innovators Bahamas: the program, eligibility, the application process, what to expect, or whether it's the right fit.</p>
           </div>
         </div>
 
@@ -968,7 +968,7 @@
     // Format: https://iib-assistant.YOURNAME.workers.dev
     const WORKER_URL = 'https://iib-assistant.islandinnovatorsbahamas.workers.dev';
 
-    const OPENING = "I'm Clarity, the Island Innovators Bahamas admissions assistant. Ask me about the program, eligibility, the application process, or what to expect.";
+    const OPENING = "I'm Clarity. Ask me anything about Island Innovators Bahamas: the program, eligibility, the application process, what to expect, or whether it's the right fit.";
 
     // ── FALLBACK (used when API is unavailable) ─────────────────────────────────
     function getFallback(q) {
@@ -1111,7 +1111,7 @@
         toggle.addEventListener('click', () => {
           const open = panel.classList.toggle('iib-open');
           toggle.setAttribute('aria-expanded', String(open));
-          toggle.textContent = open ? 'Close' : 'Ask the Admissions Assistant';
+          toggle.textContent = open ? 'Close Clarity' : 'Ask Clarity';
           if (open) setTimeout(() => { input.focus(); }, 460);
         });
       }
@@ -1124,7 +1124,7 @@
         const panel = document.getElementById('iib-panel-adm');
         if (!panel) return;
         const open = panel.classList.toggle('iib-open');
-        admBtn.textContent = open ? 'Close' : 'Ask a Question';
+        admBtn.textContent = open ? 'Close Clarity' : 'Ask Clarity';
         if (open) setTimeout(() => {
           const inp = document.getElementById('iib-input-adm');
           if (inp) inp.focus();
@@ -1148,6 +1148,30 @@
         if (sendBtn && !sendBtn.disabled) sendBtn.click();
       });
     });
+
+    // ── Mobile nav: Ask Clarity link ──────────────────────────────────────────
+    const mobileClarityLink = document.getElementById('mobile-clarity-link');
+    if (mobileClarityLink) {
+      mobileClarityLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Close mobile nav
+        const mobileNav = document.getElementById('mobile-nav');
+        if (mobileNav) mobileNav.classList.remove('open');
+        const navToggle = document.getElementById('nav-toggle');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        // Scroll to FAQ/Clarity section
+        const faqSection = document.getElementById('faq');
+        if (faqSection) faqSection.scrollIntoView({ behavior: 'smooth' });
+        // Open Clarity panel after scroll settles
+        setTimeout(() => {
+          const toggle = document.getElementById('iib-toggle-faq');
+          const panel = document.getElementById('iib-panel-faq');
+          if (toggle && panel && !panel.classList.contains('iib-open')) {
+            toggle.click();
+          }
+        }, 650);
+      });
+    }
 </script>
 </body>
 </html>
