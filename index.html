@@ -836,21 +836,16 @@
         <div class="iib-thread" id="iib-thread-faq">
           <div class="iib-msg iib-assistant">
             <span class="iib-msg-role">Clarity</span>
-            <p class="iib-msg-text">I'm Clarity. Ask me anything about Island Innovators Bahamas: the program, eligibility, the application process, what to expect, or whether it's the right fit.</p>
+            <p class="iib-msg-text">I'm Clarity. You can ask me anything about Island Innovators Bahamas.</p>
           </div>
         </div>
 
-                  <div class="iib-chips" id="iib-chips-faq">
-            <button class="iib-chip" data-q="Who should apply to Island Innovators?">Who should apply?</button>
-            <button class="iib-chip" data-q="How does the admissions process work?">How does admissions work?</button>
-            <button class="iib-chip" data-q="What will students actually do each day?">What will students do?</button>
-          </div>
-          <div class="iib-input-row">
+        <div class="iib-input-row">
           <input class="iib-question-input" id="iib-input-faq" type="text" placeholder="" autocomplete="off" />
           <button class="iib-send-btn" id="iib-send-faq">Ask</button>
         </div>
         <p class="iib-assist-footnote">
-          For admissions questions or direct inquiries, contact us at
+          For direct inquiries, contact us at
           <a href="mailto:admissions@islandinnovatorsbahamas.com">admissions@islandinnovatorsbahamas.com</a>
           &nbsp;·&nbsp;
           <button class="iib-reset-btn" id="iib-reset-faq">Start over</button>
@@ -967,7 +962,7 @@
     // Format: https://iib-assistant.YOURNAME.workers.dev
     const WORKER_URL = 'https://iib-assistant.islandinnovatorsbahamas.workers.dev';
 
-    const OPENING = "I'm Clarity. Ask me anything about Island Innovators Bahamas: the program, eligibility, the application process, what to expect, or whether it's the right fit.";
+    const OPENING = "I'm Clarity. You can ask me anything about Island Innovators Bahamas.";
 
     // ── FALLBACK (used when API is unavailable) ─────────────────────────────────
     function getFallback(q) {
