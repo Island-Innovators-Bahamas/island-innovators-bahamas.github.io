@@ -96,6 +96,11 @@
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
     @keyframes fadeIn { from{opacity:0}to{opacity:1} }
     @keyframes bounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(6px)} }
+    @keyframes goldShimmer {
+      0%   { filter: brightness(0.55); }
+      50%  { filter: brightness(1.6); }
+      100% { filter: brightness(0.55); }
+    }
     @keyframes gradientMove { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
     .hero-logo     { animation: fadeIn .7s ease both }
     .hero-badge    { animation: fadeUp .9s ease both .05s }
@@ -117,6 +122,14 @@
     nav.scrolled { box-shadow:0 2px 20px rgba(0,0,0,.3) }
     .mobile-nav  { transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1) }
     .mobile-nav.open { transform:translateX(0) }
+      60%  { opacity:1; }
+      100% { opacity:1; letter-spacing:0.26em; }
+    }
+    .bahamas-shimmer {
+      color: #C9A96E;
+      animation: fadeIn .7s ease both, goldShimmer 1.5s ease infinite;
+      display: inline-block;
+    }
     .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease,transform .6s ease }
     .reveal.visible { opacity:1; transform:translateY(0) }
     .reveal-d1 { transition-delay:.1s }
@@ -472,7 +485,7 @@
           <!-- Desktop: full mark (32px) + wordmark -->
           <span class="hidden lg:flex items-center" style="gap:16px;padding-left:4px">
             <svg style="height:32px;color:var(--iib-cream);display:block;flex-shrink:0" viewBox="0 0 440 580" fill="none"><path d="M 38,57 C 46,30 78,24 104,29 C 120,32 136,40 138,54 C 138,62 128,72 108,80 C 82,84 54,80 39,66 Z" fill="currentColor"/><path d="M 172,26 C 178,6 202,2 212,20 C 222,38 218,82 200,96 C 182,108 161,82 172,26 Z" fill="currentColor"/><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 184,203 C 184,192 200,186 213,187 C 226,188 234,197 233,206 C 232,215 220,219 206,219 C 192,219 182,213 184,203 Z" fill="currentColor"/><path d="M 305,316 C 312,296 334,294 341,314 C 347,334 337,362 318,370 C 301,374 293,348 305,316 Z" fill="currentColor"/><path d="M 220,358 C 228,334 256,330 265,352 C 272,372 264,416 244,426 C 226,434 212,406 214,382 C 216,366 218,360 220,358 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
-            <span style="font-family:var(--iib-font);font-size:10px;letter-spacing:var(--iib-track-nav);text-transform:uppercase;color:var(--iib-cream);font-weight:300;white-space:nowrap">ISLAND INNOVATORS</span>
+            <span style="display:flex;flex-direction:column;line-height:1.1"><span style="font-family:var(--iib-font);font-size:10px;letter-spacing:var(--iib-track-nav);text-transform:uppercase;color:var(--iib-cream);font-weight:300;white-space:nowrap">ISLAND INNOVATORS</span><span class="hidden lg:block" style="font-family:var(--iib-font);font-size:7px;letter-spacing:0.28em;text-transform:uppercase;color:#C9A96E;font-weight:300;white-space:nowrap">BAHAMAS</span></span>
           </span>
         </a>
         <div class="hidden lg:flex items-center gap-8">
@@ -518,6 +531,7 @@
         <svg class="iib-hero-mark" viewBox="0 0 440 580" fill="none" style="color:var(--iib-cream);display:block"><path d="M 38,57 C 46,30 78,24 104,29 C 120,32 136,40 138,54 C 138,62 128,72 108,80 C 82,84 54,80 39,66 Z" fill="currentColor"/><path d="M 172,26 C 178,6 202,2 212,20 C 222,38 218,82 200,96 C 182,108 161,82 172,26 Z" fill="currentColor"/><path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/><path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/><path d="M 184,203 C 184,192 200,186 213,187 C 226,188 234,197 233,206 C 232,215 220,219 206,219 C 192,219 182,213 184,203 Z" fill="currentColor"/><path d="M 305,316 C 312,296 334,294 341,314 C 347,334 337,362 318,370 C 301,374 293,348 305,316 Z" fill="currentColor"/><path d="M 220,358 C 228,334 256,330 265,352 C 272,372 264,416 244,426 C 226,434 212,406 214,382 C 216,366 218,360 220,358 Z" fill="currentColor"/><path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/></svg>
         <div class="flex flex-col items-center" style="gap:4px">
           <span style="font-family:var(--iib-font);font-size:13px;letter-spacing:var(--iib-track-wordmark);text-transform:uppercase;color:var(--iib-cream);font-weight:300">ISLAND INNOVATORS</span>
+          <span class="bahamas-shimmer" style="font-family:var(--iib-font);font-size:11px;letter-spacing:0.26em;text-transform:uppercase;font-weight:300;color:#C9A96E">BAHAMAS</span>
           <span style="font-family:var(--iib-font);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--iib-cream);font-weight:400;opacity:0.62">NASSAU · MMXXVI</span>
         </div>
       </div>
@@ -719,9 +733,9 @@
         <div class="md:col-span-3 text-center md:text-left min-w-0">
           <p class="text-teal font-heading font-semibold text-sm uppercase tracking-widest mb-3">The Founder</p>
           <h2 class="font-heading font-bold text-2xl sm:text-3xl text-night mb-4 leading-tight">Built by a Bahamian,<br class="sm:hidden"> for Bahamians</h2>
-          <p class="text-night/65 leading-relaxed mb-4">Christopher Hilton grew up in Nassau knowing this gap firsthand.</p>
-          <p class="text-night/65 leading-relaxed mb-4">He found what he was looking for at Oberlin Conservatory, where he studies jazz bass under Gerald Cannon, a faculty member at both Oberlin Conservatory and the Juilliard School. Christopher's background spans performance and computer science.</p>
-          <p class="text-night/65 leading-relaxed mb-4">Despite beginning upright bass only two months before his Oberlin audition process, he successfully earned admission to one of the world's leading conservatories, proof that serious growth can happen quickly when students are challenged, supported, and held to a high standard.</p>
+          <p class="text-night/65 leading-relaxed mb-4">Christopher Hilton grew up in Nassau with music as part of his life, always working to get better. But it was often frustrating, not always knowing if what he was doing was the right thing, or which direction would actually lead somewhere.</p>
+          <p class="text-night/65 leading-relaxed mb-4">Despite transitioning from electric bass to upright bass only two months before his audition process, he earned admission to one of the world's leading conservatories. He attributes it to the principles, perspective, and environment that surrounded him when it mattered most.</p>
+          <p class="text-night/65 leading-relaxed mb-4">He now studies jazz bass at Oberlin Conservatory under Gerald Cannon, a faculty member at both Oberlin Conservatory and the Juilliard School. Christopher's background spans performance and computer science.</p>
           <p class="text-night/65 leading-relaxed mb-6">That experience shaped the philosophy behind Island Innovators Bahamas: a higher standard built on discipline, mentorship, and the expectation to deliver real work under pressure. Island Innovators Bahamas was developed during his first year at Oberlin to make that kind of development more accessible, while also creating a space where music and technology are not separate paths, but tools students use to develop, perform, and present work that reflects who they are and the direction they are headed.</p>
           <div class="flex flex-wrap gap-2.5 justify-center md:justify-start">
             <span class="inline-flex items-center px-3 py-1.5 bg-ocean/15 text-ocean/85 rounded-full text-xs font-heading font-semibold">Oberlin College &amp; Conservatory</span>
