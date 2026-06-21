@@ -643,8 +643,8 @@
             </label>
             <div class="space-y-2">
               <label class="flex items-start gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/20 transition-all w-full">
-                <input type="radio" name="track_interest" value="Performance" class="mt-0.5 accent-orange shrink-0" required />
-                <span class="text-sm text-night/70">Performance</span>
+                <input type="radio" name="track_interest" value="Music Performance" class="mt-0.5 accent-orange shrink-0" required />
+                <span class="text-sm text-night/70">Music Performance</span>
               </label>
               <label class="flex items-start gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/20 transition-all w-full">
                 <input type="radio" name="track_interest" value="Music Production" class="mt-0.5 accent-orange shrink-0" />
@@ -690,7 +690,7 @@
               <option>Previous Island Innovators Bahamas student/family</option>
               <option>The Tribune</option>
                 <option>Video Promo</option>
-              <option>Flyer or poster</option>
+              <option>Flyer</option>
               <option>Other</option>
             </select>
             <div id="how-heard-other" style="display:none" class="mt-3">
@@ -1025,6 +1025,19 @@
           futureBtn.textContent = "Try again";
           futureBtn.disabled = false;
         }
+      });
+    }
+
+    // Show/hide Other referral field
+    const referralSelect = document.getElementById('how-heard-select');
+    const otherField = document.getElementById('other-source-field');
+    const otherInput = document.getElementById('referral-other-input');
+    if (referralSelect && otherField) {
+      referralSelect.addEventListener('change', function() {
+        const show = this.value === 'Other';
+        otherField.style.display = show ? 'block' : 'none';
+        if (otherInput) otherInput.required = show;
+        if (!show && otherInput) otherInput.value = '';
       });
     }
 
