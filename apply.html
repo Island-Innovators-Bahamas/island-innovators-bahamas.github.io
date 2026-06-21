@@ -605,6 +605,7 @@
               <li class="flex items-start gap-2"><span class="text-orange shrink-0 mt-0.5">·</span><span>Island Innovators Bahamas photographs and records portions of the program for educational and archival purposes.</span></li>
             </ul>
           </div>
+        </div>
 
         <!-- ── SECTION 3: Your Application ── -->
         <div class="form-section p-6 sm:p-10 space-y-5" data-section="3" data-name="Your Application">
@@ -612,8 +613,7 @@
             <h3 class="font-heading font-bold text-lg text-night">Your Application</h3>
             
           </div>
-
-        <!-- ── SECTION 4: About You ── -->
+        </div>
 
         <!-- ── SECTION 6: Experience ── -->
         <div class="form-section p-6 sm:p-10 space-y-5" data-section="4" data-name="Experience">
@@ -953,14 +953,7 @@
       showSection(current);
     });
 
-    // Age/grade exception field
-    const ageSelect   = document.getElementById("student-age-select");
-    const gradeSelect = document.getElementById("student-grade-select");
-    const exField     = document.getElementById("age-exception-field");
-    const exTextarea  = exField.querySelector("textarea");
-    
-      });
-    }
+
 
     document.getElementById("apply-form").addEventListener("submit", async function(e) {
       e.preventDefault();
