@@ -501,7 +501,7 @@
 
       <div class="mb-6">
         <div class="flex items-center justify-between mb-2">
-          <span id="section-label" class="text-xs font-heading font-semibold text-night/50 uppercase tracking-wider">Section 1 of 5</span>
+          <span id="section-label" class="text-xs font-heading font-semibold text-night/50 uppercase tracking-wider">Section 1 of 4</span>
           <span id="section-name" class="text-xs font-heading font-semibold text-orange uppercase tracking-wider">Basic Information</span>
         </div>
         <div class="h-1.5 bg-night/10 rounded-full overflow-hidden">
@@ -516,7 +516,6 @@
         <input type="hidden" name="_subject" value="Island Innovators 2026 Application" />
 
         <!-- ── SECTION 1: Basic Information ── -->
-          <p class="text-night/40 text-xs text-center pt-5 pb-1 font-sans">Estimated time: about 10–15 minutes.</p>
 <div class="form-section active p-6 sm:p-10 space-y-5" data-section="1" data-name="Basic Information">
           <div class="pb-4 border-b border-night/5">
             <h3 class="font-heading font-bold text-lg text-night">Basic Information</h3>
@@ -549,18 +548,7 @@
               <input type="text" name="grade_fall_2026" id="student-grade-select" required placeholder="e.g. 9th grade"
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
             </div>
-          </div>
-
-          <div id="age-exception-field" style="display:none">
-            <label class="block text-sm font-medium text-night mb-1.5">
-              Please briefly explain the student's age/grade and why this program may still be a strong fit. <span class="text-coral">*</span>
-            </label>
-            <textarea name="age_grade_exception_context" rows="3"
-              placeholder="Share the student's age/grade and any context you want us to consider."
-              class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all resize-none"></textarea>
-          </div>
-
-          <div>
+          </div><div>
             <label class="block text-sm font-medium text-night mb-1.5">Current School <span class="text-coral">*</span></label>
             <input type="text" name="current_school" required placeholder="School name"
               class="form-input w-full px-4 py-3 border border-night/15 rounded-xl bg-sand text-night placeholder-night/30 focus:outline-none focus:ring-2 focus:ring-orange/30 transition-all" />
@@ -607,14 +595,6 @@
           </div>
         </div>
 
-        <!-- ── SECTION 3: Your Application ── -->
-        <div class="form-section p-6 sm:p-10 space-y-5" data-section="3" data-name="Your Application">
-          <div class="pb-4 border-b border-night/5">
-            <h3 class="font-heading font-bold text-lg text-night">Your Application</h3>
-            
-          </div>
-        </div>
-
         <!-- ── SECTION 6: Experience ── -->
         <div class="form-section p-6 sm:p-10 space-y-5" data-section="4" data-name="Experience">
           <div class="pb-4 border-b border-night/5">
@@ -643,10 +623,18 @@
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-night mb-3">Have you used music production software before?</label>
+            <label class="block text-sm font-medium text-night mb-3">How would you describe your overall experience with music?</label>
             <div class="space-y-2">
               <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Just getting started" class="accent-orange" /> Just getting started</label>
               <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="I have some experience" class="accent-orange" /> I have some experience</label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-night mb-3">Have you used music production software before?</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="production_software_experience" value="Yes" class="accent-orange" /> Yes</label>
+              <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="production_software_experience" value="No" class="accent-orange" /> No</label>
             </div>
           
           <div>
@@ -687,7 +675,7 @@
             </label>
             <label class="flex items-start gap-3 cursor-pointer option-group">
               <input type="checkbox" name="understands_program_and_tuition" value="Yes" required class="mt-1 accent-orange shrink-0" />
-              <span class="text-sm text-night/70 leading-relaxed">I understand this is a music performance and production program running July 13–24, 2026, Monday–Friday, 9 AM–3 PM. Tuition is $160 for the full two-week program. Includes program shirt and all equipment.</span>
+              <span class="text-sm text-night/70 leading-relaxed">I understand this is a music performance and production program running July 13–24, 2026, Monday–Friday, 9 AM–3 PM. Program cost is $225, which includes the registration fee, program shirt, light lunch, use of equipment and access to resources and instructional material.</span>
             </label>
             <label class="flex items-start gap-3 cursor-pointer option-group">
               <input type="checkbox" name="commits_to_full_participation" value="Yes" required class="mt-1 accent-orange shrink-0" />
@@ -859,7 +847,6 @@
     const sectionNames = [
       "Basic Information",
       "Program Understanding",
-      "Your Application",
       "Experience",
       "Final Acknowledgments"
     ];
