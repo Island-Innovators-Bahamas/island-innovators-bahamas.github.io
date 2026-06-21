@@ -605,7 +605,7 @@
           <div>
             <label class="block text-sm font-medium text-night mb-3">Which of these apply to your music background? <span class="text-night/40 font-normal">(Select all that apply)</span></label>
             <div class="flex flex-wrap gap-2">
-              <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-orange/40 text-sm text-night/70"><input type="checkbox" name="music_background" value="instrument" class="accent-orange" /> I play an instrument</label>
+              <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-orange/40 text-sm text-night/70"><input type="checkbox" name="music_background" value="instrument" class="accent-orange" required /> I play an instrument</label>
               <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-orange/40 text-sm text-night/70"><input type="checkbox" name="music_background" value="vocals" class="accent-orange" /> Vocalist</label>
               <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-orange/40 text-sm text-night/70"><input type="checkbox" name="music_background" value="production" class="accent-orange" /> Producer / Beat-maker</label>
               <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-orange/40 text-sm text-night/70"><input type="checkbox" name="music_background" value="theory" class="accent-orange" /> Music Theory</label>
@@ -625,7 +625,7 @@
           <div>
             <label class="block text-sm font-medium text-night mb-3">How would you describe your overall experience with music?</label>
             <div class="space-y-2">
-              <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Just getting started" class="accent-orange" /> Just getting started</label>
+              <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="Just getting started" class="accent-orange" required /> Just getting started</label>
               <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="overall_music_experience_level" value="I have some experience" class="accent-orange" /> I have some experience</label>
             </div>
           </div>
@@ -633,18 +633,18 @@
           <div>
             <label class="block text-sm font-medium text-night mb-3">Have you used music production software before?</label>
             <div class="space-y-2">
-              <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="production_software_experience" value="Yes" class="accent-orange" /> Yes</label>
+              <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="production_software_experience" value="Yes" class="accent-orange" required /> Yes</label>
               <label class="flex items-center gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/30 text-sm text-night/70"><input type="radio" name="production_software_experience" value="No" class="accent-orange" /> No</label>
             </div>
           
-          <div>
+          <div class="mt-6">
             <label class="block text-sm font-medium text-night mb-2">
               What are you currently most interested in exploring?
               <span class="text-night/35 font-normal">(Optional)</span>
             </label>
             <div class="space-y-2">
               <label class="flex items-start gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/20 transition-all w-full">
-                <input type="radio" name="track_interest" value="Performance" class="mt-0.5 accent-orange shrink-0" />
+                <input type="radio" name="track_interest" value="Performance" class="mt-0.5 accent-orange shrink-0" required />
                 <span class="text-sm text-night/70">Performance</span>
               </label>
               <label class="flex items-start gap-3 p-3 border border-night/10 rounded-xl cursor-pointer hover:border-orange/20 transition-all w-full">
@@ -670,10 +670,6 @@
 
           <div class="space-y-2.5">
             <label class="flex items-start gap-3 cursor-pointer option-group">
-              <input type="checkbox" name="confirms_honest_application" value="Yes" required class="mt-1 accent-orange shrink-0" />
-              <span class="text-sm text-night/70 leading-relaxed">I filled this out honestly and in my own words</span>
-            </label>
-            <label class="flex items-start gap-3 cursor-pointer option-group">
               <input type="checkbox" name="understands_program_and_tuition" value="Yes" required class="mt-1 accent-orange shrink-0" />
               <span class="text-sm text-night/70 leading-relaxed">I understand this is a music performance and production program running July 13–24, 2026, Monday–Friday, 9 AM–3 PM. Program cost is $225, which includes the registration fee, program shirt, light lunch, use of equipment and access to resources and instructional material.</span>
             </label>
@@ -694,6 +690,7 @@
               <option>School</option>
               <option>Previous Island Innovators Bahamas student/family</option>
               <option>The Tribune</option>
+                <option>Video Promo</option>
               <option>Flyer or poster</option>
               <option>Other</option>
             </select>
