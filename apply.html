@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apply, Island Innovators Bahamas | Application 2026</title>
-  <meta name="description" content="Apply to Island Innovators Bahamas 2026. A selective music performance and production intensive in Nassau. 12–15 students accepted. Music foundation required." />
+  <meta name="description" content="Apply to Island Innovators Bahamas 2026. A selective music performance and production intensive in Nassau. 12–15 students accepted. Some experience in music required." />
   <meta name="robots" content="noindex" />
 
   <meta property="og:title" content="Apply to Island Innovators Bahamas">
@@ -959,24 +959,7 @@
     const gradeSelect = document.getElementById("student-grade-select");
     const exField     = document.getElementById("age-exception-field");
     const exTextarea  = exField.querySelector("textarea");
-    function checkException() {
-      const show = ageSelect.value === "Outside typical age range" || gradeSelect.value === "Outside typical grade range";
-      exField.style.display = show ? "block" : "none";
-      show ? exTextarea.setAttribute("required","") : (exTextarea.removeAttribute("required"), exTextarea.value = "");
-    }
-    ageSelect.addEventListener("change", checkException);
-    gradeSelect.addEventListener("change", checkException);
-
-    // Show/hide "Other" detail field
-    const howHeardSelect = document.getElementById("how-heard-select");
-    const howHeardOther = document.getElementById("how-heard-other");
-    if (howHeardSelect) {
-      howHeardSelect.addEventListener("change", () => {
-        const show = howHeardSelect.value === "Other";
-        howHeardOther.style.display = show ? "block" : "none";
-        const input = howHeardOther.querySelector("input");
-        if (show) input.setAttribute("required", "");
-        else { input.removeAttribute("required"); input.value = ""; }
+    
       });
     }
 
