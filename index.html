@@ -355,6 +355,7 @@
           <div style="width:100%;max-width:320px;">
             <div style="position:relative;padding-top:177.77%;border-radius:1rem;overflow:hidden;box-shadow:0 8px 32px rgba(13,27,42,0.18);">
               <iframe
+                id="cf-stream-video"
                 src="https://customer-ql87p02g7kpsmdhd.cloudflarestream.com/773a8a72014178366f2cf40a7d81b688/iframe?autoplay=true&muted=true&loop=true&controls=true&poster=https%3A%2F%2Fcustomer-ql87p02g7kpsmdhd.cloudflarestream.com%2F773a8a72014178366f2cf40a7d81b688%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
                 loading="lazy"
                 style="border:none;position:absolute;top:0;left:0;height:100%;width:100%;"
@@ -839,6 +840,26 @@
       });
     }
   })();
+  </script>
+
+  <!-- Cloudflare Stream: pause when scrolled out of view -->
+  <script src="https://embed.cloudflarestream.com/embed/sdk.latest.js" defer></script>
+  <script>
+    window.addEventListener('load', function() {
+      var iframe = document.getElementById('cf-stream-video');
+      if (!iframe) return;
+      var player = Stream(iframe);
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            player.play();
+          } else {
+            player.pause();
+          }
+        });
+      }, { threshold: 0.25 });
+      observer.observe(iframe);
+    });
   </script>
 </body>
 </html>
