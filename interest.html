@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future Programs | Island Innovators Bahamas</title>
+  <meta name="description" content="Tell us what you'd like to see from Island Innovators Bahamas. Share your interests and stay in the loop on future programs and initiatives." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
+  <meta name="theme-color" content="#0A1628">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Mono:wght@400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ocean:"#1B5E7B", orange:"#D4722A", coral:"#E8573D",
+            teal:"#2AA5A0", gold:"#F2B830", night:"#0D1B2A", sand:"#FFF8F0", cream:"#FDF6EC",
+          },
+          fontFamily: {
+            heading:['"Space Grotesk"',"system-ui","sans-serif"],
+            body:['"DM Sans"',"system-ui","sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root { --iib-font: 'Space Mono', 'Courier New', monospace; }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6CR9MP2K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-3D6CR9MP2K");
+  </script>
+</head>
+<body class="bg-sand font-body text-night antialiased min-h-screen">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md border-b border-cream/8" style="background:rgba(10,26,50,0.82)">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3" aria-label="Island Innovators Bahamas">
+        <svg style="height:24px;color:#F5F0E8" viewBox="0 0 440 580" fill="none">
+          <path d="M 33,210 C 42,174 80,164 110,178 C 132,190 138,220 128,254 C 118,290 100,330 76,346 C 52,360 22,352 10,326 C 0,302 12,254 33,210 Z" fill="currentColor"/>
+          <path d="M 282,73 C 290,50 309,47 320,70 C 328,90 340,162 314,226 C 302,286 278,320 263,308 C 248,296 242,256 262,200 C 273,152 276,92 282,73 Z" fill="currentColor"/>
+          <path d="M 350,463 C 361,436 396,428 414,454 C 428,476 422,516 398,530 C 374,542 344,534 328,510 C 314,488 332,475 350,463 Z" fill="currentColor"/>
+        </svg>
+        <span style="font-family:var(--iib-font);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#F5F0E8;font-weight:300;">ISLAND INNOVATORS</span>
+      </a>
+      <a href="index.html" class="text-cream/60 hover:text-cream text-sm transition-colors">← Back to Site</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="py-14 text-center px-4" style="background:#0A1628;">
+    <p style="font-family:var(--iib-font);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,240,232,0.45);margin-bottom:12px;">Island Innovators Bahamas</p>
+    <p class="text-cream/55 text-sm max-w-md mx-auto leading-relaxed">Help us shape what comes next. Share your interests and stay in the loop on future programs and initiatives.</p>
+  </div>
+
+  <!-- FORM -->
+  <div class="max-w-xl mx-auto px-4 py-12">
+    <div id="future-interest-wrapper" class="bg-sand rounded-xl p-5 border border-night/8">
+            <p class="text-xs font-heading font-semibold text-night/40 uppercase tracking-wider mb-2">Areas of Interest</p>
+            <p class="text-night/55 text-sm leading-relaxed mb-4">Island Innovators Bahamas is exploring future initiatives across creative and technical disciplines. If any of the areas below interest you, let us know. We're listening and building with this in mind.</p>
+            <form id="future-interest-form" action="https://formspree.io/f/mdaplvkw" method="POST">
+              <input type="hidden" name="form_type" value="future_interest" />
+              <input type="hidden" name="_subject" value="Island Innovators Bahamas Future Interest" />
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+                <div><input type="text" name="future_name" placeholder="Your name (optional)" class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 transition-all" /></div>
+                <div><input type="number" name="future_age" placeholder="Age" required min="5" max="99" class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 transition-all" /></div>
+                <div class="sm:col-span-2"><input type="email" name="future_email" placeholder="Email address" required class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 transition-all" /></div>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Music Performance" class="accent-teal" /> Music Performance</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Recording Arts & Production" class="accent-teal" /> Recording Arts &amp; Production</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Theatre & Performing Arts" class="accent-teal" /> Theatre &amp; Performing Arts</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Film & Media" class="accent-teal" /> Film &amp; Media</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Coding & Software Development" class="accent-teal" /> Coding &amp; Software Development</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Artificial Intelligence" class="accent-teal" /> Artificial Intelligence</label>
+                <label class="flex items-center gap-2 px-3 py-2 border border-night/10 rounded-lg cursor-pointer hover:border-teal/40 text-xs text-night/65"><input type="checkbox" name="future_interest" value="Robotics & Engineering" class="accent-teal" /> Robotics &amp; Engineering</label>
+              </div>
+              <textarea name="future_vision" rows="2" placeholder="Anything specific you'd love to see Island Innovators Bahamas build? (Optional)" class="w-full px-3 py-2 border border-night/10 rounded-xl bg-white text-night text-xs placeholder-night/30 focus:outline-none focus:ring-1 focus:ring-teal/30 resize-none mb-3"></textarea>
+              <p id="future-interest-error" class="hidden text-coral text-xs mb-2">Please enter your email address so we can keep you updated.</p>
+              <button type="submit" id="future-submit-btn" class="px-5 py-2 bg-teal/10 text-teal font-heading font-semibold text-xs rounded-full hover:bg-teal/20 transition-colors border border-teal/20">Submit &amp; Join the Mailing List</button>
+            </form>
+            <div id="future-success" class="hidden mt-3"><p class="text-teal text-xs font-heading font-semibold">Got it, we'll keep you in the loop as the program grows.</p></div>
+          </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center border-t border-night/5">
+    <p style="font-family:var(--iib-font);font-size:7px;letter-spacing:0.16em;text-transform:uppercase;color:#0D1B2A;opacity:0.25;">&copy; ISLAND INNOVATORS BAHAMAS · NASSAU · MMXXVI · Founded by Christopher Hilton</p>
+  </footer>
+
+  <script>
+    const futureForm = document.getElementById("future-interest-form");
+    const futureSuccess = document.getElementById("future-success");
+    const futureBtn = document.getElementById("future-submit-btn");
+    const futureError = document.getElementById("future-interest-error");
+    if (futureForm) {
+      futureForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        const email = futureForm.querySelector('[name="future_email"]').value.trim();
+        if (!email) { futureError.classList.remove("hidden"); return; }
+        futureError.classList.add("hidden");
+        futureBtn.textContent = "Sending...";
+        futureBtn.disabled = true;
+        try {
+          const res = await fetch("https://formspree.io/f/mdaplvkw", {
+            method: "POST",
+            body: new FormData(futureForm),
+            headers: { "Accept": "application/json" }
+          });
+          if (res.ok) {
+            futureForm.style.display = "none";
+            futureSuccess.classList.remove("hidden");
+          } else {
+            futureBtn.textContent = "Try again";
+            futureBtn.disabled = false;
+          }
+        } catch {
+          futureBtn.textContent = "Try again";
+          futureBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
