@@ -247,7 +247,7 @@
     <a href="#faq"       class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">FAQ</a>
     <a href="#partners"  class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Partners</a>
     <a href="#clarity-section" id="mobile-clarity-link" class="font-heading uppercase tracking-widest transition-colors" style="font-size:0.9rem;color:rgba(245,240,232,0.45);letter-spacing:0.18em;">Ask Clarity</a>
-    <a href="apply.html" class="mt-2 inline-flex items-center px-5 py-3 bg-orange text-cream font-heading font-bold text-base rounded-full hover:bg-coral transition-colors">Apply for the 2026 Founding Cohort</a>
+    <a href="apply.html" class="mt-2 inline-flex items-center px-5 py-3 bg-orange text-cream font-heading font-bold text-base rounded-full hover:bg-coral transition-colors" id="main-apply-btn" style="opacity:0.5;cursor:default;pointer-events:none;">This Cohort Is Full</a>
   </div>
 
   <!-- HERO -->
@@ -858,5 +858,83 @@
       observer.observe(iframe);
     });
   </script>
+
+  <!-- Cinematic midnight transition -->
+  <style>
+    @keyframes iibFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    #cohort-selected-banner {
+      display: none;
+      animation: iibFadeIn 1.8s ease forwards;
+    }
+    #cohort-selected-banner.visible {
+      display: block;
+    }
+    .apply-closed-state {
+      transition: all 1.2s ease;
+    }
+  </style>
+
+  <!-- Cohort selected banner — hidden until midnight -->
+  <div id="cohort-selected-banner" style="
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
+    background: linear-gradient(135deg, #0A1628 0%, #1A3A6C 100%);
+    padding: 14px 24px; text-align: center;
+    border-bottom: 1px solid rgba(245,240,232,0.12);
+  ">
+    <p style="font-family:'Space Mono','Courier New',monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #F5F0E8; margin: 0;">
+      The 2026 Cohort Has Been Selected &nbsp;·&nbsp; Nassau, Bahamas &nbsp;·&nbsp; July 13–24, 2026
+    </p>
+  </div>
+
+  <script>
+    (function() {
+      // Calculate ms until midnight
+      var now = new Date();
+      var midnight = new Date(now);
+      midnight.setHours(24, 0, 0, 0);
+      var msUntilMidnight = midnight - now;
+
+      function activateMidnight() {
+        // Show the banner
+        var banner = document.getElementById('cohort-selected-banner');
+        if (banner) {
+          banner.classList.add('visible');
+          // Push page content down to accommodate banner
+          document.body.style.paddingTop = '50px';
+          document.body.style.transition = 'padding-top 0.6s ease';
+        }
+
+        // Update all apply buttons
+        ['main-apply-btn', 'apply-btn-2'].forEach(function(id) {
+          var btn = document.getElementById(id);
+          if (btn) {
+            btn.style.transition = 'all 1.2s ease';
+            btn.textContent = 'The 2026 Cohort Has Been Selected';
+          }
+        });
+
+        // Update any section headers referencing applications
+        document.querySelectorAll('[data-transition-target]').forEach(function(el) {
+          el.style.transition = 'opacity 1.2s ease';
+          el.style.opacity = '0';
+          setTimeout(function() {
+            el.textContent = el.getAttribute('data-transition-target');
+            el.style.opacity = '1';
+          }, 1200);
+        });
+      }
+
+      if (msUntilMidnight <= 0) {
+        // Already past midnight
+        activateMidnight();
+      } else {
+        setTimeout(activateMidnight, msUntilMidnight);
+      }
+    })();
+  </script>
+
 </body>
 </html>
