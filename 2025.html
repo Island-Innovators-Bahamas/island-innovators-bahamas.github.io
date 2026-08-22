@@ -174,6 +174,33 @@
         width: 100%;
       }
     }
+  
+  /* ── Masonry gallery ── */
+  .iib-gallery { columns: 2; column-gap: 10px; }
+  @media (min-width: 640px) { .iib-gallery { columns: 3; column-gap: 12px; } }
+  .iib-gi { break-inside: avoid; margin-bottom: 10px; border-radius: 10px; overflow: hidden; cursor: pointer; }
+  @media (min-width: 640px) { .iib-gi { margin-bottom: 12px; border-radius: 12px; } }
+  .iib-gi img { width: 100%; height: auto; display: block; transition: opacity 0.18s; }
+  .iib-gi:hover img { opacity: 0.88; }
+  .iib-gi--full { column-span: all; border-radius: 12px; overflow: hidden; }
+
+  /* ── Lightbox ── */
+  #iib-lb { display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.93); align-items: center; justify-content: center; }
+  #iib-lb.open { display: flex; }
+  #iib-lb-img { max-width: 92vw; max-height: 88vh; object-fit: contain;
+    border-radius: 6px; user-select: none; -webkit-user-drag: none; }
+  .iib-lb-btn { position: absolute; background: none; border: none;
+    color: rgba(255,255,255,0.75); font-size: 2.5rem; line-height: 1;
+    cursor: pointer; padding: 1rem; transition: color 0.15s; z-index: 1; }
+  .iib-lb-btn:hover { color: #fff; }
+  #iib-lb-close { top: 1rem; right: 1rem; font-size: 2rem; }
+  #iib-lb-prev  { left: 0.25rem; top: 50%; transform: translateY(-50%); }
+  #iib-lb-next  { right: 0.25rem; top: 50%; transform: translateY(-50%); }
+  #iib-lb-count { position: absolute; bottom: 1.25rem; left: 50%;
+    transform: translateX(-50%); font-family: var(--iib-font,monospace);
+    font-size: 0.65rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.45); }
+
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6CR9MP2K"></script>
@@ -352,32 +379,14 @@
 
       <!-- Sequence: observation → collaboration → immersion → community -->
       <!-- NOTE: Add smiling-girl-at-computer and robotics images when filenames confirmed -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem">
-        <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:3/2">
-          <img src="assets/images/photos/2025-s2-student-smiling-at-computer.jpg"
-            alt="Student at keyboard during Island Innovators Bahamas 2025"
-            style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block">
+      
         </div>
-        <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:3/2">
-          <img src="assets/images/photos/2025-s2-students-in-collaborative-workspace.jpg"
-            alt="Island Innovators Bahamas 2025, students and instructors working together"
-            style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block">
-        </div>
-      </div>
-
-      <div style="overflow:hidden;border-radius:.75rem;aspect-ratio:16/6;margin-bottom:.5rem">
-        <img src="assets/images/photos/2025-s1-students-in-robotics.jpg"
-          alt="Island Innovators Bahamas 2025, music production session"
-          style="width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block">
-      </div>
-
-      <div style="overflow:hidden;border-radius:.75rem;margin-bottom:.5rem">
-        <img src="assets/images/photos/2025-s1-cohort-group.jpg"
-          alt="Island Innovators Bahamas 2025, the founding cohort"
-          style="width:100%;object-fit:cover;display:block">
-      </div>
-
-    </div>
+      <div class="iib-gallery">
+  <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2025-s1-cohort-group.jpg" alt="Island Innovators Bahamas 2025, the founding cohort" width="1092" height="1120"></div>
+  <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2025-s2-student-smiling-at-computer.jpg" alt="Student at keyboard during Island Innovators Bahamas 2025" width="1372" height="896"></div>
+  <div class="iib-gi iib-gi--full"><img loading="lazy" src="assets/images/photos/2025-s2-students-in-collaborative-workspace.jpg" alt="Island Innovators Bahamas 2025 students and instructor in collaborative workspace" width="1456" height="840"></div>
+  <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2025-s1-students-in-robotics.jpg" alt="Island Innovators Bahamas 2025 students in robotics session" width="1344" height="896"></div>
+</div>
   </section>
 
   <!-- PRESS COVERAGE -->
