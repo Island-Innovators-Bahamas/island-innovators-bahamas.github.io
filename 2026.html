@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2026 Music Performance &amp; Production Intensive | Island Innovators Bahamas</title>
-  <meta name="description" content="The 2026 Island Innovators Bahamas Music Performance and Production Intensive — a two-week selective program in Nassau, Bahamas. Concluded July 2026." />
+  <meta name="description" content="The 2026 Island Innovators Bahamas Music Performance and Production Intensive, a two-week selective program in Nassau, Bahamas. Concluded July 2026." />
   <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
   <meta name="theme-color" content="#0A1628">
@@ -31,6 +31,33 @@
   <style>
     :root { --iib-font: 'Space Mono', 'Courier New', monospace; }
     html { scroll-behavior: smooth; }
+  
+  /* ── Masonry gallery ── */
+  .iib-gallery { columns: 2; column-gap: 10px; }
+  @media (min-width: 640px) { .iib-gallery { columns: 3; column-gap: 12px; } }
+  .iib-gi { break-inside: avoid; margin-bottom: 10px; border-radius: 10px; overflow: hidden; cursor: pointer; }
+  @media (min-width: 640px) { .iib-gi { margin-bottom: 12px; border-radius: 12px; } }
+  .iib-gi img { width: 100%; height: auto; display: block; transition: opacity 0.18s; }
+  .iib-gi:hover img { opacity: 0.88; }
+  .iib-gi--full { column-span: all; border-radius: 12px; overflow: hidden; }
+
+  /* ── Lightbox ── */
+  #iib-lb { display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.93); align-items: center; justify-content: center; }
+  #iib-lb.open { display: flex; }
+  #iib-lb-img { max-width: 92vw; max-height: 88vh; object-fit: contain;
+    border-radius: 6px; user-select: none; -webkit-user-drag: none; }
+  .iib-lb-btn { position: absolute; background: none; border: none;
+    color: rgba(255,255,255,0.75); font-size: 2.5rem; line-height: 1;
+    cursor: pointer; padding: 1rem; transition: color 0.15s; z-index: 1; }
+  .iib-lb-btn:hover { color: #fff; }
+  #iib-lb-close { top: 1rem; right: 1rem; font-size: 2rem; }
+  #iib-lb-prev  { left: 0.25rem; top: 50%; transform: translateY(-50%); }
+  #iib-lb-next  { right: 0.25rem; top: 50%; transform: translateY(-50%); }
+  #iib-lb-count { position: absolute; bottom: 1.25rem; left: 50%;
+    transform: translateX(-50%); font-family: var(--iib-font,monospace);
+    font-size: 0.65rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.45); }
+
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D6CR9MP2K"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-3D6CR9MP2K");</script>
@@ -69,7 +96,7 @@
   <!-- OVERVIEW -->
   <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <div class="grid sm:grid-cols-3 gap-6 text-center mb-12 pb-12 border-b border-night/6">
+      <div class="grid grid-cols-3 gap-4 sm:gap-6 text-center mb-12 pb-12 border-b border-night/6">
         <div>
           <p class="font-heading font-bold text-3xl text-night mb-1">2</p>
           <p class="text-night/40 text-xs font-heading uppercase tracking-wider">Weeks</p>
@@ -98,22 +125,10 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       <p class="text-teal font-heading font-semibold text-xs uppercase tracking-widest mb-3 text-center" style="letter-spacing:0.18em;">Educational Guest Sessions</p>
       <p class="text-night/45 text-sm text-center max-w-lg mx-auto mb-8 leading-relaxed">Students participated in five educational guest sessions throughout the program: two led by recent conservatory graduates, two led by current conservatory students, and one presented by the Oberlin Conservatory Admissions Office.</p>
-      <div class="grid sm:grid-cols-3 gap-4">
-        <div class="overflow-hidden rounded-2xl aspect-video sm:aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-guest-session-students-watching-speaker.jpg"
-            alt="Island Innovators Bahamas 2026 students watching a guest speaker projected on screen"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-video sm:aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-guest-session-speaker-young-man.jpg"
-            alt="Guest speaker projected on classroom whiteboard during a guest session at Island Innovators Bahamas 2026"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-video sm:aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-guest-session-speaker-colorful-background.jpg"
-            alt="Virtual guest speaker projected on screen during Island Innovators Bahamas 2026 guest series"
-            class="w-full h-full object-cover object-center">
-        </div>
+      <div class="iib-gallery">
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-guest-session-students-watching-speaker.jpg?v=2" alt="Island Innovators Bahamas 2026 students watching a guest speaker projected on screen" width="1176" height="868"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-guest-session-speaker-young-man.jpg?v=2" alt="Guest speaker projected on screen during an educational guest session at Island Innovators Bahamas 2026" width="840" height="1456"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-guest-session-speaker-colorful-background.jpg?v=2" alt="Guest speaker projected on screen during Island Innovators Bahamas 2026 guest series" width="868" height="1400"></div>
       </div>
     </div>
   </section>
@@ -123,44 +138,14 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       <p class="text-teal font-heading font-semibold text-xs uppercase tracking-widest mb-3 text-center" style="letter-spacing:0.18em;">Jazz Club Field Trip</p>
       <p class="text-night/45 text-sm text-center max-w-lg mx-auto mb-8 leading-relaxed">Students visited Jon Batiste's Jazz Club for an educational field trip, experiencing live jazz in an intimate setting. Christopher Hilton performed alongside professional musicians, and the group participated in the musical environment.</p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
-        <div class="overflow-hidden rounded-2xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-jazz-club-christopher-bassist-performance.jpg?v=2"
-            alt="Christopher Hilton performing double bass alongside a professional musician at Jon Batiste's Jazz Club"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-jazz-club-christopher-bass-closeup.jpg?v=2"
-            alt="Christopher Hilton playing double bass at Jon Batiste's Jazz Club during the 2026 IIB field trip"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-jazz-club-band-drummer-bongos-guitarist.jpg?v=2"
-            alt="Jazz musicians performing at Jon Batiste's Jazz Club during the Island Innovators Bahamas 2026 field trip"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-jazz-club-pianist-grand-piano.jpg?v=2"
-            alt="Musician at grand piano at Jon Batiste's Jazz Club during the Island Innovators Bahamas 2026 field trip"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-jazz-club-students-with-instructor.jpg?v=2"
-            alt="Island Innovators Bahamas 2026 students with an instructor at Jon Batiste's Jazz Club"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-jazz-club-christopher-conversation.jpg?v=2"
-            alt="Christopher Hilton in conversation at Jon Batiste's Jazz Club with Island Innovators Bahamas students nearby"
-            class="w-full h-full object-cover object-center">
-        </div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-1 gap-3">
-        <div class="overflow-hidden rounded-2xl aspect-video">
-          <img loading="lazy" src="assets/images/photos/2026-jazz-club-students-hallway.jpg?v=2"
-            alt="Island Innovators Bahamas 2026 cohort at Jon Batiste's Jazz Club"
-            class="w-full h-full object-cover object-center">
-        </div>
+      <div class="iib-gallery">
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-jazz-club-christopher-bassist-performance.jpg?v=2" alt="Christopher Hilton performing double bass alongside a professional musician at Jon Batiste's Jazz Club" width="1120" height="1092"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-jazz-club-christopher-bass-closeup.jpg?v=2" alt="Christopher Hilton playing double bass at Jon Batiste's Jazz Club during the 2026 IIB field trip" width="1092" height="1120"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-jazz-club-band-drummer-bongos-guitarist.jpg?v=2" alt="Jazz musicians performing at Jon Batiste's Jazz Club during the Island Innovators Bahamas 2026 field trip" width="1400" height="868"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-jazz-club-pianist-grand-piano.jpg?v=2" alt="Musician at grand piano at Jon Batiste's Jazz Club during the Island Innovators Bahamas 2026 field trip" width="1344" height="896"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-jazz-club-students-with-instructor.jpg?v=2" alt="Island Innovators Bahamas 2026 students with an instructor at Jon Batiste's Jazz Club" width="1344" height="896"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-jazz-club-christopher-conversation.jpg?v=2" alt="Christopher Hilton in conversation at Jon Batiste's Jazz Club with Island Innovators Bahamas students nearby" width="1232" height="980"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-jazz-club-students-hallway.jpg?v=2" alt="Island Innovators Bahamas 2026 cohort at Jon Batiste's Jazz Club" width="1204" height="1008"></div>
       </div>
     </div>
   </section>
@@ -171,88 +156,23 @@
       <p class="text-teal font-heading font-semibold text-xs uppercase tracking-widest mb-3 text-center" style="letter-spacing:0.18em;">Public Showcase</p>
       <p class="text-night/45 text-sm text-center max-w-lg mx-auto mb-8 leading-relaxed">The 2026 program concluded with IIB's first public student showcase, attended by families and the Nassau community.</p>
 
-      <!-- Hero showcase images -->
-      <div class="grid sm:grid-cols-2 gap-4 mb-4">
-        <div class="overflow-hidden rounded-2xl aspect-video sm:aspect-[4/3]">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-cohort-group-photo.jpg?v=2"
-            alt="Group portrait following the 2026 Island Innovators Bahamas public showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-2xl aspect-video sm:aspect-[4/3]">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-band-keyboard-guitar-trumpet-bass.jpg?v=2"
-            alt="Island Innovators Bahamas 2026 students performing as a band at the public showcase — keyboard, guitar, trumpet, and bass"
-            class="w-full h-full object-cover object-center">
-        </div>
+      <div class="iib-gallery">
+        <div class="iib-gi iib-gi--full"><img loading="lazy" src="assets/images/photos/2026-showcase-cohort-group-photo.jpg?v=2" alt="Group portrait following the 2026 Island Innovators Bahamas public showcase" width="1400" height="868"></div>
+        <div class="iib-gi iib-gi--full"><img loading="lazy" src="assets/images/photos/2026-showcase-band-keyboard-guitar-trumpet-bass.jpg?v=2" alt="Island Innovators Bahamas 2026 students performing as a band at the public showcase" width="1512" height="812"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-christopher-mentoring-trumpet-guitar.jpg?v=2" alt="Christopher Hilton working with students on trumpet and guitar before the showcase" width="1204" height="1008"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-student-stage-pointing.jpg?v=2" alt="Island Innovators Bahamas 2026 student presenting at the showcase" width="1204" height="1008"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-christopher-addresses-students.jpg?v=2" alt="Christopher Hilton addressing the 2026 Island Innovators Bahamas cohort at the showcase" width="1176" height="1036"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-student-drums-mindset.jpg?v=2" alt="Island Innovators Bahamas 2026 student performing drums at the public showcase" width="1288" height="952"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-student-podium-iib-shirt.jpg?v=2" alt="Island Innovators Bahamas 2026 student presenting at the showcase podium" width="952" height="1260"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-christopher-podium-address.jpg?v=2" alt="Christopher Hilton speaking at the 2026 Island Innovators Bahamas public showcase" width="1176" height="1036"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-certificate-student-1.jpg?v=2" alt="Christopher Hilton presenting a certificate of completion to a student at the 2026 IIB showcase" width="1064" height="1148"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-certificate-student-2.jpg?v=2" alt="Christopher Hilton presenting a certificate of completion to a student at the 2026 IIB showcase" width="1036" height="1176"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-student-applauding-audience.jpg?v=2" alt="Student and audience member at the Island Innovators Bahamas 2026 public showcase" width="1344" height="896"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-audience-parents.jpg?v=2" alt="Families and community members attending the Island Innovators Bahamas 2026 public showcase" width="1344" height="896"></div>
+        <div class="iib-gi"><img loading="lazy" src="assets/images/photos/2026-showcase-christopher-addresses-students-2.jpg?v=2" alt="Christopher Hilton speaking with the 2026 Island Innovators Bahamas cohort at the showcase" width="1036" height="1176"></div>
       </div>
-
-      <!-- Grid of remaining showcase photos -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-christopher-mentoring-trumpet-guitar.jpg?v=2"
-            alt="Christopher Hilton working with students on trumpet and guitar before the showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-student-stage-pointing.jpg?v=2"
-            alt="Island Innovators Bahamas 2026 student presenting at the showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-christopher-addresses-students.jpg?v=2"
-            alt="Christopher Hilton addressing the 2026 Island Innovators Bahamas cohort at the showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-student-drums-mindset.jpg?v=2"
-            alt="Island Innovators Bahamas 2026 student performing drums at the public showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-student-podium-iib-shirt.jpg?v=2"
-            alt="Island Innovators Bahamas 2026 student presenting at the showcase podium"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-christopher-podium-address.jpg?v=2"
-            alt="Christopher Hilton speaking at the 2026 Island Innovators Bahamas public showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-      </div>
-
-      <!-- Certificates and final moments -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-certificate-student-1.jpg?v=2"
-            alt="Christopher Hilton presenting a certificate of completion to a student at the 2026 IIB showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-certificate-student-2.jpg?v=2"
-            alt="Christopher Hilton presenting a certificate of completion to a student at the 2026 IIB showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-student-applauding-audience.jpg?v=2"
-            alt="Student and audience member at the Island Innovators Bahamas 2026 public showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-        <div class="overflow-hidden rounded-xl aspect-square">
-          <img loading="lazy" src="assets/images/photos/2026-showcase-audience-parents.jpg?v=2"
-            alt="Families and community members attending the Island Innovators Bahamas 2026 public showcase"
-            class="w-full h-full object-cover object-center">
-        </div>
-      </div>
-
-      <!-- Duplicate/sequence showcase photo -->
-      <div class="mt-3 overflow-hidden rounded-xl" style="height:240px;">
-        <img loading="lazy" src="assets/images/photos/2026-showcase-christopher-addresses-students-2.jpg?v=2"
-          alt="Christopher Hilton speaking with the 2026 Island Innovators Bahamas cohort at the showcase"
-          class="w-full h-full object-cover object-center">
-      </div>
-
     </div>
   </section>
-
 
   <!-- BACK TO SITE + INTEREST -->
   <section class="py-16" style="background:linear-gradient(to bottom,#1A3A6C 0%,#0A1628 100%)">
@@ -274,6 +194,74 @@
       <p style="font-family:var(--iib-font);font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--iib-cream);font-weight:400;opacity:0.35;margin-top:4px;">NASSAU, BAHAMAS &middot; MMXXVI &middot; FOUNDED BY CHRISTOPHER HILTON</p>
     </div>
   </footer>
+
+
+  <!-- Lightbox -->
+  <div id="iib-lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="iib-lb-btn" id="iib-lb-close" aria-label="Close">&times;</button>
+    <button class="iib-lb-btn" id="iib-lb-prev"  aria-label="Previous">&#8249;</button>
+    <img id="iib-lb-img" src="" alt="">
+    <button class="iib-lb-btn" id="iib-lb-next"  aria-label="Next">&#8250;</button>
+    <p id="iib-lb-count"></p>
+  </div>
+
+  <script>
+  (function(){
+    var lb    = document.getElementById('iib-lb');
+    var img   = document.getElementById('iib-lb-img');
+    var count = document.getElementById('iib-lb-count');
+    var items = [];
+    var cur   = 0;
+    var touchX = null;
+
+    function open(index){
+      cur = index;
+      show();
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function show(){
+      var it = items[cur];
+      img.src = it.src;
+      img.alt = it.alt;
+      count.textContent = (cur+1) + ' / ' + items.length;
+    }
+    function prev(){ cur = (cur - 1 + items.length) % items.length; show(); }
+    function next(){ cur = (cur + 1) % items.length; show(); }
+
+    // Collect all gallery images
+    document.querySelectorAll('.iib-gi img').forEach(function(el, i){
+      items.push({ src: el.src, alt: el.alt });
+      el.closest('.iib-gi').addEventListener('click', function(){ open(i); });
+    });
+
+    document.getElementById('iib-lb-close').addEventListener('click', close);
+    document.getElementById('iib-lb-prev').addEventListener('click', prev);
+    document.getElementById('iib-lb-next').addEventListener('click', next);
+
+    lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+
+    document.addEventListener('keydown', function(e){
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')      close();
+      if (e.key === 'ArrowLeft')   prev();
+      if (e.key === 'ArrowRight')  next();
+    });
+
+    // Swipe support
+    lb.addEventListener('touchstart', function(e){ touchX = e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener('touchend', function(e){
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+      touchX = null;
+    }, {passive:true});
+  })();
+  </script>
 
 </body>
 </html>
