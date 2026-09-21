@@ -175,14 +175,15 @@
       }
     }
   
-  /* ── Masonry gallery ── */
-  .iib-gallery { columns: 2; column-gap: 10px; }
-  @media (min-width: 640px) { .iib-gallery { columns: 3; column-gap: 12px; } }
-  .iib-gi { break-inside: avoid; margin-bottom: 10px; border-radius: 10px; overflow: hidden; cursor: pointer; }
-  @media (min-width: 640px) { .iib-gi { margin-bottom: 12px; border-radius: 12px; } }
-  .iib-gi img { width: 100%; height: auto; display: block; transition: opacity 0.18s; }
+  /* ── Gallery grid ── */
+  .iib-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (min-width: 640px) { .iib-gallery { grid-template-columns: repeat(3, 1fr); gap: 12px; } }
+  .iib-gi { border-radius: 10px; overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; }
+  @media (min-width: 640px) { .iib-gi { border-radius: 12px; } }
+  .iib-gi img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+    display: block; transition: opacity 0.18s; }
   .iib-gi:hover img { opacity: 0.88; }
-  .iib-gi--full { column-span: all; border-radius: 12px; overflow: hidden; }
+  .iib-gi--full { grid-column: 1 / -1; aspect-ratio: 16 / 7; border-radius: 12px; overflow: hidden; }
 
   /* ── Lightbox ── */
   #iib-lb { display: none; position: fixed; inset: 0; z-index: 9999;
