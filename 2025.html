@@ -255,7 +255,7 @@
           <a href="#funding"    class="nav-link">Support &amp; Funding</a>
           <a href="#next"       class="nav-link">What's Next</a>
           <a href="#future"     class="nav-link">Future Initiatives</a>
-          <a href="apply.html"  class="inline-flex items-center px-5 py-2 bg-orange text-cream font-heading font-semibold text-sm rounded-full hover:bg-coral transition-colors">Apply</a>
+          <a href="interest.html"  class="inline-flex items-center px-5 py-2 bg-orange text-cream font-heading font-semibold text-sm rounded-full hover:bg-coral transition-colors">Share Your Interest</a>
         </div>
         <button id="nav-toggle" class="lg:hidden text-cream p-2" aria-label="Open menu" aria-expanded="false">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -275,7 +275,7 @@
     <a href="#funding"    class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Support &amp; Funding</a>
     <a href="#next"       class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">What's Next</a>
     <a href="#future"     class="text-cream text-2xl font-heading font-semibold hover:text-orange transition-colors">Future Initiatives</a>
-    <a href="apply.html"  class="mt-2 inline-flex items-center px-8 py-3.5 bg-orange text-cream font-heading font-bold text-lg rounded-full hover:bg-coral transition-colors">Apply</a>
+    <a href="interest.html"  class="mt-2 inline-flex items-center px-8 py-3.5 bg-orange text-cream font-heading font-bold text-lg rounded-full hover:bg-coral transition-colors">Share Your Interest</a>
   </div>
 
   <!-- HEADER -->
@@ -593,12 +593,12 @@
   <!-- Apply Button Tracking -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll('a[href="apply.html"]').forEach(function (btn) {
+      document.querySelectorAll('a[href="interest.html"]').forEach(function (btn) {
         btn.addEventListener("click", function () {
           if (typeof gtag === "function") {
-            gtag("event", "apply_click", {
+            gtag("event", "interest_click", {
               event_category: "engagement",
-              event_label: "apply_button"
+              event_label: "interest_button"
             });
           }
         }, { once: false, passive: true });
