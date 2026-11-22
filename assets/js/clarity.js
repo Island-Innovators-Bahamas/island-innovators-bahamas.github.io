@@ -49,6 +49,20 @@
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
+  // Render a model answer safely: escape HTML, keep line breaks and hyphen lists,
+  // and turn emails and islandinnovatorsbahamas.com links into real links.
+  function fmt(text) {
+    var h = esc(text).replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\r/g, '');
+    h = h.replace(/^\s*[-*] /gm, '\u2022 ');
+    h = h.replace(/([A-Za-z0-9._%+-]+@islandinnovatorsbahamas\.com)/g, '<a href="mailto:$1">$1</a>');
+    h = h.replace(/(^|[\s(])((?:https?:\/\/)?(?:www\.)?islandinnovatorsbahamas\.com(?:\/[A-Za-z0-9._\/-]*)?)/g, function (m, pre, url) {
+      var clean = url.replace(/[.,;:!?)]+$/, ''), tail = url.slice(clean.length);
+      var href = /^https?:/.test(clean) ? clean : 'https://' + clean;
+      return pre + '<a href="' + href + '">' + clean + '</a>' + tail;
+    });
+    return h.replace(/\n{2,}/g, '<br><br>').replace(/\n/g, '<br>');
+  }
+
   function fallback(q) {
     var body = encodeURIComponent('Hello,\n\nI had a question from your website:\n\n' + (q || '') + '\n\nThank you.');
     var adm = 'mailto:admissions@islandinnovatorsbahamas.com?subject=' + encodeURIComponent('Island Innovators Bahamas - Question') + '&body=' + body;
@@ -132,7 +146,7 @@
         .then(function (data) {
           if (data.error || !data.answer) throw new Error('Bad response');
           typing.remove();
-          add('assistant', data.answer);
+          add('assistant', fmt(data.answer));
           history.push({ role: 'user', content: q }, { role: 'assistant', content: data.answer });
           if (history.length > 12) history.splice(0, 2);
           if (typeof gtag === 'function') gtag('event', 'clarity_question', { event_category: 'engagement' });
