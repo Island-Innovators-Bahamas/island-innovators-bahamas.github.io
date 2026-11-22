@@ -114,20 +114,24 @@
       return d;
     }
 
+    function setChips(list) {
+      chips.innerHTML = '';
+      list.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'iibc-chip';
+        b.textContent = c.label;
+        b.addEventListener('click', function () { ask(c.q); });
+        chips.appendChild(b);
+      });
+      chips.style.display = list.length ? '' : 'none';
+    }
+
     function greet() {
       thread.innerHTML = '';
       add('assistant', esc(OPENING));
-      chips.style.display = '';
+      setChips(CHIPS);
     }
-
-    CHIPS.forEach(function (c) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'iibc-chip';
-      b.textContent = c.label;
-      b.addEventListener('click', function () { ask(c.q); });
-      chips.appendChild(b);
-    });
 
     function ask(q) {
       if (send.disabled || !q) return;
@@ -147,6 +151,7 @@
           if (data.error || !data.answer) throw new Error('Bad response');
           typing.remove();
           add('assistant', fmt(data.answer));
+          setChips((data.suggestions || []).map(function (t) { return { label: t, q: t }; }));
           history.push({ role: 'user', content: q }, { role: 'assistant', content: data.answer });
           if (history.length > 12) history.splice(0, 2);
           if (typeof gtag === 'function') gtag('event', 'clarity_question', { event_category: 'engagement' });
